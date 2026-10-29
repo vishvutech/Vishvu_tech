@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0E14">
+  <title>InsightLoop — the dashboard that reads itself | Vishvu Tech</title>
+  <meta name="description" content="Case study: an AI signal layer that replaced six weekly hours of reporting nobody read with signals a team actually argues with.">
+  <link rel="canonical" href="https://vishvutech.com/work/insightloop.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vishvu Tech">
+  <meta property="og:title" content="InsightLoop — the dashboard that reads itself">
+  <meta property="og:description" content="Case study: an AI signal layer that replaced six weekly hours of reporting nobody read with signals a team actually argues with.">
+  <meta property="og:url" content="https://vishvutech.com/work/insightloop.html">
+  <meta property="og:image" content="https://vishvutech.com/assets/img/og/case-insightloop.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="InsightLoop — the dashboard that reads itself">
+  <meta name="twitter:description" content="Case study: an AI signal layer that replaced six weekly hours of reporting nobody read with signals a team actually argues with.">
+  <meta name="twitter:image" content="https://vishvutech.com/assets/img/og/case-insightloop.jpg">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CreativeWork","headline":"InsightLoop",
+"description":"AI signals that replaced reporting nobody read","creator":{"@type":"Person","name":"Vishvu"},
+"datePublished":"2025-06-01","mainEntityOfPage":"https://vishvutech.com/work/insightloop.html"}
+</script>
+  <link rel="preload" href="../assets/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body class="page-case">
+  <div class="grain-layer" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress-hairline" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Vishvu Tech — home">
+        <svg class="brand__glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset="1" stop-color="#7EE8C7"/></linearGradient></defs>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="url(#kg)"/>
+</svg>
+        <span class="brand__name">Vishvu&nbsp;Tech<em>®</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-nav__link" href="../work/index.html" aria-current="page"><i>Work</i><i>Work</i></a>
+        <a class="site-nav__link" href="../services/index.html" ><i>Services</i><i>Services</i></a>
+        <a class="site-nav__link" href="../about/index.html" ><i>About</i><i>About</i></a>
+        <a class="site-nav__link" href="../journal/index.html" ><i>Journal</i><i>Journal</i></a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:18px">
+        <a class="btn btn--sm" href="../contact/index.html" data-magnetic>Start a project</a>
+        <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" data-menu-toggle>
+          <span>Menu</span><i aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu-overlay" data-menu aria-hidden="true">
+    <nav class="menu-overlay__links" aria-label="Menu">
+      <a class="menu-overlay__link" href="../index.html"><span class="idx">01</span><i>Home<em>the journey</em></i></a>
+      <a class="menu-overlay__link" href="../work/index.html"><span class="idx">02</span><i>Work<em>proof, shipped</em></i></a>
+      <a class="menu-overlay__link" href="../services/index.html"><span class="idx">03</span><i>Services<em>six crafts</em></i></a>
+      <a class="menu-overlay__link" href="../about/index.html"><span class="idx">04</span><i>About<em>the maker</em></i></a>
+      <a class="menu-overlay__link" href="../journal/index.html"><span class="idx">05</span><i>Journal<em>notes from the forge</em></i></a>
+      <a class="menu-overlay__link" href="../contact/index.html"><span class="idx">06</span><i>Contact<em>start something</em></i></a>
+    </nav>
+    <div class="menu-overlay__foot">
+      <span>Bengaluru · <b class="time" data-time>--:--</b> IST</span>
+      <span><a href="mailto:hello@vishvutech.com">hello@vishvutech.com</a></span>
+      <span><a href="https://github.com/vishvutech" rel="me noopener">GitHub ↗</a> <a href="https://www.linkedin.com/in/vishvutech" rel="me noopener">LinkedIn ↗</a></span>
+    </div>
+  </div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span class="sep">/</span><a href="../work/index.html">Work</a><span class="sep">/</span><span aria-current="page">InsightLoop</span>
+        </nav>
+        <span class="mono-label">AI &amp; automation · 2025</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">InsightLoop — the dashboard <span class="serif-accent">that reads itself.</span></h1>
+        <p class="page-hero__sub" data-reveal>A SaaS team was paying an analyst six hours a week to write reports nobody read. We replaced the reports with signals that arrive before the questions do.</p>
+        <div class="page-hero__meta" data-reveal>
+          <span>Client<b>B2B SaaS · 12 people</b></span>
+          <span>Role<b>Design, build &amp; automation</b></span>
+          <span>Timeline<b>6 weeks</b></span>
+          <span>Stack<b>Python · LLM pipeline · Postgres</b></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper">
+      <div class="case-band__inner">
+        <div class="stats-band" data-reveal>
+          <div class="stat"><div class="stat__value">6<span class="unit">h/wk</span></div><div class="stat__label">Reporting time eliminated</div></div>
+          <div class="stat"><div class="stat__value">+22<span class="unit">%</span></div><div class="stat__label">Tuesday orders — pattern found</div></div>
+          <div class="stat"><div class="stat__value">3<span class="unit"> accounts</span></div><div class="stat__label">Churn risks caught early</div></div>
+          <div class="stat"><div class="stat__value">Mon 9:00<span class="unit"> am</span></div><div class="stat__label">Report lands itself, weekly</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>The problem</span>
+        <h2 data-split="lines">Beautiful reports. Zero readers.</h2>
+        <p data-reveal>The team's Monday report was a work of art — twelve slides, hand-built, six hours of an analyst's week. The open rate said 11%. The data was fine; the format was a monologue. What the team actually needed was the three things that changed since last week, ranked by what they'd cost to ignore.</p>
+        <p data-reveal>The constraint that shaped everything: no new habit allowed. If it required anyone to open a tool they didn't already open, it would fail exactly like the PDF did.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>Constraints &amp; decisions</span>
+        <h2 data-split="lines">Where AI paid — and where rules won.</h2>
+        <div class="decision-table" data-reveal>
+          <div class="decision-row">
+            <span class="a">Rules for arithmetic, LLM for language</span><span class="d">→</span>
+            <span class="b">Numbers computed deterministically; the model only narrates what changed and why it matters. No hallucinated metrics.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Push, don't pull</span><span class="d">→</span>
+            <span class="b">Monday 9:00 summary into WhatsApp + email — channels the team already lived in. The dashboard became optional.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Signals over charts</span><span class="d">→</span>
+            <span class="b">Three card types — risk, pattern, forecast — each with a next action attached. Nothing arrives without a suggestion.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Human review gate</span><span class="d">→</span>
+            <span class="b">Anything customer-facing drafts as an email, never sends itself. Automation earns trust before autonomy.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>What shipped</span>
+        <h2 data-split="lines">A signal layer with <span class="serif-accent">a voice.</span></h2>
+        <div class="case-gallery" data-reveal-group>
+          <figure data-reveal="clip">
+            <div class="frame"><img src="../assets/img/generated/case-insightloop.svg" alt="InsightLoop dashboard: revenue signal chart, churn risk card, pattern card, auto-report card" loading="lazy"></div>
+            <figcaption>Fig. 01 — The signal dashboard: forecast line, three card types</figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 138" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <defs><linearGradient id="sp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset="1" stop-color="#7EE8C7"/></linearGradient></defs>
+  <rect width="220" height="138" fill="#111623"/><circle cx="110" cy="69" r="34" fill="none" stroke="#232B40"/>
+      <circle cx="110" cy="69" r="22" fill="none" stroke="#7EE8C7" stroke-dasharray="2 4"/>
+      <circle cx="110" cy="69" r="10" fill="url(#sp)"/>
+      <circle cx="110" cy="35" r="4" fill="#FF6B35"/><circle cx="144" cy="69" r="4" fill="#7EE8C7"/>
+      <circle cx="110" cy="103" r="4" fill="#6B7690"/><circle cx="76" cy="69" r="4" fill="#6B7690"/>
+      <path d="M110 39 L110 59" stroke="#FF6B35" stroke-width="1.5"/><path d="M138 69 L120 69" stroke="#7EE8C7" stroke-width="1.5"/>
+      <text x="110" y="128" font-family="monospace" font-size="9" fill="#6B7690" font-weight="normal" text-anchor="middle">idea → insight</text></svg></div>
+            <figcaption>Fig. 02 — The pipeline: deterministic stats in, narrated signals out</figcaption>
+          </figure>
+        </div>
+        <p data-reveal style="margin-top:32px">The pipeline runs nightly: deterministic statistics ( thresholds, deltas, cohort math) feed an LLM step that writes the one-paragraph "what changed and what to do" — capped, grounded in the numbers it was handed, and cheap to run at this volume. Weekly digest assembles itself; drafts queue for review; nothing customer-facing leaves without a human click.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>Outcome &amp; the honest retro</span>
+        <h2 data-split="lines">The report nobody read became the message everybody answers.</h2>
+        <p data-reveal>The Monday digest gets replied to in-thread — the team argues with the signal, which is exactly the point. The Tuesday +22% order pattern was found in week two and had been sitting in the data for a year. Three churn risks surfaced before renewal dates, two saved. The analyst got her six hours back and spent them on the cohort study that found the third.</p>
+        <p data-reveal><strong>What I'd do differently:</strong> I'd start with the digest alone — dashboard second. The push channel proved the value in ten days; the dashboard took three more weeks and is used by exactly two people. Also: log every generated sentence with its source numbers from day one. It made every "is this right?" conversation a thirty-second check instead of a debate.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--dark">
+      <div class="case-band__inner" style="text-align:center;padding-bottom:0">
+        <span class="kicker" data-reveal style="display:block;text-align:center">Where next</span>
+        <div class="next-actions" data-reveal-group>
+          <a class="next-action" href="../work/clinicflow.html" data-reveal>
+            <span class="mono-label">Next case</span>
+            <b>ClinicFlow — UI/UX design</b>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="next-action" href="../services/index.html#ai" data-reveal>
+            <span class="mono-label">Related service</span>
+            <b>AI &amp; automation</b>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="next-action" href="../contact/index.html?project=insightloop" data-reveal>
+            <span class="mono-label">Start something</span>
+            <b>Like this, for you</b>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__watermark" aria-hidden="true">VISHVU TECH</div>
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="brand" href="../index.html" style="margin-bottom:18px">
+            <svg class="brand__glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset="1" stop-color="#7EE8C7"/></linearGradient></defs>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="url(#kg)"/>
+</svg>
+            <span class="brand__name">Vishvu&nbsp;Tech<em>®</em></span>
+          </a>
+          <p class="site-footer__tag">Ambitious ideas, built and shipped — by one senior engineer you actually talk to.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../work/index.html">Work</a></li>
+            <li><a href="../services/index.html">Services</a></li>
+            <li><a href="../about/index.html">About</a></li>
+            <li><a href="../journal/index.html">Journal</a></li>
+            <li><a href="../contact/index.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../services/index.html#web">Web apps</a></li>
+            <li><a href="../services/index.html#mobile">Mobile apps</a></li>
+            <li><a href="../services/index.html#ai">AI &amp; automation</a></li>
+            <li><a href="../services/index.html#design">UI/UX design</a></li>
+            <li><a href="../services/index.html#cloud">Cloud &amp; launch</a></li>
+            <li><a href="../services/index.html#custom">Custom software</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Direct</h4>
+          <ul>
+            <li><a href="mailto:hello@vishvutech.com">hello@vishvutech.com ↗</a></li>
+            <li><a href="https://wa.me/919999999999">WhatsApp ↗</a></li>
+            <li><a href="https://github.com/vishvutech" rel="me noopener">GitHub ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/vishvutech" rel="me noopener">LinkedIn ↗</a></li>
+            <li><a href="../legal/privacy.html">Privacy</a></li>
+            <li><a href="../legal/terms.html">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__meta">
+        <span>© 2026 Vishvu Tech · Bengaluru · <b data-time>--:--</b> IST</span>
+        <span class="made">Built &amp; deployed by <b>the same pair of hands</b> you'd hire.</span>
+        <button data-toggle-motion style="font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;min-height:44px;padding:0 4px">Motion: on/off</button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cursor" data-cursor aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"><span class="cursor__label">VIEW</span></div>
+  </div>
+
+  <div class="preloader" aria-hidden="true">
+    <svg class="preloader__glyph" viewBox="0 0 64 64" fill="none">
+      <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z"
+        stroke="#FF6B35" stroke-width="1.5" pathLength="1"/>
+    </svg>
+    <div class="preloader__wordmark"><span>Vishvu Tech</span></div>
+    <div class="preloader__counter">FORGING — <b>0</b>%</div>
+  </div>
+
+  <script src="../assets/js/vendor/gsap.min.js" defer></script>
+  <script src="../assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="../assets/js/vendor/lenis.min.js" defer></script>
+  <script src="../assets/js/app/motion.js" defer></script>
+  
+</body>
+</html>

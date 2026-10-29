@@ -1,0 +1,54 @@
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="{{ROOT}}index.html">Home</a><span class="sep">/</span><a href="{{ROOT}}journal/index.html">Journal</a><span class="sep">/</span><span aria-current="page">AI for SMBs</span>
+        </nav>
+        <span class="mono-label">AI &amp; automation · 9 min read · Oct 2026</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">What "AI &amp; automation" actually means <span class="serif-accent">for a small business.</span></h1>
+        <p class="page-hero__sub" data-reveal>Most of what a small business calls "needing AI" is a rules problem wearing an AI costume. Here's the triage I run before anyone spends a rupee on tokens.</p>
+      </div>
+    </section>
+
+    <section class="act" style="padding-top:var(--s-5)">
+      <div class="container container--narrow prose">
+        <p><strong>The conversation usually starts the same way:</strong> "We should probably use AI somewhere." Somewhere. When a phrase has no noun in it, the work is figuring out the noun. Over two years of automation engagements, the triage has gotten simple: I sort every candidate task into three buckets — rules, models, humans — in that order. Most money is made in the first bucket and most disappointment comes from skipping it.</p>
+
+        <h2>Bucket one: rules (the boring goldmine)</h2>
+        <p>Before any model touches your workflow, the deterministic layer pays for everything: the email that routes itself based on keywords, the inventory alert that fires at a threshold, the weekly report that assembles itself from a database, the invoice that matches itself to a purchase order. A shocking amount of "we need AI for this" dissolves into a 40-line script and a cron job. It runs forever, costs nothing, never hallucinates, and when it breaks, the error message tells you why.</p>
+        <p>The test: <em>could a competent temp do this task by following a printed instruction sheet?</em> If yes, it's rules. Write the sheet, then make the computer follow it.</p>
+
+        <h2>Bucket two: models (where they actually pay)</h2>
+        <p>What survives the rules filter is genuinely valuable: the unstructured stuff. Classifying inbound messages by intent and urgency. Summarizing what changed in a dataset this week. Drafting the responses a human will edit. Reading a scanned form into structured data. These are pattern problems, and patterns are what the models are for.</p>
+        <p>The architecture that keeps it honest, learned the hard way:</p>
+        <ul>
+          <li><strong>Numbers never pass through the model.</strong> Arithmetic is computed by code; the model narrates the result. A model that "calculates" is a liability with a timeout.</li>
+          <li><strong>Every generated sentence logs its source data.</strong> When someone asks "is this right?", the answer is a thirty-second check, not a debate.</li>
+          <li><strong>Cost ceilings per pipeline.</strong> Automation that quietly costs more than the human it replaced is not automation; it's a subscription to feeling modern.</li>
+          <li><strong>Drafts queue; humans send.</strong> Anything customer-facing earns autonomy one review at a time.</li>
+        </ul>
+
+        <h2>Bucket three: humans (the part that stays)</h2>
+        <p>Some tasks should never be automated: the apology to an angry customer, the judgment call on a borderline case, anything where being <em>seen</em> to care is the product. The goal of the first two buckets is to buy back the hours this bucket deserves. The InsightLoop engagement summed it up: six weekly hours of report-copying became automated signals, and the analyst spent them on the cohort study that actually saved a customer. The automation didn't replace her judgment. It funded it.</p>
+
+        <h2>The triage, as a meeting agenda</h2>
+        <ol>
+          <li>List every recurring task that takes more than 30 minutes a week.</li>
+          <li>Mark each: printed-instruction-sheet possible? → rules bucket, estimate the script.</li>
+          <li>Of the rest: does it involve reading unstructured text or spotting patterns? → model bucket, prototype the narrowest slice.</li>
+          <li>Everything left: keep it human, on purpose, and say so out loud.</li>
+          <li>Revisit quarterly — tasks migrate buckets as tools improve.</li>
+        </ol>
+        <p>That's the whole consulting secret. Not a single mention of which model — because by the time you're choosing one, the hard work (the nouns) is done. The small businesses that win with AI aren't the ones with the most impressive demos. They're the ones whose boring hours quietly disappeared while nobody was watching.</p>
+      </div>
+    </section>
+
+    <section class="act act--contact" style="padding-top:0">
+      <div class="container">
+        <h2 class="h-display h2" data-split="lines" style="margin:0 auto;max-width:20ch">Have the noun, <span class="serif-accent">need the pipeline?</span></h2>
+        <div style="margin-top:32px" data-reveal>
+          <a class="btn" href="{{ROOT}}services/index.html#ai" data-magnetic>AI &amp; automation service <span class="arr">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>

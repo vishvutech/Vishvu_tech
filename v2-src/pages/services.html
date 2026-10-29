@@ -1,0 +1,294 @@
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="{{ROOT}}index.html">Home</a><span class="sep">/</span><span aria-current="page">Services</span>
+        </nav>
+        <span class="mono-label">02 — The craft</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">Six ways to build <span class="serif-accent">something that matters.</span></h1>
+        <p class="page-hero__sub" data-reveal>Every line below is anchored to shipped work and honest starting points. Scope is set in the first call; surprises belong in demos, not invoices.</p>
+        <div class="page-hero__meta" data-reveal>
+          <span>Engagements<b>Fixed-scope or retainer</b></span>
+          <span>Typical timeline<b>4 — 10 weeks</b></span>
+          <span>Comms<b>Direct · weekly demos</b></span>
+          <span>IP<b>100% yours on final payment</b></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 WEB -->
+    <section class="service-detail container--narrow container" id="web" style="padding-top:var(--s-8)">
+      <div class="service-detail__aside">
+        <div class="big-index"><b>01</b></div>
+        <h2 class="service-detail__title h-display h2" style="font-size:clamp(1.7rem,2.4vw,2.4rem)">Web applications</h2>
+        <div class="service-detail__starting">
+          <span>MVP from <b>$3.5k</b> · 6–8 wks</span>
+          <span>Full product from <b>$8k</b> · 8–12 wks</span>
+        </div>
+      </div>
+      <div class="service-detail__main">
+        <div class="service-visual-frame">{{SERVICE_WEB}}</div>
+        <ul class="service-detail__points" data-reveal-group>
+          <li data-reveal>Next.js / Astro architecture — static-first, hydrated where it earns its bytes</li>
+          <li data-reveal>Core Web Vitals budgeted at contract time, verified at delivery (LCP ≤ 1.8s on 4G)</li>
+          <li data-reveal>Full-stack build: Postgres, auth, payments (Stripe / Razorpay), admin panels</li>
+          <li data-reveal>SEO-ready markup: structured data, sitemaps, per-route share cards</li>
+          <li data-reveal>WCAG 2.2 AA accessibility as a default, not an upsell</li>
+          <li data-reveal>Deployment pipeline with preview URLs and one-command rollback</li>
+        </ul>
+        <p style="margin-top:28px" data-reveal><strong>Proof:</strong> the checkout that lifted conversion 31% and the site you're reading — both on this stack, both green on every vitals chart.</p>
+        <div class="service-detail__proof">
+          <a class="case-card" href="{{ROOT}}work/checkout-rebuild.html" data-cursor="view" data-cursor-label="VIEW">
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-checkout.svg" alt="Checkout rebuild case preview" loading="lazy"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">Web app</span><span>2025</span></p>
+              <h3 class="case-card__title h-display" style="font-size:1.3rem">The checkout rebuild</h3>
+              <p class="case-card__outcome"><b>+31%</b> conversion · 0.9s LCP</p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+          <a class="case-card" href="{{ROOT}}journal/core-web-vitals.html" data-cursor="view" data-cursor-label="VIEW">
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-insightloop.svg" alt="InsightLoop case preview" loading="lazy"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">Journal</span><span>Process</span></p>
+              <h3 class="case-card__title h-display" style="font-size:1.3rem">Shipping CWV green</h3>
+              <p class="case-card__outcome">The checklist behind <b>every</b> launch</p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+        </div>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>Do you work with existing codebases? <span class="plus">+</span></summary>
+            <p>Yes — audit first, then a scoped plan. I'll tell you plainly if a rebuild is cheaper than a rescue; sometimes the honest answer is "three fixes, not three months."</p>
+          </details>
+          <details>
+            <summary>Who owns the code? <span class="plus">+</span></summary>
+            <p>You do, fully, on final payment. Repos transfer to your organization; nothing stays hostage in my accounts.</p>
+          </details>
+          <details>
+            <summary>Can you take over after launch? <span class="plus">+</span></summary>
+            <p>Every project ships with a runbook, monitoring, and a 30-day warranty. After that: monthly retainer if you want it, clean handover if you don't.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 MOBILE -->
+    <section class="service-detail container--narrow container" id="mobile">
+      <div class="service-detail__aside">
+        <div class="big-index"><b>02</b></div>
+        <h2 class="service-detail__title h-display h2" style="font-size:clamp(1.7rem,2.4vw,2.4rem)">Mobile apps</h2>
+        <div class="service-detail__starting">
+          <span>MVP from <b>$4k</b> · 6–9 wks</span>
+          <span>Store submission <b>included</b></span>
+        </div>
+      </div>
+      <div class="service-detail__main">
+        <div class="service-visual-frame">{{SERVICE_MOBILE}}</div>
+        <ul class="service-detail__points" data-reveal-group>
+          <li data-reveal>Flutter apps that feel native on both platforms — one codebase, no webview shortcuts</li>
+          <li data-reveal>Offline-first architecture: local database, sync queues, conflict handling</li>
+          <li data-reveal>Push notifications, deep links, background tasks done properly</li>
+          <li data-reveal>App Store &amp; Play Store submission handled end-to-end, including review cycles</li>
+          <li data-reveal>Crash + performance monitoring wired before first release</li>
+        </ul>
+        <p style="margin-top:28px" data-reveal><strong>Proof:</strong> FieldOps — 40 crews on flaky networks, 98.6% sync success, zero lost reports in six months.</p>
+        <div class="service-detail__proof">
+          <a class="case-card" href="{{ROOT}}work/fieldops.html" data-cursor="view" data-cursor-label="VIEW">
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-fieldops.svg" alt="FieldOps case preview" loading="lazy"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">Mobile app</span><span>2024</span></p>
+              <h3 class="case-card__title h-display" style="font-size:1.3rem">FieldOps</h3>
+              <p class="case-card__outcome"><b>98.6%</b> sync · offline-first</p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+        </div>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>Native or cross-platform? <span class="plus">+</span></summary>
+            <p>Flutter by default — the hand-feel gap closed years ago and you save a full second codebase. For heavy AR/camera pipelines I'll tell you when native is genuinely worth it.</p>
+          </details>
+          <details>
+            <summary>What about app review rejections? <span class="plus">+</span></summary>
+            <p>Handled. Submissions include the metadata, screenshots, and review notes stores actually want. Rejections, when they happen, are fixed on my clock, not your invoice.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 DESIGN -->
+    <section class="service-detail container--narrow container" id="design">
+      <div class="service-detail__aside">
+        <div class="big-index"><b>03</b></div>
+        <h2 class="service-detail__title h-display h2" style="font-size:clamp(1.7rem,2.4vw,2.4rem)">UI/UX design</h2>
+        <div class="service-detail__starting">
+          <span>Audit + redesign from <b>$2.5k</b> · 4–6 wks</span>
+          <span>Usability testing <b>with real users</b></span>
+        </div>
+      </div>
+      <div class="service-detail__main">
+        <div class="service-visual-frame">{{SERVICE_DESIGN}}</div>
+        <ul class="service-detail__points" data-reveal-group>
+          <li data-reveal>UX research that starts with session data and ends with decisions, not mood boards</li>
+          <li data-reveal>Design systems with real tokens — type, color, spacing, focus states, motion</li>
+          <li data-reveal>Interactive prototypes tested with your actual users, not your team</li>
+          <li data-reveal>Accessibility annotations so developers ship AA without guessing</li>
+          <li data-reveal>Implementation specs written for handoff that survives contact with a sprint</li>
+        </ul>
+        <p style="margin-top:28px" data-reveal><strong>Proof:</strong> ClinicFlow — booking in 41 seconds, front-desk calls cut in half, and a design system the client's own devs shipped without me.</p>
+        <div class="service-detail__proof">
+          <a class="case-card" href="{{ROOT}}work/clinicflow.html" data-cursor="view" data-cursor-label="VIEW">
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-clinicflow.svg" alt="ClinicFlow case preview" loading="lazy"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">UI/UX</span><span>2024</span></p>
+              <h3 class="case-card__title h-display" style="font-size:1.3rem">ClinicFlow</h3>
+              <p class="case-card__outcome">Booking in <b>41 seconds</b></p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+        </div>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>Do you design and build, or just design? <span class="plus">+</span></summary>
+            <p>Both, separately or together. Design-only engagements end with specs your team can ship; design-and-build means the person who drew it answers for it in production.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 AI -->
+    <section class="service-detail container--narrow container" id="ai">
+      <div class="service-detail__aside">
+        <div class="big-index"><b>04</b></div>
+        <h2 class="service-detail__title h-display h2" style="font-size:clamp(1.7rem,2.4vw,2.4rem)">AI &amp; automation</h2>
+        <div class="service-detail__starting">
+          <span>Automation audit <b>$600</b> · 1 wk</span>
+          <span>Pipelines from <b>$3k</b> · 4–8 wks</span>
+        </div>
+      </div>
+      <div class="service-detail__main">
+        <div class="service-visual-frame">{{SERVICE_AI}}</div>
+        <ul class="service-detail__points" data-reveal-group>
+          <li data-reveal>Workflow audits that find the hours worth automating — and the ones that aren't</li>
+          <li data-reveal>LLM pipelines grounded in your data: retrieval, citations, human review gates</li>
+          <li data-reveal>Deterministic automation first (rules, cron, webhooks), AI where it pays</li>
+          <li data-reveal>WhatsApp / email / Slack delivery — into channels your team already uses</li>
+          <li data-reveal>Cost ceilings per pipeline, monitored — no surprise API bills</li>
+        </ul>
+        <p style="margin-top:28px" data-reveal><strong>Proof:</strong> InsightLoop — six weekly hours of reporting automated into signals the team actually argues with. And the heuristic project-guesser on the <a class="link-roll" href="{{ROOT}}contact/index.html#form"><i>contact form <span class="dim">→</span></i><i>contact form <span class="dim">→</span></i></a> is a working demo of the philosophy.</p>
+        <div class="service-detail__proof">
+          <a class="case-card" href="{{ROOT}}work/insightloop.html" data-cursor="view" data-cursor-label="VIEW">
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-insightloop.svg" alt="InsightLoop case preview" loading="lazy"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">AI &amp; automation</span><span>2025</span></p>
+              <h3 class="case-card__title h-display" style="font-size:1.3rem">InsightLoop</h3>
+              <p class="case-card__outcome"><b>6h/week</b> of reporting, gone</p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+        </div>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>Will an LLM hallucinate our numbers? <span class="plus">+</span></summary>
+            <p>Not on my watch — arithmetic runs through deterministic code; the model narrates what that code computed. Every generated sentence logs its source numbers.</p>
+          </details>
+          <details>
+            <summary>What about our data privacy? <span class="plus">+</span></summary>
+            <p>Pipelines run against your own infrastructure where possible; nothing customer-facing sends itself without a human click until you say otherwise.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 CLOUD -->
+    <section class="service-detail container--narrow container" id="cloud">
+      <div class="service-detail__aside">
+        <div class="big-index"><b>05</b></div>
+        <h2 class="service-detail__title h-display h2" style="font-size:clamp(1.7rem,2.4vw,2.4rem)">Cloud &amp; launch</h2>
+        <div class="service-detail__starting">
+          <span>Deployment setup <b>$800</b> · 1 wk</span>
+          <span>Infra migration from <b>$1.5k</b></span>
+        </div>
+      </div>
+      <div class="service-detail__main">
+        <div class="service-visual-frame">{{SERVICE_CLOUD}}</div>
+        <ul class="service-detail__points" data-reveal-group>
+          <li data-reveal>Zero-downtime deployments with one-command rollback</li>
+          <li data-reveal>Free-tier architecture that stays free — this site runs on Oracle's $0 tier behind Cloudflare</li>
+          <li data-reveal>Observability from day one: uptime, vitals, error budgets</li>
+          <li data-reveal>TLS, security headers, backups, and a restore drill you watch happen</li>
+          <li data-reveal>Documentation a future developer (or future you) can follow at 2am</li>
+        </ul>
+        <p style="margin-top:28px" data-reveal><strong>Proof:</strong> the page you're reading — served over TLS from an ARM instance that costs $0/month, with the full playbook published in the <a class="link-roll" href="{{ROOT}}journal/oracle-free-tier.html"><i>Journal <span class="dim">→</span></i><i>Journal <span class="dim">→</span></i></a>.</p>
+        <div class="service-detail__proof">
+          <a class="case-card" href="{{ROOT}}journal/oracle-free-tier.html" data-cursor="view" data-cursor-label="VIEW">
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-checkout.svg" alt="Oracle free tier article preview" loading="lazy"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">Journal</span><span>Infrastructure</span></p>
+              <h3 class="case-card__title h-display" style="font-size:1.3rem">The $0/month stack</h3>
+              <p class="case-card__outcome">Production hosting, <b>free forever</b></p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+        </div>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>Is free-tier hosting actually production-grade? <span class="plus">+</span></summary>
+            <p>For sites and apps at this scale, yes — with Cloudflare in front, cached static assets, and a restore drill you've watched succeed. I'll also tell you the traffic number where it stops making sense.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 CUSTOM -->
+    <section class="service-detail container--narrow container" id="custom" style="padding-bottom:var(--s-8)">
+      <div class="service-detail__aside">
+        <div class="big-index"><b>06</b></div>
+        <h2 class="service-detail__title h-display h2" style="font-size:clamp(1.7rem,2.4vw,2.4rem)">Custom software</h2>
+        <div class="service-detail__starting">
+          <span>Discovery sprint <b>$900</b> · 2 wks</span>
+          <span>Build from <b>$5k</b> · scoped together</span>
+        </div>
+      </div>
+      <div class="service-detail__main">
+        <div class="service-visual-frame">{{SERVICE_CUSTOM}}</div>
+        <ul class="service-detail__points" data-reveal-group>
+          <li data-reveal>Tools shaped around your workflow — quoting, inventory, scheduling, internal dashboards</li>
+          <li data-reveal>Discovery sprint that ends in a clickable prototype and a fixed number</li>
+          <li data-reveal>Integrations with what you already run: sheets, ERPs, payment rails, WhatsApp</li>
+          <li data-reveal>Data migrations with rehearsal runs before the real one</li>
+          <li data-reveal>Training sessions recorded, so onboarding new staff doesn't need me</li>
+        </ul>
+        <p style="margin-top:28px" data-reveal><strong>Proof:</strong> every case study on this site started as exactly this conversation — a workflow that deserved better than a spreadsheet.</p>
+        <div class="service-detail__proof">
+          <a class="case-card" href="{{ROOT}}work/index.html" data-cursor="view" data-cursor-label="VIEW">
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-clinicflow.svg" alt="All work index preview" loading="lazy"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">Index</span><span>4 cases</span></p>
+              <h3 class="case-card__title h-display" style="font-size:1.3rem">All case studies</h3>
+              <p class="case-card__outcome">The full <b>decision trail</b></p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+        </div>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>Fixed price or hourly? <span class="plus">+</span></summary>
+            <p>Fixed-scope fixed-price wherever the requirements are testable; hourly only for open-ended retainer work. The discovery sprint exists so the fixed number is honest.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="act act--contact" style="padding-top:var(--s-8)">
+      <div class="container">
+        <span class="section-index" data-reveal>Still deciding?</span>
+        <h2 class="h-display h2" data-split="lines" style="margin-top:16px">Tell me the problem — <span class="serif-accent">the service line is my job.</span></h2>
+        <div style="margin-top:36px" data-reveal>
+          <a class="btn" href="{{ROOT}}contact/index.html" data-magnetic>Describe your project <span class="arr">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>

@@ -1,0 +1,73 @@
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="{{ROOT}}index.html">Home</a><span class="sep">/</span><a href="{{ROOT}}journal/index.html">Journal</a><span class="sep">/</span><span aria-current="page">The $0 stack</span>
+        </nav>
+        <span class="mono-label">Infrastructure · 8 min read · Oct 2026</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">Hosting a production site on Oracle's free tier — <span class="serif-accent">the complete $0 stack.</span></h1>
+        <p class="page-hero__sub" data-reveal>The page you're reading is served over TLS from an ARM instance that costs nothing, behind a CDN that costs nothing, with analytics that cost nothing. Here's the whole playbook — including the three ways it almost broke.</p>
+      </div>
+    </section>
+
+    <section class="act" style="padding-top:var(--s-5)">
+      <div class="container container--narrow prose">
+        <p><strong>This is not a "works on my machine" post.</strong> The architecture below runs a live business site — contact form, analytics, monitoring, nightly backups — on Oracle Cloud's Always Free tier plus Cloudflare's free plan. Total monthly cost: zero. Total monthly invoices: zero. The catch is that free tiers punish carelessness, so most of this article is about the care.</p>
+
+        <h2>The shape of it</h2>
+        <p>One ARM VM (Ampere A1, 2 OCPU / 12 GB) runs nginx serving the static site, a small Node service for the contact form, and self-hosted Umami for analytics. Cloudflare sits in front as CDN, TLS terminator, and DDoS filter. Static assets are fingerprinted and cached for a year; HTML is always fresh. That last pair — immutable assets plus uncached HTML — is the whole trick behind both speed and safe deploys.</p>
+        <ul>
+          <li><strong>Compute:</strong> VM.Standard.A1.Flex — ARM, which matters (see below)</li>
+          <li><strong>Edge:</strong> Cloudflare free — Universal SSL, caching, bot filtering, Turnstile</li>
+          <li><strong>Web:</strong> nginx with brotli-static, HTTP/2, grade-A security headers</li>
+          <li><strong>API:</strong> ~150 lines of Node behind nginx <code>/api/</code>, rate-limited</li>
+          <li><strong>Analytics:</strong> Umami (self-hosted, cookieless, 1 KB script)</li>
+          <li><strong>Backups:</strong> nightly tar + DB dump to Object Storage (10 GB free)</li>
+        </ul>
+
+        <h2>Why free-tier hosting needs <span class="serif-accent text-ember">more</span> discipline than paid</h2>
+        <p>Paid platforms absorb your mistakes: they autoscale, they buffer traffic, they restart things. The free tier does none of that. A viral share that would be a nothing-burger on Vercel can saturate a 10 Mbps link — unless your assets are cached at the edge, which is exactly what Cloudflare's free plan does. The discipline is the architecture: static-first (nothing computes unless it must), edge-cached (origin only serves HTML misses), and small (the whole site is under a megabyte).</p>
+        <p>There's also the reclamation policy. Oracle can idle-reclaim Always Free VMs that sit under a CPU threshold for a week. A site with real traffic plus an analytics service and a cron heartbeat never comes close to that line — but you should know the rule exists before you bet a client demo on it.</p>
+
+        <h2>The three ways it almost broke</h2>
+        <p><strong>1. "Out of capacity" on instance creation.</strong> Popular regions run dry of free ARM capacity, sometimes for days. The fix is boring: a launch-retry loop (or picking a region with headroom) and the discipline to provision <em>before</em> you need it. Provision the VM the day you sign up, not the day of the launch.</p>
+        <p><strong>2. ARM-only images.</strong> Every tutorial on the internet assumes x86. Some Docker images, panels, and PHP runtimes don't ship ARM64 variants. The nginx + Node stack in this playbook is aarch64-clean end to end — but verify each image tag before you write it into a runbook, not after.</p>
+        <p><strong>3. The email deliverability trap.</strong> Free VMs can't send mail on port 25, and naive SMTP from a fresh IP lands in spam anyway. Oracle's free tier includes 3,000 sends/month through their Email Delivery service with proper SPF/DKIM/DMARC setup — use it, then test against Gmail, Outlook, and Yahoo before you trust it. A contact form that silently vanishes into a spam folder is worse than no contact form.</p>
+
+        <h2>The nginx file that does most of the work</h2>
+        <pre><code># the two lines that matter most
+location /_assets/ {
+    add_header Cache-Control "public, max-age=31536000, immutable";
+}
+location = / {
+    add_header Cache-Control "no-cache";
+    try_files /index.html =404;
+}
+# brotli pre-compressed at build time
+brotli_static on;</code></pre>
+        <p>Fingerprinted filenames plus <code>immutable</code> means every deploy is instantly live with zero cache-purge rituals, and no visitor ever sees new HTML with old CSS — the classic mid-deploy breakage. Add the security headers (HSTS, CSP, the usual suspects), origin-lock nginx to Cloudflare's IP ranges, and point SSH at a non-standard port with key-only auth.</p>
+
+        <h2>What free-tier hosting is <span class="serif-accent text-ember">not</span></h2>
+        <p>It's not a place for a database-heavy app expecting burst traffic, and it's not something I'd sell to a client as "managed." It's a superb deal for exactly this class of product — portfolios, marketing sites, MVPs, internal tools — where the architecture is static-first and the owner wants infrastructure to be a solved problem. When a project outgrows it, the entire site is one <code>rsync</code> away from any other host. Portability is the real premium.</p>
+
+        <h2>The 15-minute version</h2>
+        <ol>
+          <li>Provision the A1 VM (Ubuntu LTS), key-only SSH, security list locked to 80/443.</li>
+          <li>Install nginx; drop in the site config with the caching and header blocks above.</li>
+          <li>Move DNS to Cloudflare; proxy the record; issue an Origin CA cert for nginx.</li>
+          <li>Deploy: <code>rsync -az --delete dist/ vm:/var/www/</code> — that's the pipeline.</li>
+          <li>Backups: nightly cron, tarball to Object Storage, a restore drill you actually watch succeed.</li>
+        </ol>
+        <p>The full nginx config, the contact API, and the systemd units are in this site's repository — shipped as the deploy kit. Steal them; they're field-tested, which is worth more than they cost. Which was nothing.</p>
+      </div>
+    </section>
+
+    <section class="act act--contact" style="padding-top:0">
+      <div class="container">
+        <h2 class="h-display h2" data-split="lines" style="margin:0 auto;max-width:18ch">Want this stack, <span class="serif-accent">running your site?</span></h2>
+        <div style="margin-top:32px" data-reveal>
+          <a class="btn" href="{{ROOT}}services/index.html#cloud" data-magnetic>Cloud &amp; launch service <span class="arr">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>

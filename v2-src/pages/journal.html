@@ -1,0 +1,46 @@
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="{{ROOT}}index.html">Home</a><span class="sep">/</span><span aria-current="page">Journal</span>
+        </nav>
+        <span class="mono-label">Notes from the forge</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">Things I learned the <span class="serif-accent">invoice-shaped way.</span></h1>
+        <p class="page-hero__sub" data-reveal>Field notes on shipping, hosting, performance, and the unglamorous decisions that make products work. No listicles.</p>
+      </div>
+    </section>
+
+    <section class="act" style="padding-top:var(--s-6)">
+      <div class="container container--narrow">
+        <div class="journal-list">
+          <a class="journal-card" href="{{ROOT}}journal/oracle-free-tier.html" data-cursor="view" data-cursor-label="READ" data-reveal>
+            <div>
+              <p class="journal-card__meta"><span class="tag">Infrastructure</span><span>8 min read</span><span>Oct 2026</span></p>
+              <h3 class="h-display">Hosting a production site on Oracle's free tier — the complete $0 stack</h3>
+              <p>ARM compute, nginx, TLS via Cloudflare, contact API, analytics, backups: the exact playbook this site runs on, with the failure modes and their fixes.</p>
+              <span class="journal-card__read">Read the playbook →</span>
+            </div>
+            <div class="journal-card__art">{{JOURNAL_ORACLE}}</div>
+          </a>
+          <a class="journal-card" href="{{ROOT}}journal/core-web-vitals.html" data-cursor="view" data-cursor-label="READ" data-reveal>
+            <div>
+              <p class="journal-card__meta"><span class="tag">Performance</span><span>7 min read</span><span>Oct 2026</span></p>
+              <h3 class="h-display">Shipping Core Web Vitals green: the checklist I run before every launch</h3>
+              <p>Budgets set at contract time, fonts that can't shift layout, images that arrive already sized. The boring discipline behind fast sites.</p>
+              <span class="journal-card__read">Read the checklist →</span>
+            </div>
+            <div class="journal-card__art">{{JOURNAL_CWV}}</div>
+          </a>
+          <a class="journal-card" href="{{ROOT}}journal/ai-automation-smb.html" data-cursor="view" data-cursor-label="READ" data-reveal>
+            <div>
+              <p class="journal-card__meta"><span class="tag">AI &amp; automation</span><span>9 min read</span><span>Oct 2026</span></p>
+              <h3 class="h-display">What "AI &amp; automation" actually means for a small business</h3>
+              <p>Rules where they're certain, models where they pay, humans where it matters. A field guide from automating the boring parts of real companies.</p>
+              <span class="journal-card__read">Read the guide →</span>
+            </div>
+            <div class="journal-card__art">{{JOURNAL_AI}}</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>

@@ -1,0 +1,16 @@
+{
+  "name": "vishvutech-contact-api",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Contact form API for vishvutech.com — validate, rate-limit, log, notify",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "optionalDependencies": {
+    "nodemailer": "^6.9.13"
+  }
+}

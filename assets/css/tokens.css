@@ -1,0 +1,122 @@
+/* ============================================================
+   VISHVU TECH 2.0 — NIGHT FORGE DESIGN SYSTEM · TOKENS
+   One source of truth. Every value below is a design decision.
+   ============================================================ */
+
+:root {
+  /* ---- Color · Foundation ---- */
+  --vf-void: #0B0E14;          /* page canvas — near-black, blue-cast */
+  --vf-surface: #111623;       /* raised panels */
+  --vf-surface-2: #1A2133;     /* hover / active raised */
+  --vf-line: #232B40;          /* 1px hairlines */
+  --vf-line-strong: #2E3852;   /* hairlines under interaction */
+
+  /* ---- Color · Text ---- */
+  --vf-ink: #F2F5FA;           /* primary text — 15.8:1 on void */
+  --vf-ink-2: #A8B3C7;         /* secondary — 7.2:1 */
+  --vf-ink-3: #6B7690;         /* tertiary/meta — 5.0:1, 14px minimum */
+
+  /* ---- Color · Signal ---- */
+  --vf-ember: #FF6B35;         /* THE electric accent */
+  --vf-ember-soft: #FF8C5E;    /* hover/pressed */
+  --vf-ember-dim: rgba(255,107,53,.14);
+  --vf-kite: #7EE8C7;          /* secondary glow — gradients only */
+  --vf-kite-dim: rgba(126,232,199,.12);
+
+  /* ---- Color · Paper (case-study islands) ---- */
+  --vf-paper: #F5EFE4;
+  --vf-paper-2: #EDE5D6;
+  --vf-paper-ink: #1C2433;
+  --vf-paper-ink-2: #4A5568;
+  --vf-paper-line: #D9CFBD;
+
+  /* ---- Signature gradient (3 permitted uses sitewide) ---- */
+  --vf-gradient: linear-gradient(135deg, #FF6B35 0%, #7EE8C7 100%);
+  --vf-gradient-soft: linear-gradient(135deg, rgba(255,107,53,.16), rgba(126,232,199,.16));
+
+  /* ---- Feedback ---- */
+  --vf-ok: #3DD68C;
+  --vf-warn: #FFC24B;
+  --vf-err: #FF5C5C;
+
+  /* ---- Elevation by light (never shadow-fog on dark) ---- */
+  --vf-glow-ember: 0 0 24px rgba(255,107,53,.35);
+  --vf-glow-kite: 0 0 32px rgba(126,232,199,.25);
+  --vf-inset-hi: inset 0 1px 0 rgba(255,255,255,.06);
+
+  /* ---- Typography · Families ---- */
+  --ff-display: 'Clash Display', 'Satoshi', system-ui, sans-serif;
+  --ff-body: 'Satoshi', system-ui, -apple-system, sans-serif;
+  --ff-serif: 'Instrument Serif', Georgia, serif;
+  --ff-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* ---- Typography · Fluid scale (360 → 1440) ---- */
+  --fs-hero: clamp(3.1rem, 8.4vw + .8rem, 7.6rem);
+  --fs-h2: clamp(2.2rem, 4.2vw + .9rem, 4.2rem);
+  --fs-h3: clamp(1.45rem, 1.6vw + .9rem, 2.1rem);
+  --fs-h4: 1.3rem;
+  --fs-body: clamp(1.05rem, .25vw + .95rem, 1.2rem);
+  --fs-small: .94rem;
+  --fs-micro: .875rem;          /* legal minimum on this site */
+  --fs-mono-label: .84rem;
+
+  /* ---- Typography · Rhythm ---- */
+  --lh-tight: .98;
+  --lh-snug: 1.15;
+  --lh-body: 1.65;
+  --ls-tight: -.02em;
+  --ls-wide: .12em;
+
+  /* ---- Space · 8-base scale ---- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 16px; --s-4: 24px;
+  --s-5: 32px; --s-6: 48px; --s-7: 64px; --s-8: 96px; --s-9: 128px;
+  --gap: clamp(16px, 2vw, 32px);
+  --pad-x: clamp(20px, 5vw, 64px);
+  --maxw: 1320px;
+
+  /* ---- Radii ---- */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+
+  /* ---- Motion tokens (mirrored in JS: motion.js) ---- */
+  --t-instant: 120ms;
+  --t-fast: 240ms;
+  --t-base: 420ms;
+  --t-slow: 700ms;
+  --t-cinematic: 1200ms;
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-out-expo: cubic-bezier(.16, 1, .3, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --stagger-tight: 40ms;
+  --stagger-base: 80ms;
+  --stagger-editorial: 120ms;
+  --rise: 24px;
+  --rise-lg: 48px;
+
+  /* ---- Z-index registry ---- */
+  --z-grain: 60;
+  --z-cursor: 90;
+  --z-menu: 80;
+  --z-header: 70;
+  --z-preloader: 100;
+  --z-progress: 75;
+
+  /* ---- Layout ---- */
+  --header-h: 76px;
+}
+
+/* ---- Paper contexts flip tokens locally ---- */
+.paper {
+  --vf-void: var(--vf-paper);
+  --vf-surface: #FFFDF8;
+  --vf-surface-2: var(--vf-paper-2);
+  --vf-line: var(--vf-paper-line);
+  --vf-ink: var(--vf-paper-ink);
+  --vf-ink-2: var(--vf-paper-ink-2);
+  --vf-ink-3: #6E7890;
+  color: var(--vf-ink);
+  background: var(--vf-paper);
+}

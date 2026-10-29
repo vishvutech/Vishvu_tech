@@ -1,0 +1,33 @@
+[Unit]
+Description=Vishvu Tech contact API
+After=network.target
+
+[Service]
+Type=simple
+User=vishvu
+Group=vishvu
+WorkingDirectory=/opt/vishvutech/api
+ExecStart=/usr/bin/node /opt/vishvutech/api/index.js
+Environment=PORT=8081
+Environment=LOG_DIR=/var/lib/vishvutech
+# SMTP via OCI Email Delivery (fill in oracle-setup.md §6):
+# Environment=SMTP_HOST=smtp.email.<region>.oraclecloud.com
+# Environment=SMTP_PORT=587
+# Environment=SMTP_USER=ocid1.user.oc1..xxxxx@ocid1.smtpdelivery...
+# Environment=SMTP_PASS=generated-smtp-credential
+# Environment=SMTP_FROM=website@vishvutech.com
+# Environment=NOTIFY_TO=hello@vishvutech.com
+Restart=always
+RestartSec=3
+MemoryMax=300M
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/vishvutech
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

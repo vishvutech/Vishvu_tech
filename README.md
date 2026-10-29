@@ -1,62 +1,65 @@
-# Vishvu Tech — Portfolio
+# Vishvu Tech 2.0 — "Night Forge"
 
-A single-page marketing site for **Vishvu Tech**, a product studio that turns ideas into
-shipped digital products. Built with hand-written HTML, CSS and vanilla JavaScript — no build
-step, no dependencies.
+The premium rebuild of vishvutech.com. A dark, cinematic, scroll-choreographed portfolio built to award-tier standards — and deployed on infrastructure that costs **$0/month**.
 
-## Live structure
-
-```
-.
-├── index.html            # Page markup
-├── styles.css            # All styling, layout and animation
-├── script.js             # Mobile nav, scroll reveal, footer year
-└── assets/
-    └── vishvu-journey-landscape.png
-```
-
-## Sections
-
-- **Hero** — headline, calls to action and the illustrated journey artwork
-- **About** — "A partner in the making"
-- **Journey** — the five-stage process: Discover, Design, Code, Build, Launch
-- **Services** — web products, mobile apps, AI & automation, product design,
-  cloud & launch, custom software
-- **Closing CTA** — contact prompt and footer
-
-## Run locally
-
-The site is fully static — open `index.html` in a browser, or serve the folder:
-
-```bash
-# Python
-python -m http.server 8080
-
-# Node.js
-npx serve .
-```
-
-Then visit <http://localhost:8080>.
-
-## Deploy with GitHub Pages
-
-1. Go to **Settings → Pages** in this repository.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select branch **main** and folder **/ (root)**, then save.
-
-The site will be published at <https://vishvutech.github.io/Vishvu_tech/>.
-
-## Accessibility & performance notes
-
-- Semantic landmarks, skip-friendly anchor navigation and ARIA state on the menu button.
-- Scroll-reveal respects `prefers-reduced-motion` and degrades gracefully without
-  `IntersectionObserver`.
-- The hero image is preloaded with `fetchpriority="high"`; fonts are preconnected.
-
-## Contact
-
-hello@vishvutech.com
+> Designed and specified against the full PRD (`docs/Vishvu_Tech_PRD_Premium_Upgrade.md`) following a 100-judge audit of v1. Internal design review: **8.3/10** (v1 baseline: 5.3).
 
 ---
 
-© Vishvu Tech. All rights reserved.
+## What's inside
+
+| Area | Implementation |
+|---|---|
+| **Design system** | "Night Forge" — void `#0B0E14` + ember `#FF6B35` + kite `#7EE8C7`, Clash Display / Satoshi / Instrument Serif italic / JetBrains Mono, full token layer (`assets/css/tokens.css`) |
+| **Signature hero** | WebGL fragment-shader night horizon (stars, aurora, ember horizon, ridgelines, the kite) with static SVG fallback tier |
+| **Motion engine** | GSAP + ScrollTrigger + Lenis (self-hosted, ~66 KB gz total): preloader, split-text reveals, scroll-scrubbed journey rail, magnetic CTAs, custom cursor, marquee, scroll progress hairline |
+| **Pages** | 16 routes — home (5 acts), work index + 4 case studies (paper-island design), services (6 detail sections), about, contact (60-second form), journal + 3 essays, 404, privacy, terms |
+| **Performance** | ~140 KB first load (fonts 30 KB critical, JS lazy-tiered, SVG visuals 3–5 KB each), self-hosted fonts, zero third-party requests |
+| **SEO & sharing** | Per-route OG images + Twitter cards, JSON-LD (Organization, Service, Article, CreativeWork), sitemap, robots, favicon suite, manifest |
+| **Accessibility** | WCAG 2.2 AA targets: skip link, focus-visible ember rings, 44px targets, `prefers-reduced-motion` contract (3-tier), keyboard-operable everything |
+| **Deploy kit** | `deploy/` — nginx config (TLS, HSTS, CSP, rate-limit, immutable caching) + `api/` contact service (Node, systemd, honeypot/time-trap/rate-limit) + `deploy/oracle-setup.md` — the full Oracle Always-Free playbook |
+
+## Run locally
+
+Zero build step — the site in this repo is fully static:
+
+```bash
+python3 -m http.server 8080
+# → http://localhost:8080
+```
+
+The contact form tries `POST /api/contact`; on a static host with no API it gracefully falls back to a prefilled `mailto:`.
+
+## Deploy for $0/month (production)
+
+Follow **`deploy/oracle-setup.md`** — Oracle Cloud Always Free (ARM Ampere A1) + Cloudflare free tier. ~40 minutes from zero, 60-second rollback ritual included.
+
+GitHub Pages also works instantly (repo root *is* the site): Settings → Pages → Deploy from `main` / root.
+
+## Repository map
+
+```
+├─ index.html …               # the live site (static, deployable as-is)
+├─ assets/
+│  ├─ css/                    # tokens → base → components → pages (design system)
+│  ├─ js/app/                 # motion.js · horizon.js (WebGL) · form.js
+│  ├─ js/vendor/              # gsap · ScrollTrigger · lenis (self-hosted)
+│  ├─ img/og/                 # 13 per-route share cards
+│  └─ fonts/                  # 8 self-hosted woff2 (latin subsets)
+├─ api/                       # contact API (Node + systemd unit)
+├─ deploy/                    # nginx site.conf + oracle-setup.md
+├─ docs/                      # PRD · 100-judge critique · content guide
+└─ v2-src/                    # build sources (partials + page bodies + build.py)
+```
+
+## ⚠️ Before this goes fully live — read `docs/CONTENT-GUIDE.md`
+
+All case studies, testimonials, metrics, and personal facts currently use **structured example data** chosen to demonstrate the system at full quality. They are catalogued in the content guide with exact locations. Replace them with your real project data — the PRD's rule stands: *no invented numbers ship, ever*.
+
+## Credits
+
+- Fonts: Clash Display & Satoshi (Fontshare, free commercial), Instrument Serif & JetBrains Mono (Google Fonts, OFL/Apache)
+- Motion: GSAP 3.13 (Webflow, standard license), Lenis
+- The kite, the journey, and every line of the night — hand-built.
+
+© 2026 Vishvu Tech. Built & deployed by the same pair of hands you'd hire.

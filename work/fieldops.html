@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0E14">
+  <title>FieldOps — an app that works where signal doesn't | Vishvu Tech</title>
+  <meta name="description" content="Case study: an offline-first mobile app with 98.6% sync success for field crews, and zero lost reports in six months.">
+  <link rel="canonical" href="https://vishvutech.com/work/fieldops.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vishvu Tech">
+  <meta property="og:title" content="FieldOps — offline-first, 98.6% sync">
+  <meta property="og:description" content="Case study: an offline-first mobile app with 98.6% sync success for field crews, and zero lost reports in six months.">
+  <meta property="og:url" content="https://vishvutech.com/work/fieldops.html">
+  <meta property="og:image" content="https://vishvutech.com/assets/img/og/case-fieldops.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="FieldOps — offline-first, 98.6% sync">
+  <meta name="twitter:description" content="Case study: an offline-first mobile app with 98.6% sync success for field crews, and zero lost reports in six months.">
+  <meta name="twitter:image" content="https://vishvutech.com/assets/img/og/case-fieldops.jpg">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CreativeWork","headline":"FieldOps",
+"description":"Offline-first field app, 98.6% sync success","creator":{"@type":"Person","name":"Vishvu"},
+"datePublished":"2024-05-01","mainEntityOfPage":"https://vishvutech.com/work/fieldops.html"}
+</script>
+  <link rel="preload" href="../assets/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body class="page-case">
+  <div class="grain-layer" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress-hairline" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Vishvu Tech — home">
+        <svg class="brand__glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset="1" stop-color="#7EE8C7"/></linearGradient></defs>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="url(#kg)"/>
+</svg>
+        <span class="brand__name">Vishvu&nbsp;Tech<em>®</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-nav__link" href="../work/index.html" aria-current="page"><i>Work</i><i>Work</i></a>
+        <a class="site-nav__link" href="../services/index.html" ><i>Services</i><i>Services</i></a>
+        <a class="site-nav__link" href="../about/index.html" ><i>About</i><i>About</i></a>
+        <a class="site-nav__link" href="../journal/index.html" ><i>Journal</i><i>Journal</i></a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:18px">
+        <a class="btn btn--sm" href="../contact/index.html" data-magnetic>Start a project</a>
+        <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" data-menu-toggle>
+          <span>Menu</span><i aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu-overlay" data-menu aria-hidden="true">
+    <nav class="menu-overlay__links" aria-label="Menu">
+      <a class="menu-overlay__link" href="../index.html"><span class="idx">01</span><i>Home<em>the journey</em></i></a>
+      <a class="menu-overlay__link" href="../work/index.html"><span class="idx">02</span><i>Work<em>proof, shipped</em></i></a>
+      <a class="menu-overlay__link" href="../services/index.html"><span class="idx">03</span><i>Services<em>six crafts</em></i></a>
+      <a class="menu-overlay__link" href="../about/index.html"><span class="idx">04</span><i>About<em>the maker</em></i></a>
+      <a class="menu-overlay__link" href="../journal/index.html"><span class="idx">05</span><i>Journal<em>notes from the forge</em></i></a>
+      <a class="menu-overlay__link" href="../contact/index.html"><span class="idx">06</span><i>Contact<em>start something</em></i></a>
+    </nav>
+    <div class="menu-overlay__foot">
+      <span>Bengaluru · <b class="time" data-time>--:--</b> IST</span>
+      <span><a href="mailto:hello@vishvutech.com">hello@vishvutech.com</a></span>
+      <span><a href="https://github.com/vishvutech" rel="me noopener">GitHub ↗</a> <a href="https://www.linkedin.com/in/vishvutech" rel="me noopener">LinkedIn ↗</a></span>
+    </div>
+  </div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span class="sep">/</span><a href="../work/index.html">Work</a><span class="sep">/</span><span aria-current="page">FieldOps</span>
+        </nav>
+        <span class="mono-label">Mobile app · 2024</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">FieldOps — an app that works <span class="serif-accent">where signal doesn't.</span></h1>
+        <p class="page-hero__sub" data-reveal>Service crews were losing completed job reports every time they drove through a dead zone. The old app treated offline as an error. We treated it as the default.</p>
+        <div class="page-hero__meta" data-reveal>
+          <span>Client<b>Field services · 40 crews</b></span>
+          <span>Role<b>Mobile dev &amp; sync engine</b></span>
+          <span>Timeline<b>10 weeks</b></span>
+          <span>Stack<b>Flutter · SQLite · S3 sync</b></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper">
+      <div class="case-band__inner">
+        <div class="stats-band" data-reveal>
+          <div class="stat"><div class="stat__value">98.6<span class="unit">%</span></div><div class="stat__label">Sync success · was ~70%</div></div>
+          <div class="stat"><div class="stat__value">−38<span class="unit">%</span></div><div class="stat__label">Admin time per job</div></div>
+          <div class="stat"><div class="stat__value">4.8<span class="unit">★</span></div><div class="stat__label">Crew rating after 90 days</div></div>
+          <div class="stat"><div class="stat__value">0<span class="unit"> lost reports</span></div><div class="stat__label">In six months of use</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>The problem</span>
+        <h2 data-split="lines">"Reconnecting…" was the most-read sentence in the app.</h2>
+        <p data-reveal>The crews' territory included basements, rural sites, and lifts — places where connectivity is theoretical. The old app submitted job reports through a live POST. When the request failed, the report failed; crews either re-typed it at the office or skipped digital entirely and kept paper duplicates for safety. Dispatch reconciled the two systems every evening, by hand.</p>
+        <blockquote class="pull-quote" data-reveal>
+          The crews stopped carrying paper on day one. That's the whole review.
+          <cite>— Operations lead, logistics company</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>Constraints &amp; decisions</span>
+        <h2 data-split="lines">Offline isn't a mode. It's the terrain.</h2>
+        <div class="decision-table" data-reveal>
+          <div class="decision-row">
+            <span class="a">Local-first, always</span><span class="d">→</span>
+            <span class="b">Every action writes to on-device SQLite first; the network is an optimization, never a requirement. The app never waits on connectivity.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Queue with idempotency keys</span><span class="d">→</span>
+            <span class="b">Outbox pattern with per-report UUIDs — retries can't double-submit, and conflict resolution is last-write-wins with full audit history.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Media syncs separately, throttled</span><span class="d">→</span>
+            <span class="b">Job photos compress and upload opportunistically over Wi-Fi; text data (the urgent part) rides the tiny, unreliable pipe first.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Trust the crew, verify the GPS</span><span class="d">→</span>
+            <span class="b">One tap opens the pre-filled job card with location and time already attached — data entry becomes data confirmation.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>What shipped</span>
+        <h2 data-split="lines">A sync engine wearing <span class="serif-accent">an app costume.</span></h2>
+        <div class="case-gallery" data-reveal-group>
+          <figure data-reveal="clip">
+            <div class="frame"><img src="../assets/img/generated/case-fieldops.svg" alt="FieldOps: phone with today's routes and the offline sync pipeline panel" loading="lazy"></div>
+            <figcaption>Fig. 01 — Today screen: routes, offline queue state, one-tap completion</figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 138" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
+  <defs><linearGradient id="sp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset="1" stop-color="#7EE8C7"/></linearGradient></defs>
+  <rect width="220" height="138" fill="#111623"/><rect x="88" y="12" width="46" height="114" rx="10" fill="#0B0E14" stroke="#232B40"/>
+      <rect x="94" y="24" width="34" height="90" rx="6" fill="#1A2133"/>
+      <rect x="100" y="18" width="22" height="4" rx="2" fill="#1A2133"/>
+      <rect x="98" y="32" width="26" height="18" rx="3" fill="#0B0E14" opacity="1.0"/><rect x="98" y="56" width="26" height="6" rx="3" fill="#232B40" opacity="1.0"/><rect x="98" y="66" width="18" height="6" rx="3" fill="#232B40" opacity="1.0"/>
+      <rect x="98" y="80" width="26" height="24" rx="3" fill="#0B0E14" opacity="1.0"/>
+      <rect x="98" y="80" width="26" height="24" rx="3" fill="url(#sp)" opacity=".25"/>
+      <text x="111" y="96" font-family="monospace" font-size="12" fill="#7EE8C7" font-weight="bold" text-anchor="middle">✳</text></svg></div>
+            <figcaption>Fig. 02 — Local-first architecture: write local, sync opportunistically</figcaption>
+          </figure>
+        </div>
+        <p data-reveal style="margin-top:32px">Flutter for one codebase across the crews' mixed Android fleet; SQLite as the source of truth on device; a server-side reconciliation service that treats every payload as replay-safe. The evening reconciliation ritual ended — dispatch reads the same data the crews wrote, minutes after signal returns.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>Outcome &amp; the honest retro</span>
+        <h2 data-split="lines">Paper retired. Nobody misses it.</h2>
+        <p data-reveal>Ninety days in: 98.6% of job reports sync without intervention, the 1.4% that need a retry surface in a crew-visible queue with a reason attached, and admin time per job fell 38% because data arrives structured instead of transcribed. The star rating is the crews', not ours — field workers are the least sentimental reviewers alive.</p>
+        <p data-reveal><strong>What I'd do differently:</strong> I'd add the "why it didn't sync" queue in v1 instead of v1.2 — the first two weeks of "is it sent?" questions were entirely preventable. Trust in an offline app is built by showing the queue, not by hiding it.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--dark">
+      <div class="case-band__inner" style="text-align:center;padding-bottom:0">
+        <span class="kicker" data-reveal style="display:block;text-align:center">Where next</span>
+        <div class="next-actions" data-reveal-group>
+          <a class="next-action" href="../work/checkout-rebuild.html" data-reveal>
+            <span class="mono-label">Next case</span>
+            <b>The checkout rebuild</b>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="next-action" href="../services/index.html#mobile" data-reveal>
+            <span class="mono-label">Related service</span>
+            <b>Mobile apps</b>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="next-action" href="../contact/index.html?project=fieldops" data-reveal>
+            <span class="mono-label">Start something</span>
+            <b>Like this, for you</b>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__watermark" aria-hidden="true">VISHVU TECH</div>
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="brand" href="../index.html" style="margin-bottom:18px">
+            <svg class="brand__glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset="1" stop-color="#7EE8C7"/></linearGradient></defs>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="url(#kg)"/>
+</svg>
+            <span class="brand__name">Vishvu&nbsp;Tech<em>®</em></span>
+          </a>
+          <p class="site-footer__tag">Ambitious ideas, built and shipped — by one senior engineer you actually talk to.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../work/index.html">Work</a></li>
+            <li><a href="../services/index.html">Services</a></li>
+            <li><a href="../about/index.html">About</a></li>
+            <li><a href="../journal/index.html">Journal</a></li>
+            <li><a href="../contact/index.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../services/index.html#web">Web apps</a></li>
+            <li><a href="../services/index.html#mobile">Mobile apps</a></li>
+            <li><a href="../services/index.html#ai">AI &amp; automation</a></li>
+            <li><a href="../services/index.html#design">UI/UX design</a></li>
+            <li><a href="../services/index.html#cloud">Cloud &amp; launch</a></li>
+            <li><a href="../services/index.html#custom">Custom software</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Direct</h4>
+          <ul>
+            <li><a href="mailto:hello@vishvutech.com">hello@vishvutech.com ↗</a></li>
+            <li><a href="https://wa.me/919999999999">WhatsApp ↗</a></li>
+            <li><a href="https://github.com/vishvutech" rel="me noopener">GitHub ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/vishvutech" rel="me noopener">LinkedIn ↗</a></li>
+            <li><a href="../legal/privacy.html">Privacy</a></li>
+            <li><a href="../legal/terms.html">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__meta">
+        <span>© 2026 Vishvu Tech · Bengaluru · <b data-time>--:--</b> IST</span>
+        <span class="made">Built &amp; deployed by <b>the same pair of hands</b> you'd hire.</span>
+        <button data-toggle-motion style="font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;min-height:44px;padding:0 4px">Motion: on/off</button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cursor" data-cursor aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"><span class="cursor__label">VIEW</span></div>
+  </div>
+
+  <div class="preloader" aria-hidden="true">
+    <svg class="preloader__glyph" viewBox="0 0 64 64" fill="none">
+      <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z"
+        stroke="#FF6B35" stroke-width="1.5" pathLength="1"/>
+    </svg>
+    <div class="preloader__wordmark"><span>Vishvu Tech</span></div>
+    <div class="preloader__counter">FORGING — <b>0</b>%</div>
+  </div>
+
+  <script src="../assets/js/vendor/gsap.min.js" defer></script>
+  <script src="../assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="../assets/js/vendor/lenis.min.js" defer></script>
+  <script src="../assets/js/app/motion.js" defer></script>
+  
+</body>
+</html>

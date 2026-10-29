@@ -1,0 +1,124 @@
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="{{ROOT}}index.html">Home</a><span class="sep">/</span><a href="{{ROOT}}work/index.html">Work</a><span class="sep">/</span><span aria-current="page">Checkout rebuild</span>
+        </nav>
+        <span class="mono-label">Web app · Cloud &amp; deployment · 2025</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">The checkout rebuild — <span class="serif-accent">+31% in 60 days.</span></h1>
+        <p class="page-hero__sub" data-reveal>A D2C brand was losing a third of its buyers in a five-step checkout. We rebuilt it in three steps — and made it faster than the page above it.</p>
+        <div class="page-hero__meta" data-reveal>
+          <span>Client<b>Confidential · D2C retail</b></span>
+          <span>Role<b>Full-stack dev &amp; deploy</b></span>
+          <span>Timeline<b>8 weeks</b></span>
+          <span>Stack<b>Next.js · Stripe · Postgres · OCI</b></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper">
+      <div class="case-band__inner">
+        <div class="stats-band" data-reveal>
+          <div class="stat"><div class="stat__value">+31<span class="unit">%</span></div><div class="stat__label">Conversion · 60 days</div></div>
+          <div class="stat"><div class="stat__value">4.2<span class="unit">s → 0.9s</span></div><div class="stat__label">Largest Contentful Paint</div></div>
+          <div class="stat"><div class="stat__value">3<span class="unit"> steps</span></div><div class="stat__label">Checkout · was 5</div></div>
+          <div class="stat"><div class="stat__value">$0<span class="unit">/mo</span></div><div class="stat__label">Hosting after migration</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>The problem</span>
+        <h2 data-split="lines">Cart abandonment at 71%, and everyone had a theory.</h2>
+        <p data-reveal>The analytics said buyers dropped between step two and step three — but not why. Session recordings showed the shape of it: a login wall mid-checkout, a shipping estimator that reloaded the page, and a payment step that redirected twice. On 4G, the checkout alone took eleven seconds to complete. The team had opinions; the data had facts. We needed both to agree.</p>
+        <blockquote class="pull-quote" data-reveal>
+          We assumed customers wanted more payment options. It turned out they wanted fewer decisions.
+          <cite>— Founder, D2C retail brand</cite>
+        </blockquote>
+        <p data-reveal>A two-week audit confirmed three killers: the mandatory account wall (31% of drops), full page reloads between steps (cumulative 4.2s LCP on mobile), and an error recovery flow that restarted the whole checkout on any validation failure. Everything else was fixable polish.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>Constraints &amp; decisions</span>
+        <h2 data-split="lines">Four decisions that made the difference.</h2>
+        <div class="decision-table" data-reveal>
+          <div class="decision-row">
+            <span class="a">Guest checkout first, account after</span><span class="d">→</span>
+            <span class="b">Account creation moved to post-purchase, pre-filled. Removed the wall that caused 31% of drops.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Single-page, three-step flow</span><span class="d">→</span>
+            <span class="b">Steps became panels on one page with a live progress rail — no reloads, no lost state, errors inline per field.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Express wallets above the fold</span><span class="d">→</span>
+            <span class="b">Apple Pay / UPI one-tap for returning visitors — 44% of completed checkouts now bypass form-filling entirely.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Re-platform to static-first + edge</span><span class="d">→</span>
+            <span class="b">Product pages pre-rendered, checkout island hydrated only where needed. LCP dropped 78% before we touched the design.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>What shipped</span>
+        <h2 data-split="lines">One screen. Zero redirects. <span class="serif-accent">Boring on purpose.</span></h2>
+        <div class="case-gallery" data-reveal-group>
+          <figure data-reveal="clip">
+            <div class="frame"><img src="{{ROOT}}assets/img/generated/case-checkout.svg" alt="The rebuilt checkout: three panels, express wallets, inline errors, one PAY action" loading="lazy"></div>
+            <figcaption>Fig. 01 — The three-panel checkout with express wallet priority</figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame">{{SERVICE_WEB}}</div>
+            <figcaption>Fig. 02 — Static-first architecture: pre-rendered shell, hydrated islands</figcaption>
+          </figure>
+        </div>
+        <p data-reveal style="margin-top:32px">Under the hood: a pre-rendered Next.js shell on Oracle's Always-Free ARM tier, Stripe Elements for payments (PCI scope stays off the client), Postgres for orders, and a queue that survives payment-provider hiccups without double-charging. The client's monthly infra bill went from $180 to $0 during the migration window — the site you're reading runs the same stack.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>Outcome &amp; the honest retro</span>
+        <h2 data-split="lines">The numbers held at 90 days.</h2>
+        <p data-reveal>Conversion settled at +31% versus the trailing quarter and stayed there through the festive sale — the first sale the store didn't drop a payment. Support tickets tagged "checkout" fell 62%. The founder's favorite metric is the quietest one: zero checkout-related incidents in four months.</p>
+        <p data-reveal><strong>What I'd do differently:</strong> I'd instrument the old checkout earlier and more aggressively — we lost a week to arguments that two days of event analytics would have settled. Also, I'd have shipped the guest-checkout change alone in week one; it carried half the lift and deserved its own moment.</p>
+        <blockquote class="testimonial" data-reveal style="margin-top:40px">
+          <p class="testimonial__quote">He treated our checkout like his own revenue line. Conversion jumped within two months — and he showed us the data first.</p>
+          <footer class="testimonial__who">
+            <span class="testimonial__avatar" aria-hidden="true">F</span>
+            <span><b>Founder</b><span>D2C retail brand</span></span>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="case-band case-band--dark">
+      <div class="case-band__inner" style="text-align:center;padding-bottom:0">
+        <span class="kicker" data-reveal style="display:block;text-align:center">Where next</span>
+        <div class="next-actions" data-reveal-group>
+          <a class="next-action" href="{{ROOT}}work/insightloop.html" data-reveal>
+            <span class="mono-label">Next case</span>
+            <b>InsightLoop — AI &amp; automation</b>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="next-action" href="{{ROOT}}services/index.html#web" data-reveal>
+            <span class="mono-label">Related service</span>
+            <b>Web applications</b>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="next-action" href="{{ROOT}}contact/index.html?project=checkout-rebuild" data-reveal>
+            <span class="mono-label">Start something</span>
+            <b>Like this, for you</b>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>

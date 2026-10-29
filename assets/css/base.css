@@ -1,0 +1,208 @@
+/* ============================================================
+   VISHVU TECH 2.0 — BASE LAYER
+   Reset · typography · utilities · a11y primitives
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--vf-void);
+  color: var(--vf-ink);
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-variant-ligatures: common-ligatures;
+  overflow-x: hidden;
+}
+
+img, svg, video, canvas { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+input, textarea, select { font: inherit; color: inherit; }
+::placeholder { color: var(--vf-ink-3); opacity: 1; }
+
+/* ---- Selection: brand ember ---- */
+::selection { background: var(--vf-ember); color: #fff; }
+.paper ::selection { background: var(--vf-paper-ink); color: var(--vf-paper); }
+
+/* ---- Focus: always visible, always ember ---- */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--vf-ember);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+.paper :focus-visible { outline-color: var(--vf-paper-ink); }
+
+/* ---- Skip link ---- */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 110;
+  padding: 12px 20px;
+  background: var(--vf-ember);
+  color: #fff;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  border-radius: var(--r-sm);
+  transform: translateY(-200%);
+  transition: transform var(--t-fast) var(--ease-out);
+}
+.skip-link:focus-visible { transform: translateY(0); }
+
+/* ---- Layout primitives ---- */
+.container {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+.container--narrow { max-width: 880px; }
+
+/* ---- Typography components ---- */
+.h-display {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+.h1 { font-size: var(--fs-hero); }
+.h2 { font-size: var(--fs-h2); }
+.h3 { font-size: var(--fs-h3); font-weight: 600; }
+.h4 { font-size: var(--fs-h4); font-weight: 500; }
+
+.serif-accent {
+  font-family: var(--ff-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.gradient-text {
+  background: var(--vf-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lede {
+  font-size: clamp(1.12rem, .5vw + .98rem, 1.35rem);
+  color: var(--vf-ink-2);
+  max-width: 52ch;
+  margin: 0;
+}
+p { margin: 0 0 var(--s-4); }
+p:last-child { margin-bottom: 0; }
+
+.mono-label {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-mono-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--vf-ink-3);
+}
+
+.section-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-mono-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--vf-ink-3);
+}
+.section-index::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--vf-ember);
+  flex: none;
+}
+
+/* ---- Film grain (the ink world's night texture) ---- */
+.grain-layer {
+  position: fixed;
+  inset: -50%;
+  z-index: var(--z-grain);
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  background-size: 240px 240px;
+  opacity: .05;
+  mix-blend-mode: overlay;
+}
+
+/* ---- Reveal system (JS adds .is-visible; CSS owns motion) ---- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--rise));
+  transition:
+    opacity var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+[data-reveal="fade"] { transform: none; }
+[data-reveal="left"] { transform: translateX(-32px); }
+[data-reveal="clip"] {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path var(--t-slow) var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal="clip"].is-visible { clip-path: inset(0 0 0 0); }
+
+/* Split-text masks */
+.split-line { overflow: hidden; display: block; }
+.split-inner { display: block; will-change: transform; }
+
+/* Reduced motion: everything becomes a fast fade or nothing */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: opacity 200ms linear !important;
+  }
+  .split-inner { transform: none !important; }
+}
+
+/* ---- Utilities ---- */
+.text-ink-2 { color: var(--vf-ink-2); }
+.text-ink-3 { color: var(--vf-ink-3); }
+.text-ember { color: var(--vf-ember); }
+.mt-4 { margin-top: var(--s-4); } .mt-5 { margin-top: var(--s-5); }
+.mt-6 { margin-top: var(--s-6); } .mt-7 { margin-top: var(--s-7); }
+.mt-8 { margin-top: var(--s-8); }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---- View transitions (Chromium) ---- */
+@view-transition { navigation: auto; }

@@ -1,0 +1,62 @@
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="{{ROOT}}index.html">Home</a><span class="sep">/</span><a href="{{ROOT}}journal/index.html">Journal</a><span class="sep">/</span><span aria-current="page">CWV green</span>
+        </nav>
+        <span class="mono-label">Performance · 7 min read · Oct 2026</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">Shipping Core Web Vitals green: <span class="serif-accent">the pre-launch checklist.</span></h1>
+        <p class="page-hero__sub" data-reveal>Fast sites aren't faster at the end — they're prevented from being slow at the start. This is the checklist I run before every launch, in the order that matters.</p>
+      </div>
+    </section>
+
+    <section class="act" style="padding-top:var(--s-5)">
+      <div class="container container--narrow prose">
+        <p><strong>Every performance disaster I've inherited had the same shape:</strong> performance treated as a launch-weekend activity instead of a contract-time decision. The fixes that actually move the needle — budgets, image pipelines, font strategy — have to happen before the first component is written. Here's the order I do them in, and why.</p>
+
+        <h2>1. Budget before build</h2>
+        <p>Write numbers down while it's still cheap to change plans: LCP under 1.8 seconds on throttled 4G, CLS under 0.02, total JavaScript under 180 KB compressed for a content site. Then wire those numbers into CI so a pull request that doubles the bundle fails the build. A budget nobody enforces is a wish; a budget in the pipeline is an architecture.</p>
+        <pre><code># size-limit, wired into CI
+"limits": [
+  { "path": "assets/js/**/*.js", "limit": "180 KB" }
+]</code></pre>
+
+        <h2>2. The image pipeline is 80% of the fight</h2>
+        <p>It is still stunning how many "modern" sites ship a multi-megabyte PNG as their hero. The pipeline should be: AVIF first, WebP fallback, PNG last resort; responsive <code>srcset</code> generated at build; width and height on every image so layout never shifts; and a blurred placeholder (LQIP) so images feel instant even before they load. The 2.1 MB hero from this site's first draft now ships as ~100 KB of AVIF — and nobody can tell the difference except the phone on 4G.</p>
+
+        <h2>3. Fonts: the silent tax</h2>
+        <p>Three families, thirteen weights, no subsetting — the classic portfolio mistake, and I've made it. The fixed version: self-host everything, subset to the glyphs you actually render, preload exactly two critical weights, and use metric-compatible fallbacks so the swap doesn't shift a single pixel of layout. Text should never move after it's painted; on a content site, that's non-negotiable.</p>
+
+        <h2>4. JavaScript that pays rent</h2>
+        <p>Every kilobyte of JS needs a reason to exist. The site you're reading ships GSAP and Lenis because the motion is the product — and in exchange, the shader hero loads <em>after</em> first paint, animations only run on compositor-friendly properties (transform, opacity, clip-path — never width or top), and every loop suspends when the tab hides. Motion that costs frames is decoration; motion that protects frames is design.</p>
+        <ul>
+          <li>Compositor-only animation properties, forever</li>
+          <li>Heavy effects lazy-loaded post-LCP and tier-gated by device capability</li>
+          <li>One animation clock for the whole page, not five rAF loops</li>
+          <li><code>prefers-reduced-motion</code> as a first-class mode, tested, not assumed</li>
+        </ul>
+
+        <h2>5. Measure where users live</h2>
+        <p>Lab numbers are for catching regressions; field numbers are the truth. Real-user monitoring with attribution — which image, which font, which script caused the slow LCP — turns "the site feels slow sometimes" into "the case-study hero on mobile is the problem, fix that one thing." Sample generously on small sites; the traffic is free and the outliers are the story.</p>
+
+        <h2>The checklist, compressed</h2>
+        <ol>
+          <li>Budgets in CI: JS, CSS, image, per-route weight</li>
+          <li>AVIF/WebP pipeline with LQIP and intrinsic dimensions everywhere</li>
+          <li>Self-hosted subsetted fonts, two preloads, metric-matched fallbacks</li>
+          <li>Compositor-only motion, tiered effects, reduced-motion tested</li>
+          <li>Field vitals with attribution, reviewed weekly like any other metric</li>
+        </ol>
+        <p>That's the whole religion. None of it is clever — which is the point. Speed is a habit of small disciplined decisions, made early, enforced automatically, and measured where it counts. Green scores aren't the goal; they're the receipt.</p>
+      </div>
+    </section>
+
+    <section class="act act--contact" style="padding-top:0">
+      <div class="container">
+        <h2 class="h-display h2" data-split="lines" style="margin:0 auto;max-width:18ch">Fast is a feature. <span class="serif-accent">Ship it like one.</span></h2>
+        <div style="margin-top:32px" data-reveal>
+          <a class="btn" href="{{ROOT}}services/index.html#web" data-magnetic>Web application service <span class="arr">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>

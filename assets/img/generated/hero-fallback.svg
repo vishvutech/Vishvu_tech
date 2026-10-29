@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated night horizon with aurora, ridgelines and a glowing kite">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0A0D13"/><stop offset=".55" stop-color="#101828"/><stop offset="1" stop-color="#1A2438"/>
+    </linearGradient>
+    <radialGradient id="ember" cx=".28" cy=".86" r=".5">
+      <stop offset="0" stop-color="#FF6B35" stop-opacity=".5"/><stop offset="1" stop-color="#FF6B35" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="aur" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7EE8C7" stop-opacity="0"/><stop offset=".5" stop-color="#7EE8C7" stop-opacity=".16"/><stop offset="1" stop-color="#7EE8C7" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="kiteglow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#7EE8C7" stop-opacity=".9"/><stop offset="1" stop-color="#7EE8C7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <g fill="#F2F5FA">
+    <circle cx="90" cy="80" r="1.4" opacity=".8"/><circle cx="220" cy="140" r="1" opacity=".6"/><circle cx="340" cy="60" r="1.6" opacity=".9"/>
+    <circle cx="500" cy="110" r="1" opacity=".5"/><circle cx="650" cy="70" r="1.3" opacity=".8"/><circle cx="810" cy="150" r="1" opacity=".6"/>
+    <circle cx="960" cy="90" r="1.5" opacity=".85"/><circle cx="1090" cy="130" r="1" opacity=".55"/><circle cx="420" cy="200" r="1" opacity=".4"/>
+    <circle cx="740" cy="210" r="1.1" opacity=".5"/><circle cx="1030" cy="230" r="1" opacity=".4"/><circle cx="160" cy="240" r="1.2" opacity=".5"/>
+  </g>
+  <path d="M0 180 Q 300 120 600 190 T 1200 160 V 420 H 0 Z" fill="url(#aur)"/>
+  <path d="M0 260 Q 200 210 420 270 T 900 250 T 1200 300 V 560 H 0 Z" fill="url(#aur)" opacity=".6"/>
+  <rect width="1200" height="800" fill="url(#ember)"/>
+  <path d="M0 560 L 120 540 L 260 585 L 400 545 L 560 590 L 700 550 L 860 595 L 1000 555 L 1200 590 L 1200 800 L 0 800 Z" fill="#0C101A"/>
+  <path d="M0 640 L 180 615 L 340 660 L 520 620 L 680 665 L 880 625 L 1060 670 L 1200 640 L 1200 800 L 0 800 Z" fill="#080B12"/>
+  <g transform="translate(842 300) rotate(20)">
+    <path d="M0 -26 C 6 -9 13 -3 30 0 C 13 3 6 9 0 26 C -6 9 -13 3 -30 0 C -13 -3 -6 -9 0 -26 Z" fill="#7EE8C7" opacity=".95"/>
+    <circle r="60" fill="url(#kiteglow)" opacity=".35"/>
+  </g>
+  <path d="M830 330 Q 700 480 560 570" fill="none" stroke="#7EE8C7" stroke-width="1.5" opacity=".35"/>
+  <rect width="1200" height="800" fill="#0B0E14" opacity=".12"/>
+</svg>

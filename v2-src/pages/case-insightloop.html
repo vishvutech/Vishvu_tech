@@ -1,0 +1,113 @@
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="{{ROOT}}index.html">Home</a><span class="sep">/</span><a href="{{ROOT}}work/index.html">Work</a><span class="sep">/</span><span aria-current="page">InsightLoop</span>
+        </nav>
+        <span class="mono-label">AI &amp; automation · 2025</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">InsightLoop — the dashboard <span class="serif-accent">that reads itself.</span></h1>
+        <p class="page-hero__sub" data-reveal>A SaaS team was paying an analyst six hours a week to write reports nobody read. We replaced the reports with signals that arrive before the questions do.</p>
+        <div class="page-hero__meta" data-reveal>
+          <span>Client<b>B2B SaaS · 12 people</b></span>
+          <span>Role<b>Design, build &amp; automation</b></span>
+          <span>Timeline<b>6 weeks</b></span>
+          <span>Stack<b>Python · LLM pipeline · Postgres</b></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper">
+      <div class="case-band__inner">
+        <div class="stats-band" data-reveal>
+          <div class="stat"><div class="stat__value">6<span class="unit">h/wk</span></div><div class="stat__label">Reporting time eliminated</div></div>
+          <div class="stat"><div class="stat__value">+22<span class="unit">%</span></div><div class="stat__label">Tuesday orders — pattern found</div></div>
+          <div class="stat"><div class="stat__value">3<span class="unit"> accounts</span></div><div class="stat__label">Churn risks caught early</div></div>
+          <div class="stat"><div class="stat__value">Mon 9:00<span class="unit"> am</span></div><div class="stat__label">Report lands itself, weekly</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>The problem</span>
+        <h2 data-split="lines">Beautiful reports. Zero readers.</h2>
+        <p data-reveal>The team's Monday report was a work of art — twelve slides, hand-built, six hours of an analyst's week. The open rate said 11%. The data was fine; the format was a monologue. What the team actually needed was the three things that changed since last week, ranked by what they'd cost to ignore.</p>
+        <p data-reveal>The constraint that shaped everything: no new habit allowed. If it required anyone to open a tool they didn't already open, it would fail exactly like the PDF did.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>Constraints &amp; decisions</span>
+        <h2 data-split="lines">Where AI paid — and where rules won.</h2>
+        <div class="decision-table" data-reveal>
+          <div class="decision-row">
+            <span class="a">Rules for arithmetic, LLM for language</span><span class="d">→</span>
+            <span class="b">Numbers computed deterministically; the model only narrates what changed and why it matters. No hallucinated metrics.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Push, don't pull</span><span class="d">→</span>
+            <span class="b">Monday 9:00 summary into WhatsApp + email — channels the team already lived in. The dashboard became optional.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Signals over charts</span><span class="d">→</span>
+            <span class="b">Three card types — risk, pattern, forecast — each with a next action attached. Nothing arrives without a suggestion.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Human review gate</span><span class="d">→</span>
+            <span class="b">Anything customer-facing drafts as an email, never sends itself. Automation earns trust before autonomy.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>What shipped</span>
+        <h2 data-split="lines">A signal layer with <span class="serif-accent">a voice.</span></h2>
+        <div class="case-gallery" data-reveal-group>
+          <figure data-reveal="clip">
+            <div class="frame"><img src="{{ROOT}}assets/img/generated/case-insightloop.svg" alt="InsightLoop dashboard: revenue signal chart, churn risk card, pattern card, auto-report card" loading="lazy"></div>
+            <figcaption>Fig. 01 — The signal dashboard: forecast line, three card types</figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame">{{SERVICE_AI}}</div>
+            <figcaption>Fig. 02 — The pipeline: deterministic stats in, narrated signals out</figcaption>
+          </figure>
+        </div>
+        <p data-reveal style="margin-top:32px">The pipeline runs nightly: deterministic statistics ( thresholds, deltas, cohort math) feed an LLM step that writes the one-paragraph "what changed and what to do" — capped, grounded in the numbers it was handed, and cheap to run at this volume. Weekly digest assembles itself; drafts queue for review; nothing customer-facing leaves without a human click.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>Outcome &amp; the honest retro</span>
+        <h2 data-split="lines">The report nobody read became the message everybody answers.</h2>
+        <p data-reveal>The Monday digest gets replied to in-thread — the team argues with the signal, which is exactly the point. The Tuesday +22% order pattern was found in week two and had been sitting in the data for a year. Three churn risks surfaced before renewal dates, two saved. The analyst got her six hours back and spent them on the cohort study that found the third.</p>
+        <p data-reveal><strong>What I'd do differently:</strong> I'd start with the digest alone — dashboard second. The push channel proved the value in ten days; the dashboard took three more weeks and is used by exactly two people. Also: log every generated sentence with its source numbers from day one. It made every "is this right?" conversation a thirty-second check instead of a debate.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--dark">
+      <div class="case-band__inner" style="text-align:center;padding-bottom:0">
+        <span class="kicker" data-reveal style="display:block;text-align:center">Where next</span>
+        <div class="next-actions" data-reveal-group>
+          <a class="next-action" href="{{ROOT}}work/clinicflow.html" data-reveal>
+            <span class="mono-label">Next case</span>
+            <b>ClinicFlow — UI/UX design</b>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="next-action" href="{{ROOT}}services/index.html#ai" data-reveal>
+            <span class="mono-label">Related service</span>
+            <b>AI &amp; automation</b>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="next-action" href="{{ROOT}}contact/index.html?project=insightloop" data-reveal>
+            <span class="mono-label">Start something</span>
+            <b>Like this, for you</b>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0E14">
+  <title>Shipping Core Web Vitals green — the pre-launch checklist | Vishvu Tech</title>
+  <meta name="description" content="Budgets before build, image pipelines, font discipline, rent-paying JavaScript, and field measurement: the boring religion behind fast sites.">
+  <link rel="canonical" href="https://vishvutech.com/journal/core-web-vitals.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vishvu Tech">
+  <meta property="og:title" content="The pre-launch CWV checklist">
+  <meta property="og:description" content="Budgets before build, image pipelines, font discipline, rent-paying JavaScript, and field measurement: the boring religion behind fast sites.">
+  <meta property="og:url" content="https://vishvutech.com/journal/core-web-vitals.html">
+  <meta property="og:image" content="https://vishvutech.com/assets/img/og/journal-cwv.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The pre-launch CWV checklist">
+  <meta name="twitter:description" content="Budgets before build, image pipelines, font discipline, rent-paying JavaScript, and field measurement: the boring religion behind fast sites.">
+  <meta name="twitter:image" content="https://vishvutech.com/assets/img/og/journal-cwv.jpg">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Shipping Core Web Vitals green",
+"description":"The pre-launch performance checklist","author":{"@type":"Person","name":"Vishvu"},
+"publisher":{"@type":"Organization","name":"Vishvu Tech","url":"https://vishvutech.com"},
+"datePublished":"2026-10-15","mainEntityOfPage":"https://vishvutech.com/journal/core-web-vitals.html"}
+</script>
+  <link rel="preload" href="../assets/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body class="page-essay">
+  <div class="grain-layer" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress-hairline" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Vishvu Tech — home">
+        <svg class="brand__glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset="1" stop-color="#7EE8C7"/></linearGradient></defs>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="url(#kg)"/>
+</svg>
+        <span class="brand__name">Vishvu&nbsp;Tech<em>®</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-nav__link" href="../work/index.html" ><i>Work</i><i>Work</i></a>
+        <a class="site-nav__link" href="../services/index.html" ><i>Services</i><i>Services</i></a>
+        <a class="site-nav__link" href="../about/index.html" ><i>About</i><i>About</i></a>
+        <a class="site-nav__link" href="../journal/index.html" aria-current="page"><i>Journal</i><i>Journal</i></a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:18px">
+        <a class="btn btn--sm" href="../contact/index.html" data-magnetic>Start a project</a>
+        <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" data-menu-toggle>
+          <span>Menu</span><i aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu-overlay" data-menu aria-hidden="true">
+    <nav class="menu-overlay__links" aria-label="Menu">
+      <a class="menu-overlay__link" href="../index.html"><span class="idx">01</span><i>Home<em>the journey</em></i></a>
+      <a class="menu-overlay__link" href="../work/index.html"><span class="idx">02</span><i>Work<em>proof, shipped</em></i></a>
+      <a class="menu-overlay__link" href="../services/index.html"><span class="idx">03</span><i>Services<em>six crafts</em></i></a>
+      <a class="menu-overlay__link" href="../about/index.html"><span class="idx">04</span><i>About<em>the maker</em></i></a>
+      <a class="menu-overlay__link" href="../journal/index.html"><span class="idx">05</span><i>Journal<em>notes from the forge</em></i></a>
+      <a class="menu-overlay__link" href="../contact/index.html"><span class="idx">06</span><i>Contact<em>start something</em></i></a>
+    </nav>
+    <div class="menu-overlay__foot">
+      <span>Bengaluru · <b class="time" data-time>--:--</b> IST</span>
+      <span><a href="mailto:hello@vishvutech.com">hello@vishvutech.com</a></span>
+      <span><a href="https://github.com/vishvutech" rel="me noopener">GitHub ↗</a> <a href="https://www.linkedin.com/in/vishvutech" rel="me noopener">LinkedIn ↗</a></span>
+    </div>
+  </div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span class="sep">/</span><a href="../journal/index.html">Journal</a><span class="sep">/</span><span aria-current="page">CWV green</span>
+        </nav>
+        <span class="mono-label">Performance · 7 min read · Oct 2026</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">Shipping Core Web Vitals green: <span class="serif-accent">the pre-launch checklist.</span></h1>
+        <p class="page-hero__sub" data-reveal>Fast sites aren't faster at the end — they're prevented from being slow at the start. This is the checklist I run before every launch, in the order that matters.</p>
+      </div>
+    </section>
+
+    <section class="act" style="padding-top:var(--s-5)">
+      <div class="container container--narrow prose">
+        <p><strong>Every performance disaster I've inherited had the same shape:</strong> performance treated as a launch-weekend activity instead of a contract-time decision. The fixes that actually move the needle — budgets, image pipelines, font strategy — have to happen before the first component is written. Here's the order I do them in, and why.</p>
+
+        <h2>1. Budget before build</h2>
+        <p>Write numbers down while it's still cheap to change plans: LCP under 1.8 seconds on throttled 4G, CLS under 0.02, total JavaScript under 180 KB compressed for a content site. Then wire those numbers into CI so a pull request that doubles the bundle fails the build. A budget nobody enforces is a wish; a budget in the pipeline is an architecture.</p>
+        <pre><code># size-limit, wired into CI
+"limits": [
+  { "path": "assets/js/**/*.js", "limit": "180 KB" }
+]</code></pre>
+
+        <h2>2. The image pipeline is 80% of the fight</h2>
+        <p>It is still stunning how many "modern" sites ship a multi-megabyte PNG as their hero. The pipeline should be: AVIF first, WebP fallback, PNG last resort; responsive <code>srcset</code> generated at build; width and height on every image so layout never shifts; and a blurred placeholder (LQIP) so images feel instant even before they load. The 2.1 MB hero from this site's first draft now ships as ~100 KB of AVIF — and nobody can tell the difference except the phone on 4G.</p>
+
+        <h2>3. Fonts: the silent tax</h2>
+        <p>Three families, thirteen weights, no subsetting — the classic portfolio mistake, and I've made it. The fixed version: self-host everything, subset to the glyphs you actually render, preload exactly two critical weights, and use metric-compatible fallbacks so the swap doesn't shift a single pixel of layout. Text should never move after it's painted; on a content site, that's non-negotiable.</p>
+
+        <h2>4. JavaScript that pays rent</h2>
+        <p>Every kilobyte of JS needs a reason to exist. The site you're reading ships GSAP and Lenis because the motion is the product — and in exchange, the shader hero loads <em>after</em> first paint, animations only run on compositor-friendly properties (transform, opacity, clip-path — never width or top), and every loop suspends when the tab hides. Motion that costs frames is decoration; motion that protects frames is design.</p>
+        <ul>
+          <li>Compositor-only animation properties, forever</li>
+          <li>Heavy effects lazy-loaded post-LCP and tier-gated by device capability</li>
+          <li>One animation clock for the whole page, not five rAF loops</li>
+          <li><code>prefers-reduced-motion</code> as a first-class mode, tested, not assumed</li>
+        </ul>
+
+        <h2>5. Measure where users live</h2>
+        <p>Lab numbers are for catching regressions; field numbers are the truth. Real-user monitoring with attribution — which image, which font, which script caused the slow LCP — turns "the site feels slow sometimes" into "the case-study hero on mobile is the problem, fix that one thing." Sample generously on small sites; the traffic is free and the outliers are the story.</p>
+
+        <h2>The checklist, compressed</h2>
+        <ol>
+          <li>Budgets in CI: JS, CSS, image, per-route weight</li>
+          <li>AVIF/WebP pipeline with LQIP and intrinsic dimensions everywhere</li>
+          <li>Self-hosted subsetted fonts, two preloads, metric-matched fallbacks</li>
+          <li>Compositor-only motion, tiered effects, reduced-motion tested</li>
+          <li>Field vitals with attribution, reviewed weekly like any other metric</li>
+        </ol>
+        <p>That's the whole religion. None of it is clever — which is the point. Speed is a habit of small disciplined decisions, made early, enforced automatically, and measured where it counts. Green scores aren't the goal; they're the receipt.</p>
+      </div>
+    </section>
+
+    <section class="act act--contact" style="padding-top:0">
+      <div class="container">
+        <h2 class="h-display h2" data-split="lines" style="margin:0 auto;max-width:18ch">Fast is a feature. <span class="serif-accent">Ship it like one.</span></h2>
+        <div style="margin-top:32px" data-reveal>
+          <a class="btn" href="../services/index.html#web" data-magnetic>Web application service <span class="arr">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__watermark" aria-hidden="true">VISHVU TECH</div>
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="brand" href="../index.html" style="margin-bottom:18px">
+            <svg class="brand__glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset="1" stop-color="#7EE8C7"/></linearGradient></defs>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="url(#kg)"/>
+</svg>
+            <span class="brand__name">Vishvu&nbsp;Tech<em>®</em></span>
+          </a>
+          <p class="site-footer__tag">Ambitious ideas, built and shipped — by one senior engineer you actually talk to.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../work/index.html">Work</a></li>
+            <li><a href="../services/index.html">Services</a></li>
+            <li><a href="../about/index.html">About</a></li>
+            <li><a href="../journal/index.html">Journal</a></li>
+            <li><a href="../contact/index.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../services/index.html#web">Web apps</a></li>
+            <li><a href="../services/index.html#mobile">Mobile apps</a></li>
+            <li><a href="../services/index.html#ai">AI &amp; automation</a></li>
+            <li><a href="../services/index.html#design">UI/UX design</a></li>
+            <li><a href="../services/index.html#cloud">Cloud &amp; launch</a></li>
+            <li><a href="../services/index.html#custom">Custom software</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Direct</h4>
+          <ul>
+            <li><a href="mailto:hello@vishvutech.com">hello@vishvutech.com ↗</a></li>
+            <li><a href="https://wa.me/919999999999">WhatsApp ↗</a></li>
+            <li><a href="https://github.com/vishvutech" rel="me noopener">GitHub ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/vishvutech" rel="me noopener">LinkedIn ↗</a></li>
+            <li><a href="../legal/privacy.html">Privacy</a></li>
+            <li><a href="../legal/terms.html">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__meta">
+        <span>© 2026 Vishvu Tech · Bengaluru · <b data-time>--:--</b> IST</span>
+        <span class="made">Built &amp; deployed by <b>the same pair of hands</b> you'd hire.</span>
+        <button data-toggle-motion style="font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;min-height:44px;padding:0 4px">Motion: on/off</button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cursor" data-cursor aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"><span class="cursor__label">VIEW</span></div>
+  </div>
+
+  <div class="preloader" aria-hidden="true">
+    <svg class="preloader__glyph" viewBox="0 0 64 64" fill="none">
+      <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z"
+        stroke="#FF6B35" stroke-width="1.5" pathLength="1"/>
+    </svg>
+    <div class="preloader__wordmark"><span>Vishvu Tech</span></div>
+    <div class="preloader__counter">FORGING — <b>0</b>%</div>
+  </div>
+
+  <script src="../assets/js/vendor/gsap.min.js" defer></script>
+  <script src="../assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="../assets/js/vendor/lenis.min.js" defer></script>
+  <script src="../assets/js/app/motion.js" defer></script>
+  
+</body>
+</html>

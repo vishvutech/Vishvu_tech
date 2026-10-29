@@ -1,22 +1,6 @@
-# Dependencies
 node_modules/
-package-lock.json
-
-# Build output
-dist/
-build/
-
-# Editor / OS files
-.DS_Store
-Thumbs.db
-desktop.ini
-.vscode/
-.idea/
-
-# Logs & env
 *.log
+.DS_Store
 .env
-.env.local
-
-# Temporary files
-*.tmp
+*.pem
+*.key

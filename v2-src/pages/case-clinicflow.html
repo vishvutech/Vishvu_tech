@@ -1,0 +1,123 @@
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="{{ROOT}}index.html">Home</a><span class="sep">/</span><a href="{{ROOT}}work/index.html">Work</a><span class="sep">/</span><span aria-current="page">ClinicFlow</span>
+        </nav>
+        <span class="mono-label">UI/UX design · 2024</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">ClinicFlow — booking in <span class="serif-accent">41 seconds.</span></h1>
+        <p class="page-hero__sub" data-reveal>A three-clinic healthcare group's booking flow took four screens and a phone call. Patients gave up; the front desk became a call center. We redesigned the flow until it respected the patient's busyness.</p>
+        <div class="page-hero__meta" data-reveal>
+          <span>Client<b>Healthcare group · 3 clinics</b></span>
+          <span>Role<b>UX research, UI design, prototype</b></span>
+          <span>Timeline<b>5 weeks</b></span>
+          <span>Stack<b>Figma · design system · usability tests</b></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper">
+      <div class="case-band__inner">
+        <div class="stats-band" data-reveal>
+          <div class="stat"><div class="stat__value">41<span class="unit">s</span></div><div class="stat__label">Median booking completion</div></div>
+          <div class="stat"><div class="stat__value">−53<span class="unit">%</span></div><div class="stat__label">Front-desk booking calls</div></div>
+          <div class="stat"><div class="stat__value">7<span class="unit">→ 4</span></div><div class="stat__label">Form fields · was 7</div></div>
+          <div class="stat"><div class="stat__value">92<span class="unit">%</span></div><div class="stat__label">Task success in testing</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>The problem</span>
+        <h2 data-split="lines">The form asked everything. The patient owed almost none of it.</h2>
+        <p data-reveal>Watching session recordings, the drop pattern was blunt: a seven-field form demanded date of birth, address, insurance ID, referring doctor, and reason-for-visit before it would show a single available slot. Sixty-one percent of patients abandoned at that wall, and the ones who wanted the appointment anyway called — which is the most expensive booking channel a clinic can run.</p>
+        <blockquote class="pull-quote" data-reveal>
+          We were gating the calendar behind an intake form. Nobody books a haircut that way — why a clinic?
+          <cite>— Clinic director</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>Constraints &amp; decisions</span>
+        <h2 data-split="lines">Slots first. Everything else can wait.</h2>
+        <div class="decision-table" data-reveal>
+          <div class="decision-row">
+            <span class="a">Availability before information</span><span class="d">→</span>
+            <span class="b">Patients pick a service, see open slots, and hold one for 10 minutes before any personal data. The wall moved to after the win.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Four fields, pre-filled where legal</span><span class="d">→</span>
+            <span class="b">Name, phone, and one identifier. Address and insurance collected at check-in — where staff verify it anyway.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Calendar as the home screen</span><span class="d">→</span>
+            <span class="b">The month grid leads; density per day, six free slots flagged in ember. Scanning beats filtering for a 3-service clinic.</span>
+          </div>
+          <div class="decision-row">
+            <span class="a">Tested with real patients, not staff</span><span class="d">→</span>
+            <span class="b">Five rounds with patients aged 24–71. The 41-second median and the 92% task success came from them, not from us.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>What shipped</span>
+        <h2 data-split="lines">A design system the clinic can <span class="serif-accent">actually maintain.</span></h2>
+        <div class="case-gallery" data-reveal-group>
+          <figure data-reveal="clip">
+            <div class="frame"><img src="{{ROOT}}assets/img/generated/case-clinicflow.svg" alt="ClinicFlow: month calendar with slot density and the four-step booking panel" loading="lazy"></div>
+            <figcaption>Fig. 01 — Slot-density calendar with the collapsed booking flow</figcaption>
+          </figure>
+          <figure data-reveal>
+            <div class="frame">{{SERVICE_DESIGN}}</div>
+            <figcaption>Fig. 02 — Component library: 31 tokens, every state specified</figcaption>
+          </figure>
+        </div>
+        <p data-reveal style="margin-top:32px">Deliverables went beyond screens: a 31-token design system (type, color, spacing, focus states), component specs with every interaction state, an accessibility annotation layer for the dev team, and the prototype used for patient testing. Implementation docs were written so the clinic's existing developers could ship it without guessing — and they did, in three weeks.</p>
+      </div>
+    </section>
+
+    <section class="case-band case-band--paper" style="padding-top:0">
+      <div class="case-band__inner">
+        <span class="kicker" data-reveal>Outcome &amp; the honest retro</span>
+        <h2 data-split="lines">The front desk got its afternoons back.</h2>
+        <p data-reveal>Within two months, booking calls dropped 53% and no-shows fell as SMS reminders landed in the same flow. The design system outlived the project — the clinic's patient portal adopted it, which is the sincerest form of flattery a design team can receive.</p>
+        <p data-reveal><strong>What I'd do differently:</strong> I'd fight harder against one field — "reason for visit." Clinical staff wanted it for prep; patients skipped it 40% of the time anyway. A compromise (optional, last step) tested better and I should have proposed it in round one, not round three.</p>
+        <blockquote class="testimonial" data-reveal style="margin-top:40px">
+          <p class="testimonial__quote">Finally a developer who explains trade-offs in plain language — and then delivers exactly that.</p>
+          <footer class="testimonial__who">
+            <span class="testimonial__avatar" aria-hidden="true">C</span>
+            <span><b>Clinic Director</b><span>Healthcare group</span></span>
+          </footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="case-band case-band--dark">
+      <div class="case-band__inner" style="text-align:center;padding-bottom:0">
+        <span class="kicker" data-reveal style="display:block;text-align:center">Where next</span>
+        <div class="next-actions" data-reveal-group>
+          <a class="next-action" href="{{ROOT}}work/fieldops.html" data-reveal>
+            <span class="mono-label">Next case</span>
+            <b>FieldOps — mobile app</b>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="next-action" href="{{ROOT}}services/index.html#design" data-reveal>
+            <span class="mono-label">Related service</span>
+            <b>UI/UX design</b>
+            <span class="arrow">↗</span>
+          </a>
+          <a class="next-action" href="{{ROOT}}contact/index.html?project=clinicflow" data-reveal>
+            <span class="mono-label">Start something</span>
+            <b>Like this, for you</b>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>

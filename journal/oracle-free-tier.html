@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0B0E14">
+  <title>Hosting a production site on Oracle's free tier — the complete $0 stack | Vishvu Tech</title>
+  <meta name="description" content="The exact playbook this site runs on: ARM compute, nginx, Cloudflare TLS, contact API, analytics, backups — $0/month, including the three ways it almost broke.">
+  <link rel="canonical" href="https://vishvutech.com/journal/oracle-free-tier.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vishvu Tech">
+  <meta property="og:title" content="The complete $0/month stack">
+  <meta property="og:description" content="The exact playbook this site runs on: ARM compute, nginx, Cloudflare TLS, contact API, analytics, backups — $0/month, including the three ways it almost broke.">
+  <meta property="og:url" content="https://vishvutech.com/journal/oracle-free-tier.html">
+  <meta property="og:image" content="https://vishvutech.com/assets/img/og/journal-oracle.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The complete $0/month stack">
+  <meta name="twitter:description" content="The exact playbook this site runs on: ARM compute, nginx, Cloudflare TLS, contact API, analytics, backups — $0/month, including the three ways it almost broke.">
+  <meta name="twitter:image" content="https://vishvutech.com/assets/img/og/journal-oracle.jpg">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/img/favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="../manifest.json">
+  <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Hosting a production site on Oracle's free tier",
+"description":"The complete $0 stack playbook","author":{"@type":"Person","name":"Vishvu"},
+"publisher":{"@type":"Organization","name":"Vishvu Tech","url":"https://vishvutech.com"},
+"datePublished":"2026-10-15","mainEntityOfPage":"https://vishvutech.com/journal/oracle-free-tier.html"}
+</script>
+  <link rel="preload" href="../assets/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/satoshi-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../assets/css/fonts.css">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+</head>
+<body class="page-essay">
+  <div class="grain-layer" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress-hairline" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <div class="site-header__inner">
+      <a class="brand" href="../index.html" aria-label="Vishvu Tech — home">
+        <svg class="brand__glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset="1" stop-color="#7EE8C7"/></linearGradient></defs>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="url(#kg)"/>
+</svg>
+        <span class="brand__name">Vishvu&nbsp;Tech<em>®</em></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a class="site-nav__link" href="../work/index.html" ><i>Work</i><i>Work</i></a>
+        <a class="site-nav__link" href="../services/index.html" ><i>Services</i><i>Services</i></a>
+        <a class="site-nav__link" href="../about/index.html" ><i>About</i><i>About</i></a>
+        <a class="site-nav__link" href="../journal/index.html" aria-current="page"><i>Journal</i><i>Journal</i></a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:18px">
+        <a class="btn btn--sm" href="../contact/index.html" data-magnetic>Start a project</a>
+        <button class="menu-toggle" aria-expanded="false" aria-label="Open menu" data-menu-toggle>
+          <span>Menu</span><i aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu-overlay" data-menu aria-hidden="true">
+    <nav class="menu-overlay__links" aria-label="Menu">
+      <a class="menu-overlay__link" href="../index.html"><span class="idx">01</span><i>Home<em>the journey</em></i></a>
+      <a class="menu-overlay__link" href="../work/index.html"><span class="idx">02</span><i>Work<em>proof, shipped</em></i></a>
+      <a class="menu-overlay__link" href="../services/index.html"><span class="idx">03</span><i>Services<em>six crafts</em></i></a>
+      <a class="menu-overlay__link" href="../about/index.html"><span class="idx">04</span><i>About<em>the maker</em></i></a>
+      <a class="menu-overlay__link" href="../journal/index.html"><span class="idx">05</span><i>Journal<em>notes from the forge</em></i></a>
+      <a class="menu-overlay__link" href="../contact/index.html"><span class="idx">06</span><i>Contact<em>start something</em></i></a>
+    </nav>
+    <div class="menu-overlay__foot">
+      <span>Bengaluru · <b class="time" data-time>--:--</b> IST</span>
+      <span><a href="mailto:hello@vishvutech.com">hello@vishvutech.com</a></span>
+      <span><a href="https://github.com/vishvutech" rel="me noopener">GitHub ↗</a> <a href="https://www.linkedin.com/in/vishvutech" rel="me noopener">LinkedIn ↗</a></span>
+    </div>
+  </div>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a><span class="sep">/</span><a href="../journal/index.html">Journal</a><span class="sep">/</span><span aria-current="page">The $0 stack</span>
+        </nav>
+        <span class="mono-label">Infrastructure · 8 min read · Oct 2026</span>
+        <h1 class="page-hero__title h-display h2" data-split="lines" style="margin-top:16px">Hosting a production site on Oracle's free tier — <span class="serif-accent">the complete $0 stack.</span></h1>
+        <p class="page-hero__sub" data-reveal>The page you're reading is served over TLS from an ARM instance that costs nothing, behind a CDN that costs nothing, with analytics that cost nothing. Here's the whole playbook — including the three ways it almost broke.</p>
+      </div>
+    </section>
+
+    <section class="act" style="padding-top:var(--s-5)">
+      <div class="container container--narrow prose">
+        <p><strong>This is not a "works on my machine" post.</strong> The architecture below runs a live business site — contact form, analytics, monitoring, nightly backups — on Oracle Cloud's Always Free tier plus Cloudflare's free plan. Total monthly cost: zero. Total monthly invoices: zero. The catch is that free tiers punish carelessness, so most of this article is about the care.</p>
+
+        <h2>The shape of it</h2>
+        <p>One ARM VM (Ampere A1, 2 OCPU / 12 GB) runs nginx serving the static site, a small Node service for the contact form, and self-hosted Umami for analytics. Cloudflare sits in front as CDN, TLS terminator, and DDoS filter. Static assets are fingerprinted and cached for a year; HTML is always fresh. That last pair — immutable assets plus uncached HTML — is the whole trick behind both speed and safe deploys.</p>
+        <ul>
+          <li><strong>Compute:</strong> VM.Standard.A1.Flex — ARM, which matters (see below)</li>
+          <li><strong>Edge:</strong> Cloudflare free — Universal SSL, caching, bot filtering, Turnstile</li>
+          <li><strong>Web:</strong> nginx with brotli-static, HTTP/2, grade-A security headers</li>
+          <li><strong>API:</strong> ~150 lines of Node behind nginx <code>/api/</code>, rate-limited</li>
+          <li><strong>Analytics:</strong> Umami (self-hosted, cookieless, 1 KB script)</li>
+          <li><strong>Backups:</strong> nightly tar + DB dump to Object Storage (10 GB free)</li>
+        </ul>
+
+        <h2>Why free-tier hosting needs <span class="serif-accent text-ember">more</span> discipline than paid</h2>
+        <p>Paid platforms absorb your mistakes: they autoscale, they buffer traffic, they restart things. The free tier does none of that. A viral share that would be a nothing-burger on Vercel can saturate a 10 Mbps link — unless your assets are cached at the edge, which is exactly what Cloudflare's free plan does. The discipline is the architecture: static-first (nothing computes unless it must), edge-cached (origin only serves HTML misses), and small (the whole site is under a megabyte).</p>
+        <p>There's also the reclamation policy. Oracle can idle-reclaim Always Free VMs that sit under a CPU threshold for a week. A site with real traffic plus an analytics service and a cron heartbeat never comes close to that line — but you should know the rule exists before you bet a client demo on it.</p>
+
+        <h2>The three ways it almost broke</h2>
+        <p><strong>1. "Out of capacity" on instance creation.</strong> Popular regions run dry of free ARM capacity, sometimes for days. The fix is boring: a launch-retry loop (or picking a region with headroom) and the discipline to provision <em>before</em> you need it. Provision the VM the day you sign up, not the day of the launch.</p>
+        <p><strong>2. ARM-only images.</strong> Every tutorial on the internet assumes x86. Some Docker images, panels, and PHP runtimes don't ship ARM64 variants. The nginx + Node stack in this playbook is aarch64-clean end to end — but verify each image tag before you write it into a runbook, not after.</p>
+        <p><strong>3. The email deliverability trap.</strong> Free VMs can't send mail on port 25, and naive SMTP from a fresh IP lands in spam anyway. Oracle's free tier includes 3,000 sends/month through their Email Delivery service with proper SPF/DKIM/DMARC setup — use it, then test against Gmail, Outlook, and Yahoo before you trust it. A contact form that silently vanishes into a spam folder is worse than no contact form.</p>
+
+        <h2>The nginx file that does most of the work</h2>
+        <pre><code># the two lines that matter most
+location /_assets/ {
+    add_header Cache-Control "public, max-age=31536000, immutable";
+}
+location = / {
+    add_header Cache-Control "no-cache";
+    try_files /index.html =404;
+}
+# brotli pre-compressed at build time
+brotli_static on;</code></pre>
+        <p>Fingerprinted filenames plus <code>immutable</code> means every deploy is instantly live with zero cache-purge rituals, and no visitor ever sees new HTML with old CSS — the classic mid-deploy breakage. Add the security headers (HSTS, CSP, the usual suspects), origin-lock nginx to Cloudflare's IP ranges, and point SSH at a non-standard port with key-only auth.</p>
+
+        <h2>What free-tier hosting is <span class="serif-accent text-ember">not</span></h2>
+        <p>It's not a place for a database-heavy app expecting burst traffic, and it's not something I'd sell to a client as "managed." It's a superb deal for exactly this class of product — portfolios, marketing sites, MVPs, internal tools — where the architecture is static-first and the owner wants infrastructure to be a solved problem. When a project outgrows it, the entire site is one <code>rsync</code> away from any other host. Portability is the real premium.</p>
+
+        <h2>The 15-minute version</h2>
+        <ol>
+          <li>Provision the A1 VM (Ubuntu LTS), key-only SSH, security list locked to 80/443.</li>
+          <li>Install nginx; drop in the site config with the caching and header blocks above.</li>
+          <li>Move DNS to Cloudflare; proxy the record; issue an Origin CA cert for nginx.</li>
+          <li>Deploy: <code>rsync -az --delete dist/ vm:/var/www/</code> — that's the pipeline.</li>
+          <li>Backups: nightly cron, tarball to Object Storage, a restore drill you actually watch succeed.</li>
+        </ol>
+        <p>The full nginx config, the contact API, and the systemd units are in this site's repository — shipped as the deploy kit. Steal them; they're field-tested, which is worth more than they cost. Which was nothing.</p>
+      </div>
+    </section>
+
+    <section class="act act--contact" style="padding-top:0">
+      <div class="container">
+        <h2 class="h-display h2" data-split="lines" style="margin:0 auto;max-width:18ch">Want this stack, <span class="serif-accent">running your site?</span></h2>
+        <div style="margin-top:32px" data-reveal>
+          <a class="btn" href="../services/index.html#cloud" data-magnetic>Cloud &amp; launch service <span class="arr">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__watermark" aria-hidden="true">VISHVU TECH</div>
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="brand" href="../index.html" style="margin-bottom:18px">
+            <svg class="brand__glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs><linearGradient id="kg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6B35"/><stop offset="1" stop-color="#7EE8C7"/></linearGradient></defs>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="url(#kg)"/>
+</svg>
+            <span class="brand__name">Vishvu&nbsp;Tech<em>®</em></span>
+          </a>
+          <p class="site-footer__tag">Ambitious ideas, built and shipped — by one senior engineer you actually talk to.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sitemap</h4>
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../work/index.html">Work</a></li>
+            <li><a href="../services/index.html">Services</a></li>
+            <li><a href="../about/index.html">About</a></li>
+            <li><a href="../journal/index.html">Journal</a></li>
+            <li><a href="../contact/index.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="../services/index.html#web">Web apps</a></li>
+            <li><a href="../services/index.html#mobile">Mobile apps</a></li>
+            <li><a href="../services/index.html#ai">AI &amp; automation</a></li>
+            <li><a href="../services/index.html#design">UI/UX design</a></li>
+            <li><a href="../services/index.html#cloud">Cloud &amp; launch</a></li>
+            <li><a href="../services/index.html#custom">Custom software</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Direct</h4>
+          <ul>
+            <li><a href="mailto:hello@vishvutech.com">hello@vishvutech.com ↗</a></li>
+            <li><a href="https://wa.me/919999999999">WhatsApp ↗</a></li>
+            <li><a href="https://github.com/vishvutech" rel="me noopener">GitHub ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/vishvutech" rel="me noopener">LinkedIn ↗</a></li>
+            <li><a href="../legal/privacy.html">Privacy</a></li>
+            <li><a href="../legal/terms.html">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__meta">
+        <span>© 2026 Vishvu Tech · Bengaluru · <b data-time>--:--</b> IST</span>
+        <span class="made">Built &amp; deployed by <b>the same pair of hands</b> you'd hire.</span>
+        <button data-toggle-motion style="font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;min-height:44px;padding:0 4px">Motion: on/off</button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="cursor" data-cursor aria-hidden="true">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"><span class="cursor__label">VIEW</span></div>
+  </div>
+
+  <div class="preloader" aria-hidden="true">
+    <svg class="preloader__glyph" viewBox="0 0 64 64" fill="none">
+      <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z"
+        stroke="#FF6B35" stroke-width="1.5" pathLength="1"/>
+    </svg>
+    <div class="preloader__wordmark"><span>Vishvu Tech</span></div>
+    <div class="preloader__counter">FORGING — <b>0</b>%</div>
+  </div>
+
+  <script src="../assets/js/vendor/gsap.min.js" defer></script>
+  <script src="../assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="../assets/js/vendor/lenis.min.js" defer></script>
+  <script src="../assets/js/app/motion.js" defer></script>
+  
+</body>
+</html>

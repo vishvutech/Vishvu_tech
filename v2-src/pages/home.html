@@ -1,0 +1,304 @@
+  <main id="main">
+
+    <!-- ================================================== -->
+    <!-- ACT I — THE IDEA (hero)                             -->
+    <!-- ================================================== -->
+    <section class="hero act--hero" id="top">
+      <div class="hero__fallback">{{HERO_FALLBACK}}</div>
+      <canvas class="hero__canvas" aria-hidden="true" style="display:none"></canvas>
+      <div class="hero__scrim" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero-copy">
+          <p class="hero__eyebrow mono-label"><span class="dot" aria-hidden="true"></span> Full-stack web · Mobile · UI/UX · AI &amp; automation · Cloud</p>
+          <h1 class="hero__title h-display h1" data-split="chars">Ambitious ideas, built <span class="serif-accent">and shipped.</span></h1>
+          <p class="hero__lede lede" data-reveal>Web apps, mobile products, and AI automation — designed, engineered, and deployed end-to-end by one senior engineer you actually talk to.</p>
+          <div class="hero__actions" data-reveal-group>
+            <a class="btn" href="{{ROOT}}contact/index.html" data-magnetic data-reveal>Start a project <span class="arr">↗</span></a>
+            <a class="link-roll" href="#work" data-reveal><i>See the work <span class="dim">↓</span></i><i>See the work <span class="dim">↓</span></i></a>
+          </div>
+          <div class="hero__proof" data-reveal>
+            <span><b>14+</b> products shipped</span>
+            <span><b>6</b> service lines</span>
+            <span><b>0</b> abandoned launches</span>
+            <span><b>24h</b> response time</span>
+          </div>
+        </div>
+
+        <aside class="hero__side" data-reveal="left">
+          <div class="hero__side-card">
+            <span class="mono-label">Now shipping</span>
+            <ul>
+              <li>Current <b>Checkout analytics module</b></li>
+              <li>Stack this week <b>Next.js · Postgres · OCI</b></li>
+              <li>Availability <b>December — 2 slots</b></li>
+              <li>Last deploy <b>6 days ago · 0 incidents</b></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true">SCROLL<i></i></div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- ACT II — THE PROOF (selected work)                  -->
+    <!-- ================================================== -->
+    <section class="act act--work" id="work">
+      <div class="container">
+        <div class="act__head">
+          <div>
+            <span class="section-index" data-reveal>01 — The proof</span>
+            <h2 class="act__title h-display h2" data-split="lines" style="margin-top:16px">Work that survived <span class="serif-accent">contact with users.</span></h2>
+          </div>
+          <p class="act__lede" data-reveal>Four case studies with the numbers attached — problems, decisions, outcomes. Not mood boards.</p>
+        </div>
+
+        <div class="work-grid" data-reveal-group>
+          <a class="case-card case-card--flagship" href="{{ROOT}}work/checkout-rebuild.html" data-cursor="view" data-cursor-label="VIEW" data-reveal>
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-checkout.svg" alt="Checkout analytics interface preview with +31% conversion metric" loading="eager" fetchpriority="high"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">Web app</span><span>Cloud</span><span>2025</span></p>
+              <h3 class="case-card__title h-display">The checkout rebuild</h3>
+              <p class="case-card__outcome">Three-step checkout for a D2C brand — <b>+31% conversion</b> in 60 days, LCP from 4.2s to 0.9s.</p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+
+          <a class="case-card case-card--secondary" href="{{ROOT}}work/insightloop.html" data-cursor="view" data-cursor-label="VIEW" data-reveal>
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-insightloop.svg" alt="InsightLoop AI dashboard with revenue signal chart" loading="lazy"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">AI &amp; automation</span><span>2025</span></p>
+              <h3 class="case-card__title h-display">InsightLoop</h3>
+              <p class="case-card__outcome">Signal dashboard that reads data so nobody has to — <b>6 hours of weekly reporting gone</b>.</p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="work-scroller" data-reveal>
+          <a class="case-card" href="{{ROOT}}work/clinicflow.html" data-cursor="view" data-cursor-label="VIEW">
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-clinicflow.svg" alt="ClinicFlow scheduling calendar with booking flow" loading="lazy"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">UI/UX design</span><span>2024</span></p>
+              <h3 class="case-card__title h-display">ClinicFlow</h3>
+              <p class="case-card__outcome">A booking flow patients finish in <b>41 seconds</b> — front desk calls cut in half.</p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+          <a class="case-card" href="{{ROOT}}work/fieldops.html" data-cursor="view" data-cursor-label="VIEW">
+            <div class="case-card__media"><img src="{{ROOT}}assets/img/generated/case-fieldops.svg" alt="FieldOps mobile app with routes and offline sync" loading="lazy"></div>
+            <div class="case-card__body">
+              <p class="case-card__meta"><span class="cat">Mobile app</span><span>2024</span></p>
+              <h3 class="case-card__title h-display">FieldOps</h3>
+              <p class="case-card__outcome">Offline-first field app — <b>98.6% sync success</b> where the old app lost work daily.</p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+          <a class="case-card" href="{{ROOT}}work/index.html" style="justify-content:center;align-items:center;text-align:center;background:transparent;border-style:dashed">
+            <div class="case-card__body" style="align-items:center">
+              <p class="case-card__meta"><span class="cat">Index</span></p>
+              <h3 class="case-card__title h-display">All case studies</h3>
+              <p class="case-card__outcome">Every project, with the full decision trail.</p>
+              <span class="case-card__arrow" aria-hidden="true">↗</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- ACT III — THE CRAFT (services)                      -->
+    <!-- ================================================== -->
+    <section class="act act--services" id="services">
+      <div class="container">
+        <div class="act__head">
+          <div>
+            <span class="section-index" data-reveal>02 — The craft</span>
+            <h2 class="act__title h-display h2" data-split="lines" style="margin-top:16px">Six ways to build <span class="serif-accent">something that matters.</span></h2>
+          </div>
+          <p class="act__lede" data-reveal>Every service line is anchored to shipped work — and to numbers you can hold me to.</p>
+        </div>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span class="marquee__item">Web applications</span>
+          <span class="marquee__item">Mobile apps</span>
+          <span class="marquee__item">UI/UX design</span>
+          <span class="marquee__item">AI &amp; automation</span>
+          <span class="marquee__item">Cloud &amp; deployment</span>
+          <span class="marquee__item">Custom software</span>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="service-rows" data-reveal-group>
+          <a class="service-row" href="{{ROOT}}services/index.html#web" data-reveal>
+            <span class="service-row__index">01</span>
+            <h3 class="service-row__name h-display">Web applications</h3>
+            <p class="service-row__line">Next.js apps that pass Core Web Vitals on launch day — not after the third sprint.</p>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+            <span class="service-row__preview">{{SERVICE_WEB}}</span>
+          </a>
+          <a class="service-row" href="{{ROOT}}services/index.html#mobile" data-reveal>
+            <span class="service-row__index">02</span>
+            <h3 class="service-row__name h-display">Mobile apps</h3>
+            <p class="service-row__line">Cross-platform apps that feel native in the hand and work in a dead zone.</p>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+            <span class="service-row__preview">{{SERVICE_MOBILE}}</span>
+          </a>
+          <a class="service-row" href="{{ROOT}}services/index.html#design" data-reveal>
+            <span class="service-row__index">03</span>
+            <h3 class="service-row__name h-display">UI/UX design</h3>
+            <p class="service-row__line">Interfaces where complex workflows quietly become obvious.</p>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+            <span class="service-row__preview">{{SERVICE_DESIGN}}</span>
+          </a>
+          <a class="service-row" href="{{ROOT}}services/index.html#ai" data-reveal>
+            <span class="service-row__index">04</span>
+            <h3 class="service-row__name h-display">AI &amp; automation</h3>
+            <p class="service-row__line">The boring work, automated — with AI where it pays and rules where it doesn't.</p>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+            <span class="service-row__preview">{{SERVICE_AI}}</span>
+          </a>
+          <a class="service-row" href="{{ROOT}}services/index.html#cloud" data-reveal>
+            <span class="service-row__index">05</span>
+            <h3 class="service-row__name h-display">Cloud &amp; launch</h3>
+            <p class="service-row__line">Deployed, monitored, and costing what it should — this very site runs for $0/month.</p>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+            <span class="service-row__preview">{{SERVICE_CLOUD}}</span>
+          </a>
+          <a class="service-row" href="{{ROOT}}services/index.html#custom" data-reveal>
+            <span class="service-row__index">06</span>
+            <h3 class="service-row__name h-display">Custom software</h3>
+            <p class="service-row__line">Purpose-built tools shaped around your workflow — not the other way around.</p>
+            <span class="service-row__arrow" aria-hidden="true">→</span>
+            <span class="service-row__preview">{{SERVICE_CUSTOM}}</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- ACT IV — THE MAKER (about + journey + testimonials)  -->
+    <!-- ================================================== -->
+    <section class="act act--about" id="about">
+      <div class="container">
+        <div class="act__head">
+          <div>
+            <span class="section-index" data-reveal>03 — The maker</span>
+            <h2 class="act__title h-display h2" data-split="lines" style="margin-top:16px">One senior engineer. <span class="serif-accent">Studio-grade delivery.</span></h2>
+          </div>
+          <p class="act__lede" data-reveal>No account managers, no handoffs, no telephone game. You talk to the person writing the code.</p>
+        </div>
+
+        <div class="maker-grid">
+          <div class="maker-visual" data-reveal="clip">
+            <img src="{{ROOT}}assets/img/vishvu-journey.webp" alt="Ink-drawn landscape with a winding path and a kite floating toward the horizon — the Vishvu Tech journey" loading="lazy" width="1600" height="533">
+            <span class="maker-visual__tag">The journey · <b>since 2019</b></span>
+          </div>
+          <div class="maker-copy">
+            <p data-reveal>I'm <strong>Vishvu</strong> — the engineer behind Vishvu Tech. For six years I've designed, built, and shipped digital products across web, mobile, and AI: checkout systems that lift revenue, field apps that survive dead zones, dashboards that turn data into decisions.</p>
+            <p class="text-ink-2" data-reveal>The studio model is deliberate: one senior engineer accountable end-to-end, plus a trusted network of design, content, and QA specialists assembled per project. You get agency-range capability without agency fog — and the person who scoped your project is the person who ships it.</p>
+            <div class="facts-rail" data-reveal-group>
+              <div class="fact" data-reveal><span class="mono-label">Based in</span><b>Bengaluru, IN</b></div>
+              <div class="fact" data-reveal><span class="mono-label">Shipping since</span><b>2019</b></div>
+              <div class="fact" data-reveal><span class="mono-label">Products live</span><b>14+</b></div>
+              <div class="fact" data-reveal><span class="mono-label">Response time</span><b>&lt; 24 hours</b></div>
+            </div>
+            <p style="margin-top:32px" data-reveal><a class="link-roll" href="{{ROOT}}about/index.html"><i>The full story, stack, and process <span class="dim">→</span></i><i>The full story, stack, and process <span class="dim">→</span></i></a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- The journey rail — v1's five acts, finally honored -->
+      <div class="journey">
+        <div class="journey__pin">
+          <div class="journey__heading">
+            <span class="section-index">How it ships</span>
+            <h2 class="h-display h2" style="margin-top:14px;font-size:clamp(1.8rem,3vw,2.8rem)">One connected journey, <span class="serif-accent">idea to launch.</span></h2>
+          </div>
+          <div class="journey__track">
+            <article class="journey__step" data-reveal>
+              <span class="journey__stage">01 · Discover</span>
+              <h3 class="journey__title h-display">Start with a good question.</h3>
+              <p class="journey__copy">We get to know your idea, your people, and the problem worth solving — then shape a path with a budget attached to reality.</p>
+            </article>
+            <article class="journey__step" data-reveal>
+              <span class="journey__stage">02 · Design</span>
+              <h3 class="journey__title h-display">Make it feel just right.</h3>
+              <p class="journey__copy">Rough thoughts become an intuitive experience that feels unmistakably yours — prototyped, tested, and sharpened.</p>
+            </article>
+            <article class="journey__step" data-reveal>
+              <span class="journey__stage">03 · Code</span>
+              <h3 class="journey__title h-display">Bring the details to life.</h3>
+              <p class="journey__copy">Reliable foundations, polished details, and room to grow. Every line reviewed, every dependency deliberate.</p>
+            </article>
+            <article class="journey__step" data-reveal>
+              <span class="journey__stage">04 · Build</span>
+              <h3 class="journey__title h-display">Make ready for the world.</h3>
+              <p class="journey__copy">Refined, tested, and instrumented — so real people meet a product that's already watching its own back.</p>
+            </article>
+            <article class="journey__step" data-reveal>
+              <span class="journey__stage">05 · Launch</span>
+              <h3 class="journey__title h-display">And keep going together.</h3>
+              <p class="journey__copy">Launch day is a beginning. We stay close, learn what's working, and keep your product moving.</p>
+            </article>
+          </div>
+          <div class="journey__progress">
+            <div class="bar"><i></i></div>
+            <div class="labels"><span>Idea</span><span>Design</span><span>Code</span><span>Build</span><span>Launch</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="testimonials" data-reveal-group>
+          <blockquote class="testimonial" data-reveal>
+            <p class="testimonial__quote">He treated our checkout like his own revenue line. Conversion jumped within two months — and he showed us the data first.</p>
+            <footer class="testimonial__who">
+              <span class="testimonial__avatar" aria-hidden="true">F</span>
+              <span><b>Founder</b><span>D2C retail brand</span></span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial" data-reveal>
+            <p class="testimonial__quote">The field app just works — offline, fast, no excuses. Our crews stopped carrying paper on day one.</p>
+            <footer class="testimonial__who">
+              <span class="testimonial__avatar" aria-hidden="true">O</span>
+              <span><b>Operations Lead</b><span>Logistics company</span></span>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial" data-reveal>
+            <p class="testimonial__quote">Finally a developer who explains trade-offs in plain language — and then delivers exactly that.</p>
+            <footer class="testimonial__who">
+              <span class="testimonial__avatar" aria-hidden="true">C</span>
+              <span><b>Clinic Director</b><span>Healthcare group</span></span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================== -->
+    <!-- ACT V — THE BEGINNING (contact finale)              -->
+    <!-- ================================================== -->
+    <section class="act act--contact" id="contact">
+      <div class="container">
+        <span class="section-index" data-reveal>04 — The beginning</span>
+        <h2 class="act__title h-display h2" data-split="chars" style="margin-top:18px">Have an idea you can't <span class="serif-accent">stop thinking about?</span></h2>
+        <p class="act__lede lede" data-reveal style="margin-top:24px">No big deck needed. Just a conversation — sixty seconds, and it's started.</p>
+        <div style="margin-top:40px" data-reveal>
+          <a class="btn" href="{{ROOT}}contact/index.html" data-magnetic>Tell us what you're imagining <span class="arr">↗</span></a>
+        </div>
+        <div style="margin-top:28px" data-reveal>
+          <span class="availability-chip"><span class="dot" aria-hidden="true"></span> Next opening: December — 2 slots</span>
+        </div>
+        <div class="direct-row" data-reveal>
+          <a href="mailto:hello@vishvutech.com">hello@vishvutech.com ↗</a>
+          <a href="https://wa.me/919999999999">WhatsApp ↗</a>
+          <a href="{{ROOT}}contact/index.html#form">60-second form →</a>
+        </div>
+      </div>
+    </section>
+  </main>
