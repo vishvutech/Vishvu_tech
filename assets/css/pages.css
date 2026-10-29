@@ -602,6 +602,9 @@
   .site-footer__grid { grid-template-columns: 1fr; }
   .site-footer__tag { grid-column: auto; }
   .scroll-cue { display: none; }
+  /* header CTA + menu toggle overflow the bar below ~450px — the overlay
+     menu carries the full nav + contact link, so the pill steps aside here */
+  .site-header .btn--sm { display: none; }
 }
 
 /* ===================== MOTION SAFETY ===================== */

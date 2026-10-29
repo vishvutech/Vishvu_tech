@@ -334,6 +334,7 @@
   function openMenu() {
     if (!menuOverlay) return;
     menuOverlay.classList.add('is-open');
+    menuOverlay.setAttribute('aria-hidden', 'false');
     if (menuToggle) { menuToggle.setAttribute('aria-expanded', 'true'); menuToggle.setAttribute('aria-label', 'Close menu'); }
     lockScroll(true);
     var first = menuOverlay.querySelector('.menu-overlay__link');
@@ -342,6 +343,7 @@
   function closeMenu() {
     if (!menuOverlay || !menuOverlay.classList.contains('is-open')) return;
     menuOverlay.classList.remove('is-open');
+    menuOverlay.setAttribute('aria-hidden', 'true');
     if (menuToggle) { menuToggle.setAttribute('aria-expanded', 'false'); menuToggle.setAttribute('aria-label', 'Open menu'); }
     lockScroll(false);
     if (menuToggle) menuToggle.focus();

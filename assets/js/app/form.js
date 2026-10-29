@@ -12,7 +12,10 @@
   var formStart = Date.now();
   var HONEYPOT = form.querySelector('input[name="website"]');
   var status = form.querySelector('.form-status');
-  var success = form.querySelector('.form-success');
+  /* success panel is a sibling of <form> (it must survive form.style.display='none'),
+     so query it from the wrapper scope — not from inside the form */
+  var success = (form.parentElement && form.parentElement.querySelector('.form-success')) ||
+    document.querySelector('.form-success');
   var refOut = success ? success.querySelector('.ref') : null;
   var pitch = form.querySelector('textarea[name="pitch"]');
   var count = form.querySelector('.char-count');
