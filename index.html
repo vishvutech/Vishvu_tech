@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fcf9f2" />
+    <meta name="description" content="Vishvu Tech turns ambitious ideas into thoughtful, dependable digital products." />
+    <title>Vishvu Tech — Ideas into products</title>
+    <link rel="preload" as="image" href="assets/vishvu-journey-landscape.png" fetchpriority="high" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Vishvu Tech home">
+        <span class="brand-mark" aria-hidden="true"><i></i><b></b></span>
+        <span class="brand-name">vishvu<span>tech</span></span>
+      </a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#process">Our approach</a><a href="#services">What we do</a><a href="#about">About us</a>
+      </nav>
+      <a class="button button-dark header-cta" href="mailto:hello@vishvutech.com">Let’s talk <span>↗</span></a>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </header>
+
+    <main id="top">
+      <section class="hero section-shell">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="pulse-dot"></span> YOUR IDEA, IN GOOD HANDS</div>
+          <h1>Big ideas deserve<br />to <span class="gradient-text">be built.</span></h1>
+          <p class="hero-lede">We turn ambitious ideas into thoughtful digital products — from the first sketch to the moment they meet the world.</p>
+          <div class="hero-actions"><a class="button button-blue" href="mailto:hello@vishvutech.com">Build something with us <span>↗</span></a><a class="text-link" href="#process">See how we work <span>↓</span></a></div>
+          <div class="hero-proof"><div class="proof-avatars"><span>V</span><span>+</span><span>✳</span></div><p>One close-knit team.<br /><b>From idea to launch.</b></p></div>
+        </div>
+
+        <div class="hero-art reveal"><img src="assets/vishvu-journey-landscape.png" alt="An ink-drawn landscape with a winding path and a blue-green kite floating toward the horizon" /></div>
+        <div class="hero-bottom"><span>IDEA</span><i></i><span>DESIGN</span><i></i><span>CODE</span><i></i><span>BUILD</span><i></i><span>LAUNCH</span><span class="scroll-cue">SCROLL TO EXPLORE ↓</span></div>
+      </section>
+
+      <section class="intro section-shell reveal" id="about"><div class="section-kicker"><span>01</span> A PARTNER IN THE MAKING</div><div class="intro-copy"><h2>More than a dev team.<br /><span>A team in your corner.</span></h2><p>Good products don’t happen in a handoff. They happen when curious people work closely, ask better questions, and care about every step. That’s how we work at Vishvu Tech.</p></div><div class="intro-stamp"><span>V</span><small>BUILT WITH<br />INTENTION</small></div></section>
+
+      <section class="process-section" id="process">
+        <div class="section-shell process-head reveal"><div class="section-kicker"><span>02</span> THE JOURNEY</div><div><h2>One connected journey.<br /><span>From what if to what’s next.</span></h2><p>We bring the right people and thinking to every stage — and keep the whole journey moving together.</p></div></div>
+        <div class="journey section-shell">
+          <svg class="journey-path" viewBox="0 0 1000 1300" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="stream" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d4e7ff"/><stop offset=".48" stop-color="#b8d2ff"/><stop offset="1" stop-color="#c5eee6"/></linearGradient></defs><path class="path-water" d="M120 50 C870 40 920 245 540 300 S80 490 500 560 S920 760 525 820 S100 1030 485 1080 S860 1180 860 1270"/><path class="path-highlight" d="M120 50 C870 40 920 245 540 300 S80 490 500 560 S920 760 525 820 S100 1030 485 1080 S860 1180 860 1270"/><path class="path-dash" d="M120 50 C870 40 920 245 540 300 S80 490 500 560 S920 760 525 820 S100 1030 485 1080 S860 1180 860 1270"/></svg>
+          <article class="journey-step step-one reveal"><div class="step-art idea-art"><div class="idea-orb">✳</div><span class="spark s1">✦</span><span class="spark s2">✧</span><span class="idea-note">What if...</span></div><div class="step-copy"><span class="step-num">01 — DISCOVER</span><h3>Start with<br />a good question.</h3><p>We get to know your idea, your people, and the problem worth solving. Then we shape a clear path forward.</p></div></article>
+          <article class="journey-step step-two reveal"><div class="step-art design-art"><div class="design-sheet"><i></i><i></i><i></i><b></b><span></span></div><div class="design-cursor">↖ <small>your customer</small></div></div><div class="step-copy"><span class="step-num">02 — DESIGN</span><h3>Make it feel<br />just right.</h3><p>We turn rough thoughts into a useful, intuitive experience that feels unmistakably yours.</p></div></article>
+          <article class="journey-step step-three reveal"><div class="step-art code-art"><div class="code-window"><span>✦ product.ts</span><code><i>const</i> idea = <b>“yours”</b>;<br /><i>const</i> product = <em>build</em>(idea);<br /><strong>→</strong> readyToGrow();</code><div class="code-cursor"></div></div><span class="code-chip">{ thoughtfully made }</span></div><div class="step-copy"><span class="step-num">03 — CODE</span><h3>Bring the details<br />to life.</h3><p>Our team builds the real thing with care — reliable foundations, polished details, and room to grow.</p></div></article>
+          <article class="journey-step step-four reveal"><div class="step-art build-art"><div class="build-panel"><div class="build-top"><i></i><i></i><i></i></div><div class="build-shape"></div><div class="build-bars"><i></i><i></i><i></i></div><span>Preview ready</span></div><div class="build-check">✓</div></div><div class="step-copy"><span class="step-num">04 — BUILD</span><h3>Make ready<br />for the world.</h3><p>We refine, test, and prepare everything so your product is ready for real people and real use.</p></div></article>
+          <article class="journey-step step-five reveal"><div class="step-art launch-art"><div class="launch-ring"></div><div class="rocket">↗</div><div class="launch-stars">✦ <i>✧</i> ✦</div><span class="launch-tag">YOU’RE LIVE</span></div><div class="step-copy"><span class="step-num">05 — LAUNCH</span><h3>And keep<br />going together.</h3><p>Launch day is a beginning. We stay close, learn what’s working, and help your product keep moving.</p></div></article>
+        </div>
+      </section>
+
+      <section class="services-section" id="services"><div class="section-shell"><div class="section-kicker"><span>03</span> WHAT WE BRING</div><div class="services-heading reveal"><h2>Thoughtful work,<br /><span>from every angle.</span></h2><p>From the first sketch to the final line of code, the right people make the difference.</p></div><div class="services-grid editorial-services">
+        <article class="service-feature reveal"><div class="service-visual visual-web" aria-hidden="true"><div class="web-window"><div class="scene-toolbar"><i></i><i></i><i></i><span></span></div><div class="web-copy"><small>GOOD MORNING, MAYA</small><b>A little more<br />room to grow.</b><i></i><div class="web-tiles"><span></span><span></span><span></span></div></div></div><div class="web-swatch"></div><span class="visual-tag">A clearer kind of web</span><span class="visual-code">&lt;hello world /&gt;</span></div><div class="service-feature-copy"><span class="feature-index">01 — BUILD FOR THE WEB</span><h3>Web products</h3><p>Websites and full-stack applications, made to work beautifully from the first click.</p><a href="mailto:hello@vishvutech.com" aria-label="Ask us about web products">EXPLORE <span>↗</span></a></div></article>
+        <article class="service-feature reveal"><div class="service-visual visual-app" aria-hidden="true"><div class="app-sun"></div><div class="phone-scene"><div class="phone-speaker"></div><small>today looks good</small><b>Make space<br />for what matters.</b><div class="phone-chart"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="phone-tab"><i>⌂</i><i>◉</i><i>○</i></span></div><div class="app-petal petal-one"></div><div class="app-petal petal-two"></div><span class="app-orbit"></span></div><div class="service-feature-copy"><span class="feature-index">02 — MADE FOR THE HAND</span><h3>Mobile apps</h3><p>Useful, thoughtful mobile experiences that feel right in your customers’ hands.</p><a href="mailto:hello@vishvutech.com" aria-label="Ask us about mobile apps">EXPLORE <span>↗</span></a></div></article>
+        <article class="service-feature reveal"><div class="service-visual visual-ai" aria-hidden="true"><div class="ai-halo"></div><div class="ai-orbit orbit-one"></div><div class="ai-orbit orbit-two"></div><span class="ai-star">✳</span><span class="ai-node node-one">✦</span><span class="ai-node node-two">01</span><span class="ai-node node-three">↗</span><div class="ai-chip">idea <i>→</i> insight</div><span class="ai-caption">INTELLIGENCE, WITH INTENTION</span></div><div class="service-feature-copy"><span class="feature-index">03 — MAKE WORK SMARTER</span><h3>AI & automation</h3><p>Intelligent features and automation that solve real problems for your business.</p><a href="mailto:hello@vishvutech.com" aria-label="Ask us about AI and automation">EXPLORE <span>↗</span></a></div></article>
+        <article class="service-feature reveal"><div class="service-visual visual-design" aria-hidden="true"><div class="design-board"><div class="board-top"><i></i><i></i><i></i><span>STUDIO / 01</span></div><div class="board-image"></div><div class="board-lines"><i></i><i></i><i></i></div></div><div class="palette-card"><i></i><i></i><i></i><i></i></div><div class="design-pencil"></div><span class="design-note">Less, but better.</span></div><div class="service-feature-copy"><span class="feature-index">04 — MAKE IT FEEL RIGHT</span><h3>Product design</h3><p>Clear, human-centred UI and UX that makes complex things feel simple.</p><a href="mailto:hello@vishvutech.com" aria-label="Ask us about product design">EXPLORE <span>↗</span></a></div></article>
+        <article class="service-feature reveal"><div class="service-visual visual-cloud" aria-hidden="true"><div class="cloud-sky"></div><div class="cloud-shape">☁</div><div class="server-stack"><i></i><i></i><i></i><span>ALL SYSTEMS READY</span></div><div class="cloud-path path-left"></div><div class="cloud-path path-right"></div><span class="cloud-spark">✦</span><span class="cloud-label">your product, out there</span></div><div class="service-feature-copy"><span class="feature-index">05 — READY FOR THE WORLD</span><h3>Cloud & launch</h3><p>Deployment and dependable infrastructure to help your product go live confidently.</p><a href="mailto:hello@vishvutech.com" aria-label="Ask us about cloud and launch">EXPLORE <span>↗</span></a></div></article>
+        <article class="service-feature reveal"><div class="service-visual visual-custom" aria-hidden="true"><div class="custom-block block-a"></div><div class="custom-block block-b"></div><div class="custom-terminal"><div><i></i><i></i><i></i><span>your-workflow.js</span></div><code><b>if</b> (yourProcess)<br />&nbsp;&nbsp;makeItBetter();<br /><em>→ built for you</em></code></div><span class="custom-glyph">⌘</span><span class="custom-caption">MADE AROUND YOU</span></div><div class="service-feature-copy"><span class="feature-index">06 — SHAPED AROUND YOU</span><h3>Custom software</h3><p>Purpose-built software shaped around your team, your workflow, and your goals.</p><a href="mailto:hello@vishvutech.com" aria-label="Ask us about custom software">EXPLORE <span>↗</span></a></div></article>
+      </div><p class="services-note">The right mix of services depends on your project. We’ll figure it out together.</p></div></section>
+
+      <section class="closing section-shell"><div class="closing-orbit orbit-a"></div><div class="closing-orbit orbit-b"></div><div class="closing-content reveal"><div class="section-kicker"><span>04</span> YOUR NEXT CHAPTER</div><h2>Have an idea<br />you can’t stop thinking about?</h2><p>We’d love to hear about it. Let’s make something that matters.</p><a class="button button-blue" href="mailto:hello@vishvutech.com">Tell us what you’re imagining <span>↗</span></a><div class="closing-footnote"><span>NO BIG DECK NEEDED.</span><span>JUST A CONVERSATION.</span></div></div><div class="closing-mark"><span class="brand-mark"><i></i><b></b></span><span>VISHVU<br />TECH</span></div></section>
+    </main>
+    <footer class="site-footer section-shell"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><i></i><b></b></span><span class="brand-name">vishvu<span>tech</span></span></a><span class="footer-line">Ideas into products, together.</span><a href="mailto:hello@vishvutech.com">hello@vishvutech.com ↗</a><span class="copyright">© <span id="year"></span> Vishvu Tech</span></footer>
+  </body>
+</html>
