@@ -1,45 +1,45 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Product preview">
   <defs>
-    <linearGradient id="g-emb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9E1B0"/><stop offset="1" stop-color="#72560F"/></linearGradient>
+    <linearGradient id="g-emb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16837A"/><stop offset="1" stop-color="#0B5D57"/></linearGradient>
   </defs>
-  <rect width="800" height="500" fill="#251A11"/>
-  <rect x="40" y="36" width="720" height="428" rx="14" fill="#30241A" stroke="#4A3D32"/>
-  <rect x="40" y="36" width="720" height="44" rx="14" fill="#3A2D23"/>
-  <rect x="40" y="66" width="720" height="14" fill="#3A2D23"/>
-  <circle cx="68" cy="58" r="5" fill="#DAC46D"/><circle cx="88" cy="58" r="5" fill="#A8A196"/><circle cx="108" cy="58" r="5" fill="#81AFA9"/>
-  <rect x="132" y="48" width="300" height="20" rx="10" fill="#251A11"/>
-  <text x="146" y="62" font-family="monospace" font-size="11" fill="#A8A196">clinic.example.com/schedule</text>
+  <rect width="800" height="500" fill="#F7F4EC"/>
+  <rect x="40" y="36" width="720" height="428" rx="14" fill="#FDFCF8" stroke="#E2DBC8"/>
+  <rect x="40" y="36" width="720" height="44" rx="14" fill="#F0EBDF"/>
+  <rect x="40" y="66" width="720" height="14" fill="#F0EBDF"/>
+  <circle cx="68" cy="58" r="5" fill="#0F766E"/><circle cx="88" cy="58" r="5" fill="#566A66"/><circle cx="108" cy="58" r="5" fill="#9DB8D9"/>
+  <rect x="132" y="48" width="300" height="20" rx="10" fill="#F7F4EC"/>
+  <text x="146" y="62" font-family="monospace" font-size="11" fill="#566A66">clinic.example.com/schedule</text>
   
-    <rect x="60" y="100" width="440" height="370" rx="10" fill="#3A2D23" opacity="1.0"/>
-    <text x="84" y="132" font-family="monospace" font-size="14" fill="#EDEAE2" font-weight="bold" text-anchor="start">October</text>
-    <text x="476" y="132" font-family="monospace" font-size="11" fill="#A8A196" font-weight="normal" text-anchor="end">◄  ►</text>
-    <text x="84" y="162" font-family="monospace" font-size="10" fill="#A8A196" font-weight="normal" text-anchor="middle">M</text>
-    <text x="146" y="162" font-family="monospace" font-size="10" fill="#A8A196" font-weight="normal" text-anchor="middle">T</text><text x="208" y="162" font-family="monospace" font-size="10" fill="#A8A196" font-weight="normal" text-anchor="middle">W</text>
-    <text x="270" y="162" font-family="monospace" font-size="10" fill="#A8A196" font-weight="normal" text-anchor="middle">T</text><text x="332" y="162" font-family="monospace" font-size="10" fill="#A8A196" font-weight="normal" text-anchor="middle">F</text>
-    <rect x="66" y="176" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/>
-    <rect x="128" y="176" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/><rect x="190" y="176" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/><rect x="252" y="176" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/><rect x="314" y="176" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/>
-    <rect x="66" y="228" width="50" height="44" rx="8" fill="#30241A"/><rect x="128" y="228" width="50" height="44" rx="8" fill="none" stroke="#DAC46D"/>
-    <rect x="190" y="228" width="50" height="44" rx="8" fill="#30241A"/><rect x="252" y="228" width="50" height="44" rx="8" fill="#30241A"/>
-    <rect x="314" y="228" width="50" height="44" rx="8" fill="#30241A"/>
-    <rect x="128" y="228" width="50" height="44" rx="8" fill="#DAC46D" opacity=".18"/>
-    <text x="153" y="254" font-family="monospace" font-size="13" fill="#EDEAE2" font-weight="bold" text-anchor="middle">14</text>
-    <text x="153" y="266" font-family="monospace" font-size="7" fill="#DAC46D" font-weight="normal" text-anchor="middle">6 slots</text>
-    <rect x="66" y="280" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/>
-    <rect x="128" y="280" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/><rect x="190" y="280" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/><rect x="252" y="280" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/><rect x="314" y="280" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/>
-    <rect x="66" y="332" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/>
-    <rect x="128" y="332" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/><rect x="190" y="332" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/><rect x="252" y="332" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/><rect x="314" y="332" width="50" height="44" rx="8" fill="#30241A" opacity="1.0"/>
+    <rect x="60" y="100" width="440" height="370" rx="10" fill="#F0EBDF" opacity="1.0"/>
+    <text x="84" y="132" font-family="monospace" font-size="14" fill="#123F3B" font-weight="bold" text-anchor="start">October</text>
+    <text x="476" y="132" font-family="monospace" font-size="11" fill="#566A66" font-weight="normal" text-anchor="end">◄  ►</text>
+    <text x="84" y="162" font-family="monospace" font-size="10" fill="#566A66" font-weight="normal" text-anchor="middle">M</text>
+    <text x="146" y="162" font-family="monospace" font-size="10" fill="#566A66" font-weight="normal" text-anchor="middle">T</text><text x="208" y="162" font-family="monospace" font-size="10" fill="#566A66" font-weight="normal" text-anchor="middle">W</text>
+    <text x="270" y="162" font-family="monospace" font-size="10" fill="#566A66" font-weight="normal" text-anchor="middle">T</text><text x="332" y="162" font-family="monospace" font-size="10" fill="#566A66" font-weight="normal" text-anchor="middle">F</text>
+    <rect x="66" y="176" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/>
+    <rect x="128" y="176" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="190" y="176" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="252" y="176" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="314" y="176" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/>
+    <rect x="66" y="228" width="50" height="44" rx="8" fill="#FDFCF8"/><rect x="128" y="228" width="50" height="44" rx="8" fill="none" stroke="#0F766E"/>
+    <rect x="190" y="228" width="50" height="44" rx="8" fill="#FDFCF8"/><rect x="252" y="228" width="50" height="44" rx="8" fill="#FDFCF8"/>
+    <rect x="314" y="228" width="50" height="44" rx="8" fill="#FDFCF8"/>
+    <rect x="128" y="228" width="50" height="44" rx="8" fill="#0F766E" opacity=".18"/>
+    <text x="153" y="254" font-family="monospace" font-size="13" fill="#123F3B" font-weight="bold" text-anchor="middle">14</text>
+    <text x="153" y="266" font-family="monospace" font-size="7" fill="#0F766E" font-weight="normal" text-anchor="middle">6 slots</text>
+    <rect x="66" y="280" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/>
+    <rect x="128" y="280" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="190" y="280" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="252" y="280" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="314" y="280" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/>
+    <rect x="66" y="332" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/>
+    <rect x="128" y="332" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="190" y="332" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="252" y="332" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="314" y="332" width="50" height="44" rx="8" fill="#FDFCF8" opacity="1.0"/>
     
-    <rect x="530" y="100" width="210" height="370" rx="10" fill="#3A2D23" opacity="1.0"/>
-    <text x="554" y="132" font-family="monospace" font-size="12" fill="#EDEAE2" font-weight="bold" text-anchor="start">New booking flow</text>
-    <rect x="554" y="152" width="162" height="42" rx="8" fill="#30241A" opacity="1.0"/>
-    <rect x="554" y="210" width="162" height="42" rx="8" fill="#30241A" opacity="1.0"/><rect x="554" y="268" width="162" height="42" rx="8" fill="#30241A" opacity="1.0"/><rect x="554" y="326" width="162" height="42" rx="8" fill="#30241A" opacity="1.0"/><rect x="554" y="384" width="162" height="42" rx="8" fill="#30241A" opacity="1.0"/>
-    <text x="574" y="178" font-family="monospace" font-size="10" fill="#C2BCB1" font-weight="normal" text-anchor="start">1 · pick service</text>
-    <text x="574" y="236" font-family="monospace" font-size="10" fill="#C2BCB1" font-weight="normal" text-anchor="start">2 · pick slot</text>
-    <text x="574" y="294" font-family="monospace" font-size="10" fill="#C2BCB1" font-weight="normal" text-anchor="start">3 · details</text>
-    <text x="574" y="352" font-family="monospace" font-size="10" fill="#C2BCB1" font-weight="normal" text-anchor="start">4 · confirm</text>
+    <rect x="530" y="100" width="210" height="370" rx="10" fill="#F0EBDF" opacity="1.0"/>
+    <text x="554" y="132" font-family="monospace" font-size="12" fill="#123F3B" font-weight="bold" text-anchor="start">New booking flow</text>
+    <rect x="554" y="152" width="162" height="42" rx="8" fill="#FDFCF8" opacity="1.0"/>
+    <rect x="554" y="210" width="162" height="42" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="554" y="268" width="162" height="42" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="554" y="326" width="162" height="42" rx="8" fill="#FDFCF8" opacity="1.0"/><rect x="554" y="384" width="162" height="42" rx="8" fill="#FDFCF8" opacity="1.0"/>
+    <text x="574" y="178" font-family="monospace" font-size="10" fill="#3E5C58" font-weight="normal" text-anchor="start">1 · pick service</text>
+    <text x="574" y="236" font-family="monospace" font-size="10" fill="#3E5C58" font-weight="normal" text-anchor="start">2 · pick slot</text>
+    <text x="574" y="294" font-family="monospace" font-size="10" fill="#3E5C58" font-weight="normal" text-anchor="start">3 · details</text>
+    <text x="574" y="352" font-family="monospace" font-size="10" fill="#3E5C58" font-weight="normal" text-anchor="start">4 · confirm</text>
     <rect x="554" y="384" width="162" height="42" rx="8" fill="url(#g-emb)"/>
-    <text x="635" y="410" font-family="monospace" font-size="11" fill="#2A1C10" font-weight="bold" text-anchor="middle">Booked in 41s</text>
-    <rect x="554" y="456" width="162" height="4" rx="2" fill="#4A3D32" opacity="1.0"/>
-    <text x="554" y="458" font-family="monospace" font-size="8" fill="#A8A196" font-weight="normal" text-anchor="start"></text>
+    <text x="635" y="410" font-family="monospace" font-size="11" fill="#F9F7F0" font-weight="bold" text-anchor="middle">Booked in 41s</text>
+    <rect x="554" y="456" width="162" height="4" rx="2" fill="#E2DBC8" opacity="1.0"/>
+    <text x="554" y="458" font-family="monospace" font-size="8" fill="#566A66" font-weight="normal" text-anchor="start"></text>
     
 </svg>

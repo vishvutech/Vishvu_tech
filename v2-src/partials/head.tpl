@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#251A11">
+  <meta name="theme-color" content="#F7F4EC">
   <title>{{title}}</title>
   <meta name="description" content="{{description}}">
   <link rel="canonical" href="https://vishvutech.com{{canonical}}">

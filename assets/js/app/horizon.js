@@ -1,11 +1,11 @@
 /* ============================================================
-   VISHVU TECH — GOLDEN DUSK HORIZON (WebGL hero shader) · GOLDEN HOUR
-   The v2 night landscape, re-lit as a living golden dusk:
-   stars, dusk-ribbon drift, champagne horizon, ridgelines, the brass kite.
-   Re-graded per VT-PRD-003 §12.10: espresso sky #251A11 into an amber
-   horizon #4A330F, bone stars, dusk ribbon #81AFA9 (gain ≤ .24),
-   champagne horizon glow #DAC46D, ridgelines roast-950/900,
-   the kite in brass #D3AB54 (halo ≤ .30). The scene is re-lit, not rebuilt.
+   VISHVU TECH — PORCELAIN DAWN HORIZON (WebGL hero shader) · FIRST LIGHT
+   The v2 landscape, re-lit as the actual golden hour: DAWN.
+   Porcelain sky (milk zenith → porcelain → warm bone horizon),
+   powder-sky ribbon drift, saffron dawn glow at the horizon,
+   paper-cut ridgelines, the peacock kite with a soft ink shadow.
+   Dawn has no stars — the star field is deleted (VT-PRD-004 §10.1).
+   No glows: light enters as sky gradient + cast shadow (Law L7).
    Tier A: WebGL · Tier B: static SVG (default, JS upgrades it)
    ============================================================ */
 (function () {
@@ -73,46 +73,54 @@
     'float t=u_time*0.05;',
     'p-=(u_mouse-0.5)*0.06;',
 
-    'vec3 col=mix(vec3(0.145,0.102,0.067),vec3(0.290,0.200,0.059),smoothstep(1.05,-0.15,p.y));',
+    /* porcelain dawn sky: milk zenith -> porcelain mid -> warm bone horizon */
+    'float skyTop=1.0-smoothstep(-0.15,1.05,p.y);',
+    'vec3 col=mix(vec3(0.969,0.957,0.925),vec3(0.992,0.988,0.973),skyTop);',
+    'float hor=1.0-smoothstep(-0.45,-0.05,p.y);',
+    'col=mix(col,vec3(0.941,0.914,0.847),hor*0.85);',
 
-    'vec2 grid=floor(uv*vec2(170.0,96.0));',
-    'float h=fract(sin(dot(grid,vec2(12.9898,78.233)))*43758.5453);',
-    'float star=step(0.9865,h)*smoothstep(0.22,0.72,uv.y);',
-    'star*=0.5+0.5*sin(u_time*(0.4+h)+h*6.2831);',
-    'col+=vec3(0.929,0.918,0.886)*star*0.38;',
-
+    /* powder-sky ribbon, upper third (atmosphere, not aurora) */
     'float n1=snoise(vec3(p.x*1.15,p.y*1.6-t*0.75,t*0.32));',
     'float n2=snoise(vec3(p.x*2.3+5.2,p.y*3.1-t*1.05,t*0.48));',
     'float band=smoothstep(0.05,0.75,p.y)*smoothstep(1.05,0.28,p.y);',
     'float aur=band*max(0.0,0.45*n1+0.28*n2);',
-    'col+=vec3(0.506,0.686,0.663)*aur*0.24;',
+    'col=mix(col,vec3(0.616,0.722,0.851),aur*0.22);',
 
+    /* saffron dawn glow at the horizon (light, not fire) */
     'float hy=-0.22;',
     'float glow=exp(-abs(p.y-hy)*5.5);',
     'float glowN=0.62+0.38*snoise(vec3(p.x*2.8,t*0.55,0.0));',
-    'col+=vec3(0.855,0.769,0.427)*glow*glowN*0.60;',
-    'col+=vec3(0.914,0.882,0.690)*exp(-length(p-vec2(0.22,hy))*3.2)*0.36;',
+    'col=mix(col,vec3(0.976,0.870,0.678),glow*glowN*0.55);',
+    'col=mix(col,vec3(0.957,0.816,0.557),exp(-length(p-vec2(0.22,hy))*3.2)*0.30);',
 
+    /* paper-cut ridgelines, far and near — light catches the far crest */
     'float r1=ridge(p.x,t*0.22,hy+0.155,0.145);',
     'float r2=ridge(p.x+31.0,t*0.16,hy+0.045,0.105);',
-    'if(p.y<r1){col=mix(col,vec3(0.188,0.141,0.102)+vec3(0.855,0.769,0.427)*exp(-abs(p.y-r1)*26.0)*0.45,0.965);}',
-    'if(p.y<r2){col=mix(col,vec3(0.145,0.102,0.067),0.985);}',
+    'if(p.y<r1){',
+    'vec3 rf=vec3(0.886,0.859,0.784);',
+    'float rim=exp(-abs(p.y-r1)*26.0);',
+    'col=mix(col,rf+vec3(0.164,0.094,0.0)*rim*0.55,0.965);',
+    '}',
+    'if(p.y<r2){col=mix(col,vec3(0.812,0.776,0.682),0.985);}',
 
+    /* the peacock kite — first star of morning, soft ink shadow below */
     'vec2 kp=vec2(0.34,0.335+0.022*sin(u_time*0.42));',
+    'float kshadow=exp(-length(vec2((p.x-kp.x+0.07)*1.8,(p.y-kp.y+0.12)*2.4))*8.0);',
+    'col=mix(col,vec3(0.867,0.847,0.816),kshadow*0.14);',
     'vec2 kq=p-kp;',
     'float ca=0.9397;float sa=0.342;',
     'kq=vec2(kq.x*ca-kq.y*sa,kq.x*sa+kq.y*ca);',
     'float beacon=max(abs(kq.x)*1.25,abs(kq.y));',
-    'float beaconGlow=smoothstep(0.034,0.004,beacon);',
-    'float halo=exp(-length(kq)*7.5)*0.30;',
-    'col+=vec3(0.827,0.671,0.329)*(beaconGlow*0.9+halo);',
+    'float soft=smoothstep(0.10,0.030,beacon);',
+    'col=mix(col,vec3(0.059,0.463,0.431),soft);',
     'float str=exp(-abs(length(p-vec2(0.28,hy+0.07))-0.30)*44.0);',
-    'col+=vec3(0.827,0.671,0.329)*str*0.14;',
+    'col=mix(col,vec3(0.059,0.463,0.431),str*0.30);',
 
+    /* barely-there vignette (ink-tinted, never black) + light grain */
     'float vig=smoothstep(1.45,0.30,length(uv-vec2(0.5,0.45)));',
-    'col*=mix(0.58,1.0,vig);',
+    'col*=mix(0.965,1.0,vig);',
     'float g=fract(sin(dot(gl_FragCoord.xy,vec2(12.9898,78.233))+mod(u_time,10.0))*43758.5453);',
-    'col+=(g-0.5)*0.028;',
+    'col+=(g-0.5)*0.014;',
 
     'gl_FragColor=vec4(col,1.0);',
     '}'

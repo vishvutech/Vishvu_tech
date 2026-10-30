@@ -139,19 +139,39 @@
   }
 
   /* ---------- Split text (words + chars, own implementation) ---------- */
+  /* Color-preserving: nested accent spans (.serif-accent, .serif-accent--dawn,
+     .text-ink-2 …) survive the split — their classes are carried onto each
+     word wrapper so the FIRST LIGHT jewels stay chromatic after animation. */
   function splitEl(el) {
-    var text = el.textContent.trim();
     var mode = el.getAttribute('data-split');
+    var words = [];
+    (function walk(node, classes) {
+      if (node.nodeType === 3) {
+        node.textContent.split(/\s+/).forEach(function (w) {
+          if (w) words.push({ w: w, c: classes.slice() });
+        });
+        return;
+      }
+      if (node.nodeType !== 1) return;
+      var cls = classes.slice();
+      if (node.tagName === 'SPAN') {
+        String(node.className || '').split(/\s+/).forEach(function (c) {
+          if (c && c.indexOf('split-') !== 0) cls.push(c);
+        });
+      }
+      Array.prototype.forEach.call(node.childNodes, function (n) { walk(n, cls); });
+    })(el, []);
+    var text = words.map(function (o) { return o.w; }).join(' ');
     el.setAttribute('aria-label', text);
     el.textContent = '';
     var frag = document.createDocumentFragment();
-    text.split(/\s+/).forEach(function (word, wi, arr) {
+    words.forEach(function (o, wi, arr) {
       var w = document.createElement('span');
-      w.className = 'split-word';
+      w.className = 'split-word' + (o.c.length ? ' ' + o.c.join(' ') : '');
       w.style.display = 'inline-block';
       w.style.whiteSpace = 'nowrap';
       if (mode === 'chars') {
-        Array.prototype.forEach.call(word, function (ch) {
+        Array.prototype.forEach.call(o.w, function (ch) {
           var c = document.createElement('span');
           c.className = 'split-char split-inner';
           c.style.display = 'inline-block';
@@ -163,7 +183,7 @@
         var c = document.createElement('span');
         c.className = 'split-inner';
         c.style.display = 'inline-block';
-        c.textContent = word;
+        c.textContent = o.w;
         c.setAttribute('aria-hidden', 'true');
         w.appendChild(c);
       }

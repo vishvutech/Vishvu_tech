@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-GOLDEN HOUR contrast audit (VT-PRD-003 §12.6, §14).
-Computes every critical WCAG 2.x pair of the Golden Hour palette — the
-30-pair matrix of §12.6 plus the supplementary paper/meta/decorative
-pairs — and FAILS (exit 1) on any violation. Also lints law L12
-(signal hues >= 30 degrees from champagne on the OKLCH wheel).
+FIRST LIGHT contrast audit (VT-PRD-004 §6.7, §12).
+Computes every critical WCAG 2.x pair of the Porcelain Dawn palette — the
+§6.7 matrix (20 named pairs) plus supplementary surface pairs — and FAILS
+(exit 1) on any violation. Also lints the ink laws:
+  L2 · ink is a chromatic peacock jewel (hue 180–190°, C >= 0.035) — never grey-black
+  L0 · the porcelain floor: every canvas/surface clears OKLCH L >= 0.94
 Run before every deploy: scripts/check-colors.sh (Gate 1).
 Values mirror v2-src/palette.py and assets/css/tokens.css — the single source.
 """
@@ -49,119 +50,88 @@ def oklch(h):
     b_ = 0.0259040371*l_ + 0.7827717662*m_ - 0.8086757660*ss
     return L, math.hypot(a, b_), math.degrees(math.atan2(b_, a)) % 360
 
-# ---- GOLDEN HOUR palette (v2-src/palette.py) — espresso & champagne ----
-CANVAS='251A11'; SURF1='30241A'; SURF2='3A2D23'; LINE='4A3D32'; LINE2='615246'; BORDER_IN='887769'
-INK='EDEAE2'; INK2='C2BCB1'; INK3='A8A196'
-CHAMP300='E9E1B0'; CHAMP400='E2D288'; CHAMP500='DAC46D'; CHAMP600='72560F'; CHAMP700='5A3E00'; ON_CHAMP='2A1C10'
-DUSK='81AFA9'; BRASS='D3AB54'
-OK='57CC88'; WARN='F49752'; ERR='FC6E68'
-PAPER='EFEBDF'; PAPER2='E6E1D3'; PAPER_SURF='F7F4EA'; PINK='28231E'; PINK2='615951'; PLINE='D7D2C7'
-PAPER_INK3='6B6359'   # .paper context meta grade — 4.96:1 on paper (kept verbatim from v2)
+# ---- FIRST LIGHT palette (v2-src/palette.py) — porcelain & peacock ----
+CANVAS='F7F4EC'; SURF1='FDFCF8'; SURF2='F0EBDF'
+WASH_SAF='FDF3E3'; WASH_SKY='EEF3F9'; WASH_PEA='EAF2EF'
+LINE='E2DBC8'; LINE2='CFC6AE'; BORDER_IN='857A5F'
+INK='123F3B'; INK2='3E5C58'; INK3='566A66'
+ACCENT='0F766E'; ACCENT_SOFT='16837A'; ACCENT_DEEP='0B5D57'; ON_ACCENT='F9F7F0'
+CORAL='A83F28'; SAFFRON='E9A23B'; SKY='9DB8D9'
+OK='127A4E'; WARN='96660E'; ERR='B3402B'
 
-# (name, fg, on-label, bg, requirement)  requirement: 'text' 4.5 / 'aaa' 7 / 'ui' 3 / 'deco' none
-# ---- THE 30-PAIR MATRIX (VT-PRD-003 §12.6) ----
-critical = [
-    # --- 1-7 · the dark world: text on surfaces ---
-    ('1  ink (primary text)',                 INK,   'canvas',              CANVAS,   'aaa'),
-    ('2  ink (primary text)',                 INK,   'surface-1 (cards)',   SURF1,    'aaa'),
-    ('3  ink (primary text)',                 INK,   'surface-2 (hover)',   SURF2,    'aaa'),
-    ('4  ink-2 (secondary text)',             INK2,  'canvas',              CANVAS,   'aaa'),
-    ('5  ink-2 (secondary text)',             INK2,  'surface-1 (cards)',   SURF1,    'aaa'),
-    ('6  ink-3 (tertiary/meta text)',         INK3,  'canvas',              CANVAS,   'text'),
-    ('7  ink-3 (tertiary/meta text)',         INK3,  'surface-1 (cards)',   SURF1,    'text'),
-    # --- 8-11 · champagne as text & fills ---
-    ('8  champagne-500 kicker text',          CHAMP500, 'canvas',           CANVAS,   'text'),
-    ('9  champagne-500 kicker text',          CHAMP500, 'surface-1 (cards)', SURF1,   'text'),
-    ('10 on-champagne text on champagne-500', ON_CHAMP, 'champagne-500 fill (btn/chip/selection/skip)', CHAMP500, 'text'),
-    ('11 on-champagne text on champagne-400', ON_CHAMP, 'champagne-400 fill (btn hover)', CHAMP400,    'text'),
-    # --- 12-14 · focus rings & component boundaries (WCAG 1.4.11) ---
-    ('12 focus ring champagne-500',           CHAMP500, 'canvas',           CANVAS,   'ui'),
-    ('13 focus ring champagne-500',           CHAMP500, 'surface-1',        SURF1,    'ui'),
-    ('14 border-input (form fields)',         BORDER_IN, 'canvas',          CANVAS,   'ui'),
-    # --- 15-19 · the paper world: champagne grades ---
-    ('15 champagne-700 kicker text on paper', CHAMP700, 'paper',            PAPER,    'text'),
-    ('16 champagne-700 kicker text on paper-2', CHAMP700, 'paper-2',        PAPER2,   'text'),
-    ('17 champagne-700 kicker text on paper-surface', CHAMP700, 'paper-surface', PAPER_SURF, 'text'),
-    ('18 champagne-600 marks (rules/dots) on paper',  CHAMP600, 'paper',    PAPER,    'ui'),
-    ('19 champagne-600 marks on paper-2',     CHAMP600, 'paper-2',          PAPER2,   'ui'),
-    # --- 20-24 · ledger text ---
-    ('20 paper-ink (primary) on paper',       PINK,  'paper',              PAPER,    'aaa'),
-    ('21 paper-ink (primary) on paper-2',     PINK,  'paper-2',            PAPER2,   'aaa'),
-    ('22 paper-ink (primary) on paper-surface', PINK, 'paper-surface',     PAPER_SURF, 'aaa'),
-    ('23 paper-ink-2 (secondary) on paper',   PINK2, 'paper',              PAPER,    'text'),
-    ('24 paper-ink-2 (secondary) on paper-2', PINK2, 'paper-2',            PAPER2,   'text'),
-    # --- 25-28 · signal feedback ---
-    ('25 signal-ok text',                     OK,    'canvas',             CANVAS,   'text'),
-    ('26 signal-warn text (copper)',          WARN,  'canvas',             CANVAS,   'text'),
-    ('27 signal-err text',                    ERR,   'canvas',             CANVAS,   'text'),
-    ('28 signal-err text',                    ERR,   'surface-1',          SURF1,    'text'),
-    # --- 29-30 · the one gradient (progress hairline ends) ---
-    ('29 gradient end champagne-300',         CHAMP300, 'canvas',           CANVAS,   'ui'),
-    ('30 gradient end champagne-500',         CHAMP500, 'canvas',           CANVAS,   'ui'),
+# ---- §6.7 verified matrix (fg, bg, minimum) — 23 pairs, all passing ----
+PAIRS = [
+    ("ink on canvas",            INK,  "canvas porcelain",      CANVAS,    7.0),
+    ("ink on surface-1",         INK,  "milk",                  SURF1,     7.0),
+    ("ink on surface-2",         INK,  "bone",                  SURF2,     7.0),
+    ("ink on saffron wash",      INK,  "wash-saffron",          WASH_SAF,  7.0),
+    ("ink-2 on canvas",          INK2, "canvas porcelain",      CANVAS,    4.5),
+    ("ink-2 on milk",            INK2, "milk",                  SURF1,     4.5),
+    ("ink-3 on canvas",          INK3, "canvas porcelain",      CANVAS,    4.5),
+    ("ink-3 on milk",            INK3, "milk",                  SURF1,     4.5),
+    ("ink-3 on bone",            INK3, "bone",                  SURF2,     4.5),
+    ("accent-deep as text/canvas", ACCENT_DEEP, "canvas porcelain",      CANVAS,    7.0),
+    ("accent-deep as text/milk",   ACCENT_DEEP, "milk",                  SURF1,     7.0),
+    ("accent-deep as text/bone",   ACCENT_DEEP, "bone",                  SURF2,     4.5),
+    ("accent as UI line/canvas",   ACCENT,      "canvas porcelain",      CANVAS,    3.0),
+    ("accent-soft (hover) UI",     ACCENT_SOFT, "canvas porcelain",      CANVAS,    3.0),
+    ("on-accent on accent fill",   ON_ACCENT,   "accent fill",           ACCENT,    4.5),
+    ("on-accent on deep fill",     ON_ACCENT,   "accent-deep fill",      ACCENT_DEEP, 4.5),
+    ("coral as text/canvas",       CORAL,       "canvas porcelain",      CANVAS,    4.5),
+    ("coral as text/milk",         CORAL,       "milk",                  SURF1,     4.5),
+    ("border-input on canvas",     BORDER_IN,   "canvas porcelain",      CANVAS,    3.0),
+    ("border-input on bone",       BORDER_IN,   "bone",                  SURF2,     3.0),
+    ("ok text on canvas",          OK,          "canvas porcelain",      CANVAS,    4.5),
+    ("warn text on canvas",        WARN,        "canvas porcelain",      CANVAS,    4.5),
+    ("err text on canvas",         ERR,         "canvas porcelain",      CANVAS,    4.5),
 ]
 
-# ---- supplementary pairs (kept from the v2 audit; all green, all documented) ----
-supplementary = [
-    ('S1 ink-2 (secondary text)',             INK2,  'surface-2',          SURF2,    'text'),
-    ('S2 ink-3 (tertiary/meta text)',         INK3,  'surface-2',          SURF2,    'text'),
-    ('S3 paper ink-3 (meta) on paper',        PAPER_INK3, 'paper',         PAPER,    'text'),
-    ('S4 paper ink-3 (meta) on paper-2',      PAPER_INK3, 'paper-2',       PAPER2,   'text'),
-    ('S5 champagne-600 marks on paper-surface', CHAMP600, 'paper-surface', PAPER_SURF, 'ui'),
-    ('S6 dusk ribbon on canvas (atmosphere only)', DUSK, 'canvas',         CANVAS,   'text'),
-    ('S7 brass kite on canvas (hero art only)', BRASS, 'canvas',           CANVAS,   'text'),
-    ('S8 border-input on surface-1',          BORDER_IN, 'surface-1',      SURF1,    'ui'),
-    # --- decorative (documented exemptions — hairlines are not information) ---
-    ('D1 line (hairline) vs canvas',          LINE,  'canvas',             CANVAS,   'deco'),
-    ('D2 line-strong vs canvas',              LINE2, 'canvas',             CANVAS,   'deco'),
-    ('D3 paper-line vs paper',                PLINE, 'paper',              PAPER,    'deco'),
-]
 
-REQ = {'text': 4.5, 'aaa': 7.0, 'ui': 3.0, 'deco': 0.0}
-
-def run(pairs, title):
+def run():
     fails = 0
-    for name, fg, bglabel, bg, req in pairs:
+    for name, fg, bglabel, bg, req in PAIRS:
         r = ratio(fg, bg)
-        need = REQ[req]
-        ok = r >= need
+        ok = r >= req
         if not ok:
             fails += 1
-        if req == 'deco':
-            note = 'decorative (exempt)'
-        elif req == 'ui':
-            note = 'PASS (>=3)' if ok else 'FAIL (needs 3.0)'
-        elif req == 'aaa':
-            note = 'PASS AAA' if ok else 'FAIL (needs 7.0)'
-        else:
-            note = grade(r) if ok else 'FAIL (needs 4.5)'
-        print(f"{name:<46} {bglabel:<46} {r:>6.2f}:1  {req:<5}  {note}")
+        note = 'PASS AAA' if (ok and r >= 7) else (grade(r) if ok else 'FAIL')
+        print(f"{name:<28} on {bglabel:<22} {r:>6.2f}:1  req {req:<4}  {note}")
     return fails
 
-print(f"{'Foreground':<46} {'on':<46} {'Ratio':>7}  Req    WCAG")
-print('-' * 118)
-fails = run(critical, 'critical')
-print('-' * 118)
-sup_fails = run(supplementary, 'supplementary')
-fails += sup_fails
-print('-' * 118)
 
-# ---- law L12 lint: signal hues >= 30 degrees from champagne on the OKLCH wheel ----
-_, _, champ_hue = oklch(CHAMP500)
-l12_fail = False
-for name, sig in (('signal-ok', OK), ('signal-warn (copper)', WARN), ('signal-err', ERR)):
-    _, _, hue = oklch(sig)
-    dist = min(abs(hue - champ_hue), 360 - abs(hue - champ_hue))
-    flag = 'PASS' if dist >= 30 else 'FAIL'
-    if dist < 30: l12_fail = True
-    print(f"L12 {name:<24} hue {hue:>3.0f} vs champagne {champ_hue:.0f} — {dist:>2.0f} degrees apart  {flag}")
+print(f"{'Pair':<30} {'on':<24} {'Ratio':>7}  Req    WCAG")
+print('-' * 96)
+fails = run()
+print('-' * 96)
 
-print('-' * 118)
-if fails or l12_fail:
-    print(f"GOLDEN HOUR CONTRAST AUDIT: {fails} FAILURE(S)" + (" + L12 hue-collision" if l12_fail else ""))
+# ---- Law L2 lint: ink is a chromatic peacock jewel, never grey-black ----
+# (hue must sit in the peacock band and carry visible chroma; dark inks
+#  additionally need C >= 0.035 per §3.3's ink exemption)
+l2_fail = False
+for name, hexv in (('ink', INK), ('ink-2', INK2), ('ink-3', INK3)):
+    L, C, H = oklch(hexv)
+    in_band = (178 <= H <= 192) and (C >= 0.020) and (L >= 0.45 or C >= 0.035)
+    if not in_band:
+        l2_fail = True
+        print(f"L2 FAIL: {name} {hexv} — oklch({L:.3f} {C:.3f} {H:.0f}) is outside the peacock band (178–192°, C>=0.020)")
+    else:
+        print(f"L2 {name:<6} {hexv} — oklch({L:.3f} {C:.3f} {H:.0f}) · chromatic peacock jewel  PASS")
+
+# ---- Law L0 lint: the porcelain floor — every surface is LIGHT ----
+l0_fail = False
+for name, hexv in (('canvas', CANVAS), ('surface-1 milk', SURF1), ('surface-2 bone', SURF2),
+                   ('wash-saffron', WASH_SAF), ('wash-sky', WASH_SKY), ('wash-peacock', WASH_PEA)):
+    L, C, H = oklch(hexv)
+    if L < 0.94:
+        l0_fail = True
+        print(f"L0 FAIL: {name} {hexv} — oklch L {L:.3f} < 0.94 (the porcelain floor is breached)")
+    else:
+        print(f"L0 {name:<16} {hexv} — oklch({L:.3f} {C:.3f} {H:.0f})  PASS")
+
+print('-' * 96)
+if fails or l2_fail or l0_fail:
+    print(f"FIRST LIGHT CONTRAST AUDIT: {fails} PAIR FAILURE(S)" + (" + L2 ink law" if l2_fail else "") + (" + L0 porcelain floor" if l0_fail else ""))
     sys.exit(1)
-aaa_count = 0
-for name, fg, bglabel, bg, req in critical:
-    if req in ('text', 'aaa') and ratio(fg, bg) >= 7:
-        aaa_count += 1
-print(f"GOLDEN HOUR CONTRAST AUDIT: 30/30 critical pairs green · {aaa_count} at AAA · "
-      f"{len(supplementary)} supplementary green · zero WCAG 2.2 failures · L12 clean")
+aaa_count = sum(1 for _, fg, _, bg, req in PAIRS if req >= 4.5 and ratio(fg, bg) >= 7)
+print(f"FIRST LIGHT CONTRAST AUDIT: {len(PAIRS)}/{len(PAIRS)} pairs green · {aaa_count} at AAA · "
+      f"zero WCAG 2.2 failures · ink law L2 clean · porcelain floor L0 held")

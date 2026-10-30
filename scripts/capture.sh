@@ -1,46 +1,42 @@
 #!/bin/bash
-# Capture rendered screenshots of Vishvu Tech static site for the color audit
+# Capture rendered screenshots of the Vishvu Tech static site for the
+# colour pixel audit (VT-PRD-004 §15.2) and OG card regeneration (§10.3).
+# Usage: bash scripts/capture.sh [port]
 set -e
-SITE=/home/z/my-project/vishvu-tech
-OUT=/home/z/my-project/download/current-site-screenshots
-URL=http://127.0.0.1:8080
+PORT="${1:-8080}"
+SITE="$(cd "$(dirname "$0")/.." && pwd)"
+OUT="${SITE}/../fl-shots"
+URL="http://127.0.0.1:${PORT}"
 
 mkdir -p "$OUT"
 cd "$SITE"
-python3 -m http.server 8080 >/home/z/my-project/work/server.log 2>&1 &
+python3 -m http.server "$PORT" >/tmp/vishvu-server.log 2>&1 &
 SRV=$!
+trap 'kill $SRV 2>/dev/null || true' EXIT
 sleep 1.5
 
 FORCE='document.querySelectorAll("[data-reveal]").forEach(el=>el.classList.add("is-visible")); document.querySelector(".preloader")?.classList.add("is-hidden"); const c=document.querySelector(".cursor"); if(c) c.style.display="none"; "ok"'
 
 shot() {
   agent-browser open "$URL$1" >/dev/null
-  agent-browser wait --load networkidle >/dev/null
-  agent-browser wait 4000 >/dev/null
-  agent-browser eval "$FORCE" >/dev/null
-  agent-browser screenshot "$OUT/$2" --full
-  echo "captured: $2"
+  agent-browser wait --load networkidle >/dev/null 2>&1 || true
+  agent-browser wait 3500 >/dev/null 2>&1 || true
+  agent-browser eval "$FORCE" >/dev/null 2>&1 || true
+  agent-browser wait 600 >/dev/null 2>&1 || true
+  agent-browser screenshot --full "$OUT/$2" >/dev/null 2>&1
+  echo "shot: $2"
 }
 
-agent-browser set viewport 1920 1080
+agent-browser set viewport 1600 1000 >/dev/null 2>&1 || true
 
-# Home: full page + hero viewport (same load)
-agent-browser open "$URL/" >/dev/null
-agent-browser wait --load networkidle >/dev/null
-agent-browser wait 5000 >/dev/null
-agent-browser eval "$FORCE" >/dev/null
-agent-browser screenshot "$OUT/01-home-desktop-full.png" --full
-echo "captured: 01-home-desktop-full.png"
-agent-browser screenshot "$OUT/02-home-desktop-hero.png"
-echo "captured: 02-home-desktop-hero.png"
+shot "/"             home.png
+shot "/work/"        work.png
+shot "/services/"    services.png
+shot "/about/"       about.png
+shot "/contact/"     contact.png
+shot "/journal/"     journal.png
+shot "/work/checkout-rebuild.html" case-checkout.png
+shot "/journal/oracle-free-tier.html" essay-oracle.png
+shot "/nope-404-check" 404.png
 
-shot "/work/index.html" 03-work-desktop-full.png
-shot "/work/fieldops.html" 04-case-fieldops-desktop-full.png
-shot "/services/index.html" 05-services-desktop-full.png
-shot "/contact/index.html" 06-contact-desktop-full.png
-
-agent-browser set viewport 390 844
-shot "/" 07-home-mobile-full.png
-
-kill $SRV 2>/dev/null || true
-echo "ALL DONE"
+echo "done -> $OUT (now run: python3 scripts/pixel_audit.py)"

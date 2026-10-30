@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
 """
-Vishvu Tech — GOLDEN HOUR SVG visual library (build-time generated).
-Abstract product mockups in the Golden Hour palette. Vector-crisp, ~3KB each.
+Vishvu Tech — FIRST LIGHT SVG visual library (build-time generated, VT-PRD-004 §10).
+Abstract product mockups in the Porcelain Dawn palette. Vector-crisp, ~3KB each.
 No fake screenshots — intentional, branded UI compositions.
 
 Every color comes from palette.py (the single source of truth, law L9).
-Re-ink rules (VT-PRD-003 §12.10.2): void→roast-950, surfaces→roast-900/850,
-lines→roast-800, ink→bone, UI accents→champagne-500, atmosphere→dusk ribbon.
-Gradients stay in-family (champagne 300→600 lightness ramp, law L4).
+Re-ink rules (VT-PRD-004 §10.2): canvas porcelain, panels milk/bone,
+hairlines line/line-strong, ink peacock, UI accents peacock-500,
+atmosphere sky, highlight marks saffron. Mockups render as bright surfaces.
+Gradients stay in-family (peacock 300→600 lightness ramp, law L4).
 """
 
 import palette as P
 
 
 def browser_frame(inner: str, title: str = "app.vishvutech.com", w=800, h=500, bg=P.SURFACE) -> str:
-    """Dark browser window chrome wrapping arbitrary inner SVG content."""
+    """Light browser window chrome wrapping arbitrary inner SVG content."""
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Product preview">
   <defs>
     <linearGradient id="g-emb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{P.EMBER_300}"/><stop offset="1" stop-color="{P.EMBER_600}"/></linearGradient>
@@ -269,58 +270,52 @@ def journal_cover(kind: str) -> str:
 
 # ---------------------------------------------------------------- Journey landscape fallback (hero Tier B)
 def hero_fallback_svg() -> str:
-    """Static golden dusk — same composition as the shader: espresso sky,
-    dusk ribbon, champagne horizon glow, ridgelines, the brass kite."""
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated golden-dusk horizon with a dusk ribbon, ridgelines and a brass kite">
+    """Static dawn — same composition as the shader: porcelain sky, powder-sky
+    band, saffron horizon glow, paper-cut ridgelines, the peacock kite.
+    Dawn has no stars — the star field is deleted (VT-PRD-004 §10.1)."""
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated porcelain-dawn horizon with a powder-sky band, soft ridgelines and a peacock kite">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="{P.SKY_TOP}"/><stop offset=".55" stop-color="{P.SKY_MID}"/><stop offset="1" stop-color="{P.SKY_BOTTOM}"/>
     </linearGradient>
-    <radialGradient id="ember" cx=".28" cy=".86" r=".5">
-      <stop offset="0" stop-color="{P.EMBER}" stop-opacity=".5"/><stop offset="1" stop-color="{P.EMBER}" stop-opacity="0"/>
+    <radialGradient id="ember" cx=".28" cy=".92" r=".5">
+      <stop offset="0" stop-color="{P.SAFFRON}" stop-opacity=".28"/><stop offset="1" stop-color="{P.SAFFRON}" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="aur" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="{P.AURORA}" stop-opacity="0"/><stop offset=".5" stop-color="{P.AURORA}" stop-opacity=".11"/><stop offset="1" stop-color="{P.AURORA}" stop-opacity="0"/>
+      <stop offset="0" stop-color="{P.AURORA}" stop-opacity="0"/><stop offset=".5" stop-color="{P.AURORA}" stop-opacity=".18"/><stop offset="1" stop-color="{P.AURORA}" stop-opacity="0"/>
     </linearGradient>
-    <radialGradient id="kiteglow" cx=".5" cy=".5" r=".5">
-      <stop offset="0" stop-color="{P.BRASS_KITE}" stop-opacity=".9"/><stop offset="1" stop-color="{P.BRASS_KITE}" stop-opacity="0"/>
+    <radialGradient id="kiteshade" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="{P.INK}" stop-opacity=".14"/><stop offset="1" stop-color="{P.INK}" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="1200" height="800" fill="url(#sky)"/>
-  <g fill="{P.INK}">
-    <circle cx="90" cy="80" r="1.4" opacity=".8"/><circle cx="220" cy="140" r="1" opacity=".6"/><circle cx="340" cy="60" r="1.6" opacity=".9"/>
-    <circle cx="500" cy="110" r="1" opacity=".5"/><circle cx="650" cy="70" r="1.3" opacity=".8"/><circle cx="810" cy="150" r="1" opacity=".6"/>
-    <circle cx="960" cy="90" r="1.5" opacity=".85"/><circle cx="1090" cy="130" r="1" opacity=".55"/><circle cx="420" cy="200" r="1" opacity=".4"/>
-    <circle cx="740" cy="210" r="1.1" opacity=".5"/><circle cx="1030" cy="230" r="1" opacity=".4"/><circle cx="160" cy="240" r="1.2" opacity=".5"/>
-  </g>
   <path d="M0 180 Q 300 120 600 190 T 1200 160 V 420 H 0 Z" fill="url(#aur)"/>
   <path d="M0 260 Q 200 210 420 270 T 900 250 T 1200 300 V 560 H 0 Z" fill="url(#aur)" opacity=".5"/>
   <rect width="1200" height="800" fill="url(#ember)"/>
-  <path d="M0 560 L 120 540 L 260 585 L 400 545 L 560 590 L 700 550 L 860 595 L 1000 555 L 1200 590 L 1200 800 L 0 800 Z" fill="{P.SURFACE}"/>
-  <path d="M0 640 L 180 615 L 340 660 L 520 620 L 680 665 L 880 625 L 1060 670 L 1200 640 L 1200 800 L 0 800 Z" fill="{P.VOID}"/>
+  <path d="M0 560 L 120 540 L 260 585 L 400 545 L 560 590 L 700 550 L 860 595 L 1000 555 L 1200 590 L 1200 800 L 0 800 Z" fill="{P.LINE}"/>
+  <path d="M0 640 L 180 615 L 340 660 L 520 620 L 680 665 L 880 625 L 1060 670 L 1200 640 L 1200 800 L 0 800 Z" fill="{P.LINE_STRONG}"/>
   <g transform="translate(842 300) rotate(20)">
-    <path d="M0 -26 C 6 -9 13 -3 30 0 C 13 3 6 9 0 26 C -6 9 -13 3 -30 0 C -13 -3 -6 -9 0 -26 Z" fill="{P.BRASS_KITE}" opacity=".95"/>
-    <circle r="60" fill="url(#kiteglow)" opacity=".35"/>
+    <circle r="64" fill="url(#kiteshade)" cy="10"/>
+    <path d="M0 -26 C 6 -9 13 -3 30 0 C 13 3 6 9 0 26 C -6 9 -13 3 -30 0 C -13 -3 -6 -9 0 -26 Z" fill="{P.PEACOCK_500}"/>
   </g>
-  <path d="M830 330 Q 700 480 560 570" fill="none" stroke="{P.BRASS_KITE}" stroke-width="1.5" opacity=".35"/>
-  <rect width="1200" height="800" fill="{P.VOID}" opacity=".12"/>
+  <path d="M830 330 Q 700 480 560 570" fill="none" stroke="{P.PEACOCK_500}" stroke-width="1.5" opacity=".3"/>
 </svg>'''
 
 
 # ---------------------------------------------------------------- Brand glyph (the four-point star)
-# Re-inked per VT-PRD-003 §12.10.3: single-metal champagne-500 fill,
-# transparent ground — one metal, one message. The ramp is retired.
+# Re-inked per VT-PRD-004 §10.5: peacock-500 on transparent ground —
+# the first star of morning, not a gold fleck in the dark.
 BRAND_GLYPH = f'''<svg class="brand__glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
-  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="{P.CHAMP_500}"/>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="{P.PEACOCK_500}"/>
 </svg>'''
 
-BRAND_GLYPH_DARK = BRAND_GLYPH.replace(f'fill="{P.CHAMP_500}"', f'fill="{P.LEDGER_INK}"')
+BRAND_GLYPH_DARK = BRAND_GLYPH.replace(f'fill="{P.PEACOCK_500}"', f'fill="{P.INK}"')
 
 
-# ---------------------------------------------------------------- Golden Hour marks
+# ---------------------------------------------------------------- First Light marks
 # Exposed for build.py token substitution (law L9: templates never hardcode color)
-KITE_MARK = P.BRASS_KITE          # the 404 brass kite mark (§12.8)
-PRELOADER_STROKE = P.CHAMP_500    # the preloader star outline (§12.8)
+KITE_MARK = P.PEACOCK_500          # the 404 peacock kite mark
+PRELOADER_STROKE = P.PEACOCK_500   # the preloader star outline
 
 
 if __name__ == "__main__":
@@ -333,4 +328,4 @@ if __name__ == "__main__":
             f.write(fn())
     with open(os.path.join(out, "hero-fallback.svg"), "w") as f:
         f.write(hero_fallback_svg())
-    print("SVGs generated (Golden Hour):", sorted(os.listdir(out)))
+    print("SVGs generated (First Light):", sorted(os.listdir(out)))

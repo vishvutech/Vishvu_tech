@@ -1,46 +1,46 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Product preview">
   <defs>
-    <linearGradient id="g-emb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#E9E1B0"/><stop offset="1" stop-color="#72560F"/></linearGradient>
+    <linearGradient id="g-emb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#16837A"/><stop offset="1" stop-color="#0B5D57"/></linearGradient>
   </defs>
-  <rect width="800" height="500" fill="#251A11"/>
-  <rect x="40" y="36" width="720" height="428" rx="14" fill="#30241A" stroke="#4A3D32"/>
-  <rect x="40" y="36" width="720" height="44" rx="14" fill="#3A2D23"/>
-  <rect x="40" y="66" width="720" height="14" fill="#3A2D23"/>
-  <circle cx="68" cy="58" r="5" fill="#DAC46D"/><circle cx="88" cy="58" r="5" fill="#A8A196"/><circle cx="108" cy="58" r="5" fill="#81AFA9"/>
-  <rect x="132" y="48" width="300" height="20" rx="10" fill="#251A11"/>
-  <text x="146" y="62" font-family="monospace" font-size="11" fill="#A8A196">fieldops — route today</text>
+  <rect width="800" height="500" fill="#F7F4EC"/>
+  <rect x="40" y="36" width="720" height="428" rx="14" fill="#FDFCF8" stroke="#E2DBC8"/>
+  <rect x="40" y="36" width="720" height="44" rx="14" fill="#F0EBDF"/>
+  <rect x="40" y="66" width="720" height="14" fill="#F0EBDF"/>
+  <circle cx="68" cy="58" r="5" fill="#0F766E"/><circle cx="88" cy="58" r="5" fill="#566A66"/><circle cx="108" cy="58" r="5" fill="#9DB8D9"/>
+  <rect x="132" y="48" width="300" height="20" rx="10" fill="#F7F4EC"/>
+  <text x="146" y="62" font-family="monospace" font-size="11" fill="#566A66">fieldops — route today</text>
   
-    <rect x="300" y="92" width="200" height="400" rx="26" fill="#251A11" stroke="#4A3D32" stroke-width="2"/>
-    <rect x="316" y="128" width="168" height="346" rx="14" fill="#30241A"/>
-    <rect x="368" y="104" width="64" height="10" rx="5" fill="#3A2D23"/>
-    <text x="400" y="152" font-family="monospace" font-size="15" fill="#EDEAE2" font-weight="bold" text-anchor="middle">Today</text>
-    <text x="400" y="168" font-family="monospace" font-size="9" fill="#A8A196" font-weight="normal" text-anchor="middle">6 jobs · 2 routes</text>
-    <path d="M330 300 C 360 250, 440 260, 470 210" fill="none" stroke="#81AFA9" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
-    <path d="M330 340 C 380 320, 420 360, 470 330" fill="none" stroke="#DAC46D" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
-    <circle cx="330" cy="300" r="6" fill="#81AFA9"/><circle cx="470" cy="210" r="6" fill="#81AFA9"/>
-    <circle cx="330" cy="340" r="6" fill="#DAC46D"/><circle cx="470" cy="330" r="6" fill="#DAC46D"/>
-    <rect x="330" y="200" width="140" height="18" rx="5" fill="#3A2D23" opacity="1.0"/>
-    <rect x="330" y="226" width="90" height="18" rx="5" fill="#3A2D23" opacity="1.0"/><rect x="330" y="252" width="120" height="18" rx="5" fill="#3A2D23" opacity="1.0"/>
-    <rect x="330" y="396" width="150" height="14" rx="4" fill="#3A2D23" opacity="1.0"/>
-    <rect x="330" y="418" width="110" height="14" rx="4" fill="#3A2D23" opacity="1.0"/><rect x="330" y="440" width="130" height="14" rx="4" fill="#3A2D23" opacity="1.0"/>
+    <rect x="300" y="92" width="200" height="400" rx="26" fill="#F7F4EC" stroke="#E2DBC8" stroke-width="2"/>
+    <rect x="316" y="128" width="168" height="346" rx="14" fill="#FDFCF8"/>
+    <rect x="368" y="104" width="64" height="10" rx="5" fill="#F0EBDF"/>
+    <text x="400" y="152" font-family="monospace" font-size="15" fill="#123F3B" font-weight="bold" text-anchor="middle">Today</text>
+    <text x="400" y="168" font-family="monospace" font-size="9" fill="#566A66" font-weight="normal" text-anchor="middle">6 jobs · 2 routes</text>
+    <path d="M330 300 C 360 250, 440 260, 470 210" fill="none" stroke="#9DB8D9" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
+    <path d="M330 340 C 380 320, 420 360, 470 330" fill="none" stroke="#0F766E" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
+    <circle cx="330" cy="300" r="6" fill="#9DB8D9"/><circle cx="470" cy="210" r="6" fill="#9DB8D9"/>
+    <circle cx="330" cy="340" r="6" fill="#0F766E"/><circle cx="470" cy="330" r="6" fill="#0F766E"/>
+    <rect x="330" y="200" width="140" height="18" rx="5" fill="#F0EBDF" opacity="1.0"/>
+    <rect x="330" y="226" width="90" height="18" rx="5" fill="#F0EBDF" opacity="1.0"/><rect x="330" y="252" width="120" height="18" rx="5" fill="#F0EBDF" opacity="1.0"/>
+    <rect x="330" y="396" width="150" height="14" rx="4" fill="#F0EBDF" opacity="1.0"/>
+    <rect x="330" y="418" width="110" height="14" rx="4" fill="#F0EBDF" opacity="1.0"/><rect x="330" y="440" width="130" height="14" rx="4" fill="#F0EBDF" opacity="1.0"/>
     <circle cx="446" cy="440" r="18" fill="url(#g-emb)"/>
-    <text x="446" y="446" font-family="monospace" font-size="16" fill="#2A1C10" font-weight="bold" text-anchor="middle">✓</text>
+    <text x="446" y="446" font-family="monospace" font-size="16" fill="#F9F7F0" font-weight="bold" text-anchor="middle">✓</text>
     
-    <text x="120" y="130" font-family="monospace" font-size="13" fill="#EDEAE2" font-weight="bold" text-anchor="start">Offline-first</text>
-    <text x="120" y="150" font-family="monospace" font-size="9" fill="#A8A196" font-weight="normal" text-anchor="start">sync engine</text>
-    <rect x="80" y="170" width="8" height="220" rx="4" fill="#4A3D32" opacity="1.0"/>
-    <circle cx="84" cy="190" r="5" fill="#DAC46D"/><circle cx="84" cy="240" r="5" fill="#81AFA9"/>
-    <circle cx="84" cy="290" r="5" fill="#81AFA9"/><circle cx="84" cy="340" r="5" fill="#A8A196"/>
-    <text x="100" y="194" font-family="monospace" font-size="10" fill="#C2BCB1" font-weight="normal" text-anchor="start">GPS → job card</text>
-    <text x="100" y="244" font-family="monospace" font-size="10" fill="#C2BCB1" font-weight="normal" text-anchor="start">photos → S3</text>
-    <text x="100" y="294" font-family="monospace" font-size="10" fill="#C2BCB1" font-weight="normal" text-anchor="start">queue → retry</text>
-    <text x="100" y="344" font-family="monospace" font-size="10" fill="#C2BCB1" font-weight="normal" text-anchor="start">master data</text>
+    <text x="120" y="130" font-family="monospace" font-size="13" fill="#123F3B" font-weight="bold" text-anchor="start">Offline-first</text>
+    <text x="120" y="150" font-family="monospace" font-size="9" fill="#566A66" font-weight="normal" text-anchor="start">sync engine</text>
+    <rect x="80" y="170" width="8" height="220" rx="4" fill="#E2DBC8" opacity="1.0"/>
+    <circle cx="84" cy="190" r="5" fill="#0F766E"/><circle cx="84" cy="240" r="5" fill="#9DB8D9"/>
+    <circle cx="84" cy="290" r="5" fill="#9DB8D9"/><circle cx="84" cy="340" r="5" fill="#566A66"/>
+    <text x="100" y="194" font-family="monospace" font-size="10" fill="#3E5C58" font-weight="normal" text-anchor="start">GPS → job card</text>
+    <text x="100" y="244" font-family="monospace" font-size="10" fill="#3E5C58" font-weight="normal" text-anchor="start">photos → S3</text>
+    <text x="100" y="294" font-family="monospace" font-size="10" fill="#3E5C58" font-weight="normal" text-anchor="start">queue → retry</text>
+    <text x="100" y="344" font-family="monospace" font-size="10" fill="#3E5C58" font-weight="normal" text-anchor="start">master data</text>
     
-    <text x="688" y="130" font-family="monospace" font-size="22" fill="#DAC46D" font-weight="bold" text-anchor="end">98.6%</text>
-    <text x="688" y="148" font-family="monospace" font-size="9" fill="#A8A196" font-weight="normal" text-anchor="end">sync success</text>
-    <text x="688" y="196" font-family="monospace" font-size="22" fill="#DAC46D" font-weight="bold" text-anchor="end">-38%</text>
-    <text x="688" y="214" font-family="monospace" font-size="9" fill="#A8A196" font-weight="normal" text-anchor="end">job admin time</text>
-    <text x="688" y="262" font-family="monospace" font-size="22" fill="#EDEAE2" font-weight="bold" text-anchor="end">4.8★</text>
-    <text x="688" y="280" font-family="monospace" font-size="9" fill="#A8A196" font-weight="normal" text-anchor="end">field rating</text>
+    <text x="688" y="130" font-family="monospace" font-size="22" fill="#0F766E" font-weight="bold" text-anchor="end">98.6%</text>
+    <text x="688" y="148" font-family="monospace" font-size="9" fill="#566A66" font-weight="normal" text-anchor="end">sync success</text>
+    <text x="688" y="196" font-family="monospace" font-size="22" fill="#0F766E" font-weight="bold" text-anchor="end">-38%</text>
+    <text x="688" y="214" font-family="monospace" font-size="9" fill="#566A66" font-weight="normal" text-anchor="end">job admin time</text>
+    <text x="688" y="262" font-family="monospace" font-size="22" fill="#123F3B" font-weight="bold" text-anchor="end">4.8★</text>
+    <text x="688" y="280" font-family="monospace" font-size="9" fill="#566A66" font-weight="normal" text-anchor="end">field rating</text>
     
 </svg>

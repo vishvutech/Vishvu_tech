@@ -1,5 +1,5 @@
 /* ============================================================
-   VISHVU TECH 2.0 — BASE LAYER
+   VISHVU TECH 2.0 — BASE LAYER · FIRST LIGHT (VT-PRD-004 §7)
    Reset · typography · utilities · a11y primitives
    ============================================================ */
 
@@ -15,8 +15,8 @@ html {
 
 body {
   margin: 0;
-  background: var(--vf-canvas);
-  color: var(--vf-ink);
+  background: var(--vt-canvas);
+  color: var(--vt-ink);
   font-family: var(--ff-body);
   font-size: var(--fs-body);
   line-height: var(--lh-body);
@@ -31,20 +31,20 @@ img { height: auto; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 input, textarea, select { font: inherit; color: inherit; }
-::placeholder { color: var(--vf-ink-3); opacity: 1; }
+::placeholder { color: var(--vt-ink-3); opacity: 1; }
 
-/* ---- Selection: brand ember, ink paired on-ember (6.59:1) ---- */
-::selection { background: var(--vf-ember); color: var(--vf-on-ember); }
-.paper ::selection { background: var(--vf-paper-ink); color: var(--vf-paper); }
+/* ---- Selection: brand peacock, porcelain ink paired on-accent (5.11:1) ---- */
+::selection { background: var(--vt-accent); color: var(--vt-on-accent); }
+.milk ::selection { background: var(--vt-ink); color: var(--vt-on-accent); }
 
-/* ---- Focus: always visible, always ember ---- */
+/* ---- Focus: always visible, always peacock (§7) ---- */
 :focus { outline: none; }
 :focus-visible {
-  outline: 2px solid var(--vf-ember);
+  outline: 2px solid var(--vt-accent);
   outline-offset: 3px;
   border-radius: 2px;
 }
-.paper :focus-visible { outline-color: var(--vf-paper-ink); }
+.milk :focus-visible { outline-color: var(--vt-accent-deep); }
 
 /* ---- Skip link ---- */
 .skip-link {
@@ -53,8 +53,8 @@ input, textarea, select { font: inherit; color: inherit; }
   left: 12px;
   z-index: 110;
   padding: 12px 20px;
-  background: var(--vf-ember);
-  color: var(--vf-on-ember);
+  background: var(--vt-accent);
+  color: var(--vt-on-accent);
   font-family: var(--ff-mono);
   font-size: var(--fs-micro);
   font-weight: 500;
@@ -93,14 +93,16 @@ input, textarea, select { font: inherit; color: inherit; }
   font-style: italic;
   font-weight: 400;
   letter-spacing: 0;
-  color: var(--vf-ember);
+  color: var(--vt-accent-deep);
 }
+/* The dawn variant: the single vermilion moment per page (Law L4, §7) */
+.serif-accent--dawn { color: var(--vt-coral); }
 /* gradient-text retired (law L3): the hero's chromatic moment is a single
-   serif-accent word in ember — type-led color, not a dual-hue gradient. */
+   serif-accent word — type-led color, not a dual-hue gradient. */
 
 .lede {
   font-size: clamp(1.12rem, .5vw + .98rem, 1.35rem);
-  color: var(--vf-ink-2);
+  color: var(--vt-ink-2);
   max-width: 52ch;
   margin: 0;
 }
@@ -113,7 +115,7 @@ p:last-child { margin-bottom: 0; }
   font-weight: 500;
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--vf-ink-3);
+  color: var(--vt-ink-3);
 }
 
 .section-index {
@@ -125,17 +127,17 @@ p:last-child { margin-bottom: 0; }
   font-weight: 500;
   letter-spacing: var(--ls-wide);
   text-transform: uppercase;
-  color: var(--vf-ink-3);
+  color: var(--vt-ink-3);
 }
 .section-index::before {
   content: "";
   width: 32px;
   height: 1px;
-  background: var(--vf-ember);
+  background: var(--vt-accent);
   flex: none;
 }
 
-/* ---- Film grain (the ink world's night texture) ---- */
+/* ---- Film grain — paper texture on porcelain (§8.17: soft-light .035) ---- */
 .grain-layer {
   position: fixed;
   inset: -50%;
@@ -143,8 +145,8 @@ p:last-child { margin-bottom: 0; }
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
   background-size: 240px 240px;
-  opacity: .05;
-  mix-blend-mode: overlay;
+  opacity: .035;
+  mix-blend-mode: soft-light;
 }
 
 /* ---- Reveal system (JS adds .is-visible; CSS owns motion) ---- */
@@ -189,9 +191,9 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ---- Utilities ---- */
-.text-ink-2 { color: var(--vf-ink-2); }
-.text-ink-3 { color: var(--vf-ink-3); }
-.text-ember { color: var(--vf-ember); }
+.text-ink-2 { color: var(--vt-ink-2); }
+.text-ink-3 { color: var(--vt-ink-3); }
+.text-accent { color: var(--vt-accent-deep); }
 .mt-4 { margin-top: var(--s-4); } .mt-5 { margin-top: var(--s-5); }
 .mt-6 { margin-top: var(--s-6); } .mt-7 { margin-top: var(--s-7); }
 .mt-8 { margin-top: var(--s-8); }

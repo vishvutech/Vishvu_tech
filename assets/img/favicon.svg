@@ -1,7 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Vishvu Tech — The Kite glyph · Golden Hour re-ink (VT-PRD-003 §12.10.3):
-       single-metal champagne-500 star on the espresso ground, champagne-600 tail. -->
-  <rect width="64" height="64" rx="14" fill="#251A11"/>
-  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="#DAC46D"/>
-  <path d="M34.5 52.5 q 7 5.5 15 4" fill="none" stroke="#72560F" stroke-width="2.4" stroke-linecap="round" opacity="0.85"/>
+  <!-- Vishvu Tech — The Kite glyph · FIRST LIGHT re-ink (VT-PRD-004 §10.5):
+       peacock-500 star on the porcelain ground, saffron tail. The first
+       star of morning, not a gold fleck in the dark. -->
+  <rect width="64" height="64" rx="14" fill="#F7F4EC"/>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="#0F766E"/>
+  <path d="M34.5 52.5 q 7 5.5 15 4" fill="none" stroke="#E9A23B" stroke-width="2.4" stroke-linecap="round" opacity="0.9"/>
 </svg>

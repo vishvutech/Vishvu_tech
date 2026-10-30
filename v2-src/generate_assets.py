@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-GOLDEN HOUR asset generator (VT-PRD-003 §12.10)
+FIRST LIGHT asset generator (VT-PRD-004 §10.3/§10.5)
 Regenerates: favicon.ico, icon-32/192/512, apple-touch-icon (from favicon.svg)
 and the 13 OG share cards — all from v2-src/palette.py (single source, law L9).
 Run after any palette change:  python3 v2-src/generate_assets.py
@@ -49,7 +49,7 @@ def decompress_fonts():
 
 
 def star_path(cx, cy, r, draw, fill_top, fill_bot):
-    """Four-point brand star with an in-family vertical ramp (ember-300→600)."""
+    """Four-point brand star with an in-family vertical ramp (peacock-300→600)."""
     import math
     # star outline: 4 outer points at N/E/S/W, concave curves between
     pts = []
@@ -86,7 +86,8 @@ def star_path(cx, cy, r, draw, fill_top, fill_bot):
 
 
 def og_canvas():
-    """Espresso sky ramp + champagne horizon glow + dusk-ribbon whisper + grain."""
+    """Porcelain dawn sky ramp + saffron horizon glow + sky whisper + grain (§10.3).
+    Light, not void: milk zenith → porcelain mid → warm bone horizon."""
     img = Image.new('RGB', (W, H), hex2rgb(P.SKY_TOP))
     d = ImageDraw.Draw(img)
     top, mid, bot = hex2rgb(P.SKY_TOP), hex2rgb(P.SKY_MID), hex2rgb(P.SKY_BOTTOM)
@@ -97,20 +98,20 @@ def og_canvas():
         else:
             c = tuple(int(mid[i] + (bot[i] - mid[i]) * ((t - .62) / .38)) for i in range(3))
         d.line([(0, y), (W, y)], fill=c)
-    # ember horizon glow, bottom-left (the forge's fire keeps its seat)
+    # saffron dawn glow, bottom-left (the horizon keeps its seat — light, not fire)
     glow = Image.new('L', (W, H), 0)
     gd = ImageDraw.Draw(glow)
     for i in range(140):
-        a = int(60 * (1 - i / 140) ** 2)
+        a = int(52 * (1 - i / 140) ** 2)
         gd.ellipse([40 - i * 2.1, H - 30 - i * 1.5, 340 + i * 2.6, H + 40 + i * 1.2], fill=a)
     glow = glow.filter(ImageFilter.GaussianBlur(60))
-    ember = Image.new('RGB', (W, H), hex2rgb(P.EMBER_500))
+    ember = Image.new('RGB', (W, H), hex2rgb(P.SAFFRON))
     img = Image.composite(ember, img, glow)
-    # aurora whisper, top-right (the cool light above the forge)
+    # powder-sky whisper, top-right (the cool light of morning)
     aur = Image.new('L', (W, H), 0)
     ad = ImageDraw.Draw(aur)
     for i in range(110):
-        a = int(26 * (1 - i / 110) ** 2)
+        a = int(30 * (1 - i / 110) ** 2)
         ad.ellipse([W - 360 - i * 2.0, -60 - i * 1.1, W + 80 + i * 2.0, 240 + i * 1.0], fill=a)
     aur = aur.filter(ImageFilter.GaussianBlur(70))
     aurora = Image.new('RGB', (W, H), hex2rgb(P.AURORA))
@@ -151,26 +152,26 @@ def make_og(name, kicker, line1, line2, meta, fonts):
     f_meta = ImageFont.truetype(fonts['mono'], 24)
 
     x, y = 84, 74
-    # brand star
-    star = star_path(x + 30, y + 30, 27, d, P.EMBER_300, P.EMBER_600)
+    # brand star (peacock ramp)
+    star = star_path(x + 30, y + 30, 27, d, P.PEACOCK_300, P.PEACOCK_600)
     img.paste(star, (x - 2, y - 2), star)
-    # kicker + ember mark rule
-    d.text((x + 78, y - 4), kicker.upper(), font=f_kick, fill=hex2rgb(P.EMBER_500))
+    # kicker + peacock mark rule
+    d.text((x + 78, y - 4), kicker.upper(), font=f_kick, fill=hex2rgb(P.PEACOCK_600))
     kw = d.textlength(kicker.upper(), font=f_kick)
-    d.line([(x + 78, y + 38), (x + 78 + kw, y + 38)], fill=hex2rgb(P.EMBER_600), width=3)
+    d.line([(x + 78, y + 38), (x + 78 + kw, y + 38)], fill=hex2rgb(P.PEACOCK_600), width=3)
 
-    # headline: line1 bone Clash, line2 serif italic ember
+    # headline: line1 ink Clash, line2 serif italic peacock-deep
     y = 208
     maxw = W - 2 * 84
     for ln in wrap(line1, f_head, maxw, d):
         d.text((x, y), ln, font=f_head, fill=hex2rgb(P.INK))
         y += 96
-    d.text((x, y + 6), line2, font=f_serif, fill=hex2rgb(P.EMBER))
+    d.text((x, y + 6), line2, font=f_serif, fill=hex2rgb(P.PEACOCK_600))
     y += 118
 
-    # meta row with ember dot marks
+    # meta row with saffron dot marks
     my = H - 96
-    d.ellipse([x, my + 11, x + 10, my + 21], fill=hex2rgb(P.EMBER_600))
+    d.ellipse([x, my + 11, x + 10, my + 21], fill=hex2rgb(P.SAFFRON))
     d.text((x + 26, my), meta.upper(), font=f_meta, fill=hex2rgb(P.INK3))
     # domain, right-aligned
     dom = "VISHVUTECH.COM"
@@ -219,4 +220,4 @@ if __name__ == "__main__":
     for name, k, l1, l2, m in OGS:
         out = make_og(name, k, l1, l2, m, fonts)
         print("og:", os.path.basename(out), os.path.getsize(out) // 1024, "KB")
-    print("GOLDEN HOUR assets regenerated")
+    print("FIRST LIGHT assets regenerated")
