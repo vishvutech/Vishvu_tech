@@ -1,7 +1,9 @@
 /* ============================================================
-   VISHVU TECH 2.0 — NIGHT HORIZON (WebGL hero shader)
+   VISHVU TECH — NIGHT HORIZON (WebGL hero shader) · FORGE NOIR
    The v1 ink landscape, re-rendered as a living night sky:
    stars, aurora drift, ember horizon, ridgelines, the kite.
+   Re-inked per VT-PRD-002 §7.8: warm obsidian sky, bone stars,
+   aurora #80D1B5, ember-500 horizon. The ground got warm.
    Tier A: WebGL · Tier B: static SVG (default, JS upgrades it)
    ============================================================ */
 (function () {
@@ -69,41 +71,41 @@
     'float t=u_time*0.05;',
     'p-=(u_mouse-0.5)*0.06;',
 
-    'vec3 col=mix(vec3(0.040,0.052,0.075),vec3(0.066,0.096,0.170),smoothstep(1.05,-0.15,p.y));',
+    'vec3 col=mix(vec3(0.055,0.047,0.035),vec3(0.149,0.133,0.110),smoothstep(1.05,-0.15,p.y));',
 
     'vec2 grid=floor(uv*vec2(170.0,96.0));',
     'float h=fract(sin(dot(grid,vec2(12.9898,78.233)))*43758.5453);',
     'float star=step(0.9865,h)*smoothstep(0.22,0.72,uv.y);',
     'star*=0.5+0.5*sin(u_time*(0.4+h)+h*6.2831);',
-    'col+=vec3(0.92,0.95,1.0)*star*0.38;',
+    'col+=vec3(0.918,0.910,0.890)*star*0.38;',
 
     'float n1=snoise(vec3(p.x*1.15,p.y*1.6-t*0.75,t*0.32));',
     'float n2=snoise(vec3(p.x*2.3+5.2,p.y*3.1-t*1.05,t*0.48));',
     'float band=smoothstep(0.05,0.75,p.y)*smoothstep(1.05,0.28,p.y);',
     'float aur=band*max(0.0,0.45*n1+0.28*n2);',
-    'col+=vec3(0.30,0.72,0.62)*aur*0.38;',
+    'col+=vec3(0.502,0.820,0.710)*aur*0.27;',
 
     'float hy=-0.22;',
     'float glow=exp(-abs(p.y-hy)*5.5);',
     'float glowN=0.62+0.38*snoise(vec3(p.x*2.8,t*0.55,0.0));',
-    'col+=vec3(1.0,0.42,0.207)*glow*glowN*0.60;',
-    'col+=vec3(1.0,0.55,0.30)*exp(-length(p-vec2(0.22,hy))*3.2)*0.36;',
+    'col+=vec3(0.890,0.431,0.286)*glow*glowN*0.60;',
+    'col+=vec3(0.996,0.561,0.357)*exp(-length(p-vec2(0.22,hy))*3.2)*0.36;',
 
     'float r1=ridge(p.x,t*0.22,hy+0.155,0.145);',
     'float r2=ridge(p.x+31.0,t*0.16,hy+0.045,0.105);',
-    'if(p.y<r1){col=mix(col,vec3(0.048,0.068,0.105)+vec3(1.0,0.5,0.28)*exp(-abs(p.y-r1)*26.0)*0.45,0.965);}',
-    'if(p.y<r2){col=mix(col,vec3(0.034,0.048,0.078),0.985);}',
+    'if(p.y<r1){col=mix(col,vec3(0.086,0.075,0.063)+vec3(0.890,0.431,0.286)*exp(-abs(p.y-r1)*26.0)*0.45,0.965);}',
+    'if(p.y<r2){col=mix(col,vec3(0.055,0.047,0.035),0.985);}',
 
     'vec2 kp=vec2(0.34,0.335+0.022*sin(u_time*0.42));',
     'vec2 kq=p-kp;',
     'float ca=0.9397;float sa=0.342;',
     'kq=vec2(kq.x*ca-kq.y*sa,kq.x*sa+kq.y*ca);',
-    'float kite=max(abs(kq.x)*1.25,abs(kq.y));',
-    'float kiteGlow=smoothstep(0.034,0.004,kite);',
-    'float halo=exp(-length(kq)*7.5)*0.5;',
-    'col+=vec3(0.56,0.95,0.80)*(kiteGlow*0.9+halo);',
+    'float beacon=max(abs(kq.x)*1.25,abs(kq.y));',
+    'float beaconGlow=smoothstep(0.034,0.004,beacon);',
+    'float halo=exp(-length(kq)*7.5)*0.35;',
+    'col+=vec3(0.502,0.820,0.710)*(beaconGlow*0.9+halo);',
     'float str=exp(-abs(length(p-vec2(0.28,hy+0.07))-0.30)*44.0);',
-    'col+=vec3(0.42,0.82,0.72)*str*0.14;',
+    'col+=vec3(0.502,0.820,0.710)*str*0.14;',
 
     'float vig=smoothstep(1.45,0.30,length(uv-vec2(0.5,0.45)));',
     'col*=mix(0.58,1.0,vig);',
@@ -151,12 +153,27 @@
 
   function resize() {
     var w = canvas.clientWidth, h = canvas.clientHeight;
+    if (!w || !h) {
+      /* Layout not ready yet (defer runs before first paint). Retry on the
+         next frame — bail out after ~2s so a hidden canvas can't loop. */
+      if (resize._tries < 120) {
+        resize._tries++;
+        requestAnimationFrame(resize);
+      }
+      return;
+    }
+    resize._tries = 0;
     canvas.width = Math.max(2, Math.round(w * DPR));
     canvas.height = Math.max(2, Math.round(h * DPR));
     gl.viewport(0, 0, canvas.width, canvas.height);
   }
+  resize._tries = 0;
   resize();
   window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('load', resize);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(function () { resize(); }).observe(canvas);
+  }
 
   /* Activate Tier A: hide SVG, show canvas */
   if (fallback) fallback.style.display = 'none';

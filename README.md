@@ -1,8 +1,8 @@
-# Vishvu Tech 2.0 — "Night Forge"
+# Vishvu Tech 2.1 — "Forge Noir"
 
 The premium rebuild of vishvutech.com. A dark, cinematic, scroll-choreographed portfolio built to award-tier standards — and deployed on infrastructure that costs **$0/month**.
 
-> Designed and specified against the full PRD (`docs/Vishvu_Tech_PRD_Premium_Upgrade.md`) following a 100-judge audit of v1. Internal design review: **8.3/10** (v1 baseline: 5.3).
+> Designed against the full PRD (`docs/`) following a 100-judge audit of v1 (5.3 → 8.3 internal review), then **re-audited by the same 100 judges after the Forge Noir color-system upgrade: 6.03 → 8.86, zero WCAG failures, 100/100 ACCEPT** (`docs/COLOR-AUDIT-003-VERDICT.md`).
 
 ---
 
@@ -10,13 +10,13 @@ The premium rebuild of vishvutech.com. A dark, cinematic, scroll-choreographed p
 
 | Area | Implementation |
 |---|---|
-| **Design system** | "Night Forge" — void `#0B0E14` + ember `#FF6B35` + kite `#7EE8C7`, Clash Display / Satoshi / Instrument Serif italic / JetBrains Mono, full token layer (`assets/css/tokens.css`) |
+| **Design system** | "Forge Noir" — warm obsidian `#0E0C09` (OKLCH hue 75°) + molten ember ramp `#FFAC7E→#882D16` (accent `#E36E49`) + bone text `#EAE8E3/#B0ACA5/#96918B` + ledger cream `#EFEBDF` with warm ink; aurora `#80D1B5` confined to hero-sky art by law. Clash Display / Satoshi / Instrument Serif italic / JetBrains Mono. Three-tier tokens: primitives → semantic → component (`assets/css/tokens.css`, single source: `v2-src/palette.py`) |
 | **Signature hero** | WebGL fragment-shader night horizon (stars, aurora, ember horizon, ridgelines, the kite) with static SVG fallback tier |
 | **Motion engine** | GSAP + ScrollTrigger + Lenis (self-hosted, ~66 KB gz total): preloader, split-text reveals, scroll-scrubbed journey rail, magnetic CTAs, custom cursor, marquee, scroll progress hairline |
 | **Pages** | 16 routes — home (5 acts), work index + 4 case studies (paper-island design), services (6 detail sections), about, contact (60-second form), journal + 3 essays, 404, privacy, terms |
 | **Performance** | ~140 KB first load (fonts 30 KB critical, JS lazy-tiered, SVG visuals 3–5 KB each), self-hosted fonts, zero third-party requests |
 | **SEO & sharing** | Per-route OG images + Twitter cards, JSON-LD (Organization, Service, Article, CreativeWork), sitemap, robots, favicon suite, manifest |
-| **Accessibility** | WCAG 2.2 AA targets: skip link, focus-visible ember rings, 44px targets, `prefers-reduced-motion` contract (3-tier), keyboard-operable everything |
+| **Accessibility** | WCAG 2.2 AA **verified by script** (`scripts/contrast_audit.py` — 37 pairs, zero failures): skip link, focus-visible ember rings (6.13:1), 1.4.11-compliant form borders (3.35:1), 44px targets, `prefers-reduced-motion` contract (3-tier), keyboard-operable everything. Law gates run before every deploy (`scripts/check-colors.sh`) |
 | **Deploy kit** | `deploy/` — nginx config (TLS, HSTS, CSP, rate-limit, immutable caching) + `api/` contact service (Node, systemd, honeypot/time-trap/rate-limit) + `deploy/oracle-setup.md` — the full Oracle Always-Free playbook |
 
 ## Run locally
@@ -29,6 +29,18 @@ python3 -m http.server 8080
 ```
 
 The contact form tries `POST /api/contact`; on a static host with no API it gracefully falls back to a prefilled `mailto:`.
+
+## The color system (Forge Noir)
+
+One palette, one source of truth — `v2-src/palette.py` feeds the CSS tokens, the SVG art, the favicon/icons and all 13 OG cards:
+
+```bash
+python3 v2-src/build.py             # rebuild pages from sources
+python3 v2-src/generate_assets.py  # regenerate icons + OG cards from palette.py
+bash scripts/check-colors.sh       # contrast matrix + the five law gates (fails deploy on violation)
+```
+
+Ten laws govern every color decision (see `docs/PRD-FORGE-NOIR.md` §7.6). The short version: ember owns interaction; the aurora never touches UI; gradients stay in-family; paper text gets ember-700, paper marks get ember-600; no raw hex outside `tokens.css`; every text pair clears 4.5:1 — verified by script, never by eye.
 
 ## Deploy for $0/month (production)
 
@@ -48,8 +60,9 @@ GitHub Pages also works instantly (repo root *is* the site): Settings → Pages 
 │  └─ fonts/                  # 8 self-hosted woff2 (latin subsets)
 ├─ api/                       # contact API (Node + systemd unit)
 ├─ deploy/                    # nginx site.conf + oracle-setup.md
-├─ docs/                      # PRD · 100-judge critique · content guide
-└─ v2-src/                    # build sources (partials + page bodies + build.py)
+├─ docs/                      # PRDs · 100-judge audits (v1, color, verdict) · content guide
+├─ scripts/                   # contrast_audit.py · check-colors.sh · capture.sh (the color gate toolchain)
+└─ v2-src/                    # build sources (partials + page bodies + palette.py + build.py + generate_assets.py)
 ```
 
 ## ⚠️ Before this goes fully live — read `docs/CONTENT-GUIDE.md`

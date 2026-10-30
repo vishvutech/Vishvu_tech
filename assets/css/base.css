@@ -15,7 +15,7 @@ html {
 
 body {
   margin: 0;
-  background: var(--vf-void);
+  background: var(--vf-canvas);
   color: var(--vf-ink);
   font-family: var(--ff-body);
   font-size: var(--fs-body);
@@ -33,8 +33,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 input, textarea, select { font: inherit; color: inherit; }
 ::placeholder { color: var(--vf-ink-3); opacity: 1; }
 
-/* ---- Selection: brand ember ---- */
-::selection { background: var(--vf-ember); color: #fff; }
+/* ---- Selection: brand ember, ink paired on-ember (6.59:1) ---- */
+::selection { background: var(--vf-ember); color: var(--vf-on-ember); }
 .paper ::selection { background: var(--vf-paper-ink); color: var(--vf-paper); }
 
 /* ---- Focus: always visible, always ember ---- */
@@ -54,7 +54,7 @@ input, textarea, select { font: inherit; color: inherit; }
   z-index: 110;
   padding: 12px 20px;
   background: var(--vf-ember);
-  color: #fff;
+  color: var(--vf-on-ember);
   font-family: var(--ff-mono);
   font-size: var(--fs-micro);
   font-weight: 500;
@@ -93,13 +93,10 @@ input, textarea, select { font: inherit; color: inherit; }
   font-style: italic;
   font-weight: 400;
   letter-spacing: 0;
+  color: var(--vf-ember);
 }
-.gradient-text {
-  background: var(--vf-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
+/* gradient-text retired (law L3): the hero's chromatic moment is a single
+   serif-accent word in ember — type-led color, not a dual-hue gradient. */
 
 .lede {
   font-size: clamp(1.12rem, .5vw + .98rem, 1.35rem);

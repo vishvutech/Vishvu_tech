@@ -1,12 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Vishvu Tech — The Kite glyph -->
+  <!-- Vishvu Tech — The Kite glyph · Forge Noir re-ink (VT-PRD-002 §7.8.4):
+       ember-300→600 in-family ramp, warm obsidian ground, ember tail. -->
   <defs>
     <linearGradient id="kf" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FF6B35"/>
-      <stop offset="1" stop-color="#7EE8C7"/>
+      <stop offset="0" stop-color="#FFAC7E"/>
+      <stop offset="1" stop-color="#C65029"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#0B0E14"/>
+  <rect width="64" height="64" rx="14" fill="#0E0C09"/>
   <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="url(#kf)"/>
-  <path d="M34.5 52.5 q 7 5.5 15 4" fill="none" stroke="#7EE8C7" stroke-width="2.4" stroke-linecap="round" opacity="0.85"/>
+  <path d="M34.5 52.5 q 7 5.5 15 4" fill="none" stroke="#C65029" stroke-width="2.4" stroke-linecap="round" opacity="0.85"/>
 </svg>

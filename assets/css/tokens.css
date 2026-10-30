@@ -1,48 +1,54 @@
 /* ============================================================
-   VISHVU TECH 2.0 — NIGHT FORGE DESIGN SYSTEM · TOKENS
-   One source of truth. Every value below is a design decision.
+   VISHVU TECH — FORGE NOIR · COLOR TOKENS  (VT-PRD-002 §7.4)
+   One source of truth (mirrored by v2-src/palette.py).
+   Ten laws govern use (§7.6). Verified by scripts/contrast_audit.py.
    ============================================================ */
 
+@property --ember-l { syntax: '<number>'; inherits: false; initial-value: .670; }
+
 :root {
-  /* ---- Color · Foundation ---- */
-  --vf-void: #0B0E14;          /* page canvas — near-black, blue-cast */
-  --vf-surface: #111623;       /* raised panels */
-  --vf-surface-2: #1A2133;     /* hover / active raised */
-  --vf-line: #232B40;          /* 1px hairlines */
-  --vf-line-strong: #2E3852;   /* hairlines under interaction */
+  /* ---- Canvas & surfaces · Obsidian & Ash (hue 75, one warmth) ---- */
+  --vf-canvas:        #0E0C09;  --vf-canvas-ok:        oklch(0.155 0.006 75);
+  --vf-surface-1:     #161310;  --vf-surface-1-ok:     oklch(0.190 0.007 75);
+  --vf-surface-2:     #1F1C18;  --vf-surface-2-ok:     oklch(0.228 0.008 75);
+  --vf-line:          #2B2825;  --vf-line-ok:          oklch(0.280 0.008 75);   /* decorative hairlines */
+  --vf-line-strong:   #403C37;  --vf-line-strong-ok:   oklch(0.360 0.010 75);   /* interaction hairlines */
+  --vf-border-input:  #6D6861;  --vf-border-input-ok:  oklch(0.520 0.012 75);   /* WCAG 1.4.11 · 3.35:1 */
 
-  /* ---- Color · Text ---- */
-  --vf-ink: #F2F5FA;           /* primary text — 15.8:1 on void */
-  --vf-ink-2: #A8B3C7;         /* secondary — 7.2:1 */
-  --vf-ink-3: #6B7690;         /* tertiary/meta — 5.0:1, 14px minimum */
+  /* ---- Text · Bone & Ash ---- */
+  --vf-ink:           #EAE8E3;  --vf-ink-ok:           oklch(0.930 0.006 85);   /* 15.9:1 AAA */
+  --vf-ink-2:         #B0ACA5;  --vf-ink-2-ok:         oklch(0.745 0.011 80);   /* 8.6:1 AAA */
+  --vf-ink-3:         #96918B;  --vf-ink-3-ok:         oklch(0.645 0.012 80);   /* 6.25:1 AA+ — min meta grade */
 
-  /* ---- Color · Signal ---- */
-  --vf-ember: #FF6B35;         /* THE electric accent */
-  --vf-ember-soft: #FF8C5E;    /* hover/pressed */
-  --vf-ember-dim: rgba(255,107,53,.14);
-  --vf-kite: #7EE8C7;          /* secondary glow — gradients only */
-  --vf-kite-dim: rgba(126,232,199,.12);
+  /* ---- Accent · Molten (the only interactive hue) ---- */
+  --vf-ember:              #E36E49;  --vf-ember-ok:              oklch(0.670 0.155 38);
+  --vf-ember-soft:         #FE8F5B;  --vf-ember-soft-ok:         oklch(0.760 0.150 45);   /* hover */
+  --vf-ember-dim:          rgba(227,110,73,.14);                                        /* washes, focus rings */
+  --vf-ember-text-paper:   #882D16;  --vf-ember-text-paper-ok:   oklch(0.430 0.130 35);   /* kicker text on cream · 7.24:1 */
+  --vf-ember-mark-paper:   #C65029;  --vf-ember-mark-paper-ok:   oklch(0.580 0.160 38);   /* marks on cream · 3.85:1 non-text */
+  --vf-on-ember:           #0C0806;  --vf-on-ember-ok:           oklch(0.140 0.010 60);   /* text on ember fills · 6.59:1 */
 
-  /* ---- Color · Paper (case-study islands) ---- */
-  --vf-paper: #F5EFE4;
-  --vf-paper-2: #EDE5D6;
-  --vf-paper-ink: #1C2433;
-  --vf-paper-ink-2: #4A5568;
-  --vf-paper-line: #D9CFBD;
+  /* ---- Atmosphere · Aurora — LAW L2: illustrations & hero sky ONLY ---- */
+  --vf-aurora:        #80D1B5;  --vf-aurora-ok:        oklch(0.800 0.090 170);
 
-  /* ---- Signature gradient (3 permitted uses sitewide) ---- */
-  --vf-gradient: linear-gradient(135deg, #FF6B35 0%, #7EE8C7 100%);
-  --vf-gradient-soft: linear-gradient(135deg, rgba(255,107,53,.16), rgba(126,232,199,.16));
+  /* ---- Feedback · Signal ---- */
+  --vf-ok:            #52CD86;  --vf-ok-ok:            oklch(0.760 0.150 155);
+  --vf-warn:          #E7B643;  --vf-warn-ok:          oklch(0.800 0.140 85);
+  --vf-err:           #ED5350;  --vf-err-ok:           oklch(0.650 0.190 25);
 
-  /* ---- Feedback ---- */
-  --vf-ok: #3DD68C;
-  --vf-warn: #FFC24B;
-  --vf-err: #FF5C5C;
+  /* ---- Paper · Ledger (case-study islands) ---- */
+  --vf-paper:         #EFEBDF;  --vf-paper-ok:         oklch(0.940 0.016 90);
+  --vf-paper-2:       #E6E1D3;  --vf-paper-2-ok:       oklch(0.910 0.019 88);
+  --vf-paper-surface: #F7F4EA;                                                   /* raised paper cards */
+  --vf-paper-ink:     #28231E;  --vf-paper-ink-ok:     oklch(0.260 0.012 70);    /* warm ink · 13.06:1 */
+  --vf-paper-ink-2:   #615951;  --vf-paper-ink-2-ok:   oklch(0.470 0.016 70);    /* 5.77:1 */
+  --vf-paper-line:    #D7D2C7;  --vf-paper-line-ok:    oklch(0.865 0.016 88);
 
-  /* ---- Elevation by light (never shadow-fog on dark) ---- */
-  --vf-glow-ember: 0 0 24px rgba(255,107,53,.35);
-  --vf-glow-kite: 0 0 32px rgba(126,232,199,.25);
-  --vf-inset-hi: inset 0 1px 0 rgba(255,255,255,.06);
+  /* ---- Effects · light from within (glow budget: two pulse dots) ---- */
+  --vf-gradient-ember: linear-gradient(90deg, #FE8F5B 0%, #C65029 100%);          /* progress hairline ONLY */
+  --vf-halo-dot:       0 0 10px rgba(227,110,73,.45);                              /* ember pulse dot ONLY */
+  --vf-halo-ok:        0 0 10px rgba(82,205,134,.45);                              /* availability dot ONLY */
+  --vf-inset-hi:       inset 0 1px 0 rgba(255,255,255,.05);                        /* the real "elevation" */
 
   /* ---- Typography · Families ---- */
   --ff-display: 'Clash Display', 'Satoshi', system-ui, sans-serif;
@@ -58,7 +64,7 @@
   --fs-body: clamp(1.05rem, .25vw + .95rem, 1.2rem);
   --fs-small: .94rem;
   --fs-micro: .875rem;          /* legal minimum on this site */
-  --fs-mono-label: .84rem;
+  --fs-mono-label: .875rem;     /* 14px — matches the documented AA minimum */
 
   /* ---- Typography · Rhythm ---- */
   --lh-tight: .98;
@@ -108,15 +114,23 @@
   --header-h: 76px;
 }
 
-/* ---- Paper contexts flip tokens locally ---- */
+/* Wide-gamut displays: a free vividness boost, same hue (VT-PRD-002 §11) */
+@media (color-gamut: p3) {
+  :root { --vf-ember: oklch(0.670 0.19 38); }
+}
+
+/* ---- Paper contexts flip tokens locally (existing mechanism, kept verbatim) ---- */
 .paper {
-  --vf-void: var(--vf-paper);
-  --vf-surface: #FFFDF8;
-  --vf-surface-2: var(--vf-paper-2);
-  --vf-line: var(--vf-paper-line);
-  --vf-ink: var(--vf-paper-ink);
-  --vf-ink-2: var(--vf-paper-ink-2);
-  --vf-ink-3: #6E7890;
+  --vf-canvas:      var(--vf-paper);
+  --vf-surface-1:   var(--vf-paper-surface);
+  --vf-surface-2:   var(--vf-paper-2);
+  --vf-line:        var(--vf-paper-line);
+  --vf-line-strong: #C9C2B4;
+  --vf-ink:         var(--vf-paper-ink);
+  --vf-ink-2:       var(--vf-paper-ink-2);
+  --vf-ink-3:       #6B6359;                                     /* paper meta · 4.96:1 on cream, 4.52:1 on paper-2 */
   color: var(--vf-ink);
   background: var(--vf-paper);
 }
+/* Accent tokens do NOT flip: on paper, components must opt into
+   --vf-ember-text-paper / --vf-ember-mark-paper explicitly (law L4). */

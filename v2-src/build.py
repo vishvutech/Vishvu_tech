@@ -12,9 +12,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import svgs
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SITE = os.path.join(HERE, "site")
+SITE = os.path.normpath(os.path.join(HERE, ".."))   # build in place — repo root is the deploy tree
 
-GLYPH = svgs.KITE_GLYPH
+GLYPH = svgs.BRAND_GLYPH
 
 SVG_TOKENS = {
     "{{HERO_FALLBACK}}": svgs.hero_fallback_svg(),
@@ -250,8 +250,8 @@ def build():
   "description": "Ambitious ideas, built and shipped.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0B0E14",
-  "theme_color": "#0B0E14",
+  "background_color": "#0E0C09",
+  "theme_color": "#0E0C09",
   "icons": [
     {"src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png"},
     {"src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png"}
