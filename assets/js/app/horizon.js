@@ -1,11 +1,11 @@
 /* ============================================================
-   VISHVU TECH — PORCELAIN DAWN HORIZON (WebGL hero shader) · FIRST LIGHT
-   The v2 landscape, re-lit as the actual golden hour: DAWN.
-   Porcelain sky (milk zenith → porcelain → warm bone horizon),
-   powder-sky ribbon drift, saffron dawn glow at the horizon,
-   paper-cut ridgelines, the peacock kite with a soft ink shadow.
-   Dawn has no stars — the star field is deleted (VT-PRD-004 §10.1).
-   No glows: light enters as sky gradient + cast shadow (Law L7).
+   VISHVU TECH — STRATA DAWN HORIZON (WebGL hero shader) · VT-PRD-005
+   The v2 landscape as a five-stop layer stack: milk zenith → porcelain
+   → blush band → gold-mid → warm horizon, powder-sky ribbon drift,
+   saffron dawn glow at the horizon, paper-cut ridgelines, the peacock
+   kite with a soft ink shadow. The hero teaches the page's layer
+   grammar before the first scroll (§9). No glows: light enters as sky
+   gradient + cast shadow (Law L7).
    Tier A: WebGL · Tier B: static SVG (default, JS upgrades it)
    ============================================================ */
 (function () {
@@ -73,11 +73,15 @@
     'float t=u_time*0.05;',
     'p-=(u_mouse-0.5)*0.06;',
 
-    /* porcelain dawn sky: milk zenith -> porcelain mid -> warm bone horizon */
+    /* STRATA dawn sky: milk zenith -> porcelain -> blush band -> gold-mid -> warm horizon (§9) */
     'float skyTop=1.0-smoothstep(-0.15,1.05,p.y);',
     'vec3 col=mix(vec3(0.969,0.957,0.925),vec3(0.992,0.988,0.973),skyTop);',
     'float hor=1.0-smoothstep(-0.45,-0.05,p.y);',
-    'col=mix(col,vec3(0.941,0.914,0.847),hor*0.85);',
+    'float blushW=smoothstep(0.16,0.00,p.y);',
+    'col=mix(col,vec3(1.0,0.922,0.902),blushW*0.78);',
+    'float goldW=smoothstep(0.02,-0.12,p.y);',
+    'col=mix(col,vec3(1.0,0.922,0.824),goldW*0.72);',
+    'col=mix(col,vec3(0.937,0.890,0.761),hor*hor*0.92);',
 
     /* powder-sky ribbon, upper third (atmosphere, not aurora) */
     'float n1=snoise(vec3(p.x*1.15,p.y*1.6-t*0.75,t*0.32));',

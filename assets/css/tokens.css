@@ -1,29 +1,55 @@
 /* ============================================================
-   VISHVU TECH — FIRST LIGHT · PORCELAIN DAWN (VT-PRD-004 §6)
+   VISHVU TECH — STRATA · LAYERED LIGHT (VT-PRD-005)
    One source of truth (mirrored by v2-src/palette.py).
-   Ten Laws of Light govern use (§6.1). Verified by
-   scripts/contrast_audit.py · guarded by scripts/banlist_scan.py.
-   Dawn is the fuel of the build. Porcelain is the calm of the ship.
+   Six layers, chosen each against the composite below it:
+     L1 ground · L2 strata bands · L3 milk planes · L4 host wells
+     L5 lines/marks · L6 peacock ink.
+   Verified by scripts/contrast_audit.py · guarded by scripts/banlist_scan.py
+   and scripts/band_audit.py. The dawn, decomposed into layers the
+   visitor can walk through.
    ============================================================ */
 
 @property --peacock-l { syntax: '<number>'; inherits: false; initial-value: .511; }
 
 :root {
-  /* ---- Canvas & surfaces · The Porcelain Ladder (hue 88–95°, Law L0/L1) ---- */
+  /* ---- L1/L3/L4 · Ground, planes & wells · The Porcelain Ladder ---- */
   --vt-canvas:        #F7F4EC;  --vt-canvas-ok:        oklch(0.967 0.011 90);
-  --vt-surface-1:     #FDFCF8;  --vt-surface-1-ok:     oklch(0.991 0.005 95);   /* milk · raised */
-  --vt-surface-2:     #F0EBDF;  --vt-surface-2-ok:     oklch(0.941 0.017 88);   /* bone · inset wells, darkest neutral */
+  --vt-surface-1:     #FDFCF8;  --vt-surface-1-ok:     oklch(0.991 0.005 95);   /* milk plane · raised on any stratum */
+  --vt-surface-2:     #F0EBDF;  --vt-surface-2-ok:     oklch(0.941 0.017 88);   /* bone · default well (on porcelain) */
+
+  /* ---- L2 · STRATA — section bands (VT-PRD-005 §5.2, Law S2/S4/S6) ---- */
+  --vt-stratum-dawn:      #FFEBE6;  --vt-stratum-dawn-ok:      oklch(0.958 0.026 35);   /* hero mid-sky · contact peach */
+  --vt-stratum-gold:      #FDECCF;  --vt-stratum-gold-ok:      oklch(0.950 0.042 82);   /* journal ground */
+  --vt-stratum-sage:      #E7F5E7;  --vt-stratum-sage-ok:      oklch(0.956 0.024 145);  /* services — the green of making */
+  --vt-stratum-powder:    #E3F3FF;  --vt-stratum-powder-ok:    oklch(0.956 0.026 248);  /* about/journey — the wide sky */
+  --vt-stratum-blush:     #FFE9EA;  --vt-stratum-blush-ok:     oklch(0.957 0.030 15);   /* contact/404 — the warm invitation */
+  --vt-stratum-gold-deep: #FEEFD7;  --vt-stratum-gold-deep-ok: oklch(0.958 0.036 80);   /* essay pull-quote wash */
+
+  /* ---- L4 · Host wells — sunken insets tinted by their stratum (Law S5) ---- */
+  --vt-well-sage:   #DCEEDC;  --vt-well-sage-ok:   oklch(0.930 0.030 145);
+  --vt-well-powder: #D8EAFD;  --vt-well-powder-ok: oklch(0.930 0.032 248);
+  --vt-well-blush:  #FCE1E0;  --vt-well-blush-ok:  oklch(0.931 0.030 20);
+  --vt-well-gold:   #F7E6CA;  --vt-well-gold-ok:   oklch(0.932 0.042 82);
+
+  /* ---- L5 · Band hairlines (deepened host hue) ---- */
+  --vt-line-sage:   #D1E2D0;  --vt-line-sage-ok:   oklch(0.895 0.030 145);
+  --vt-line-powder: #CCDFF1;  --vt-line-powder-ok: oklch(0.895 0.032 248);
+  --vt-line-blush:  #F0D6D3;  --vt-line-blush-ok:  oklch(0.896 0.030 24);
+  --vt-line-gold:   #EADBC0;  --vt-line-gold-ok:   oklch(0.897 0.040 84);
+
+  /* ---- Washes — tinted porcelain (Law L4 atmosphere / chips) ---- */
   --vt-wash-saffron:  #FDF3E3;  --vt-wash-saffron-ok:  oklch(0.960 0.030 85);   /* kicker bands */
   --vt-wash-sky:      #EEF3F9;  --vt-wash-sky-ok:      oklch(0.960 0.020 250);  /* atmosphere bands */
   --vt-wash-peacock:  #EAF2EF;  --vt-wash-peacock-ok:  oklch(0.955 0.015 180);  /* availability / success */
+
   --vt-line:          #E2DBC8;  --vt-line-ok:          oklch(0.892 0.027 90);   /* decorative hairlines */
   --vt-line-strong:   #CFC6AE;  --vt-line-strong-ok:   oklch(0.827 0.034 90);   /* structural hairlines */
   --vt-border-input:  #857A5F;  --vt-border-input-ok:  oklch(0.582 0.041 88);   /* WCAG 1.4.11 · 3.86:1 */
 
-  /* ---- Ink · Peacock ladder (typographic only, Law L2 — never fills) ---- */
-  --vt-ink:           #123F3B;  --vt-ink-ok:           oklch(0.336 0.049 187);  /* 10.62:1 AAA */
-  --vt-ink-2:         #3E5C58;  --vt-ink-2-ok:         oklch(0.450 0.036 186);  /* 6.64:1 AA+ */
-  --vt-ink-3:         #566A66;  --vt-ink-3-ok:         oklch(0.507 0.025 182);  /* 5.24:1 AA · min meta grade */
+  /* ---- L6 · Ink · Peacock ladder (typographic only, Law L2 — never fills) ---- */
+  --vt-ink:           #123F3B;  --vt-ink-ok:           oklch(0.336 0.049 187);  /* 8.9–11.4:1 everywhere — AAA */
+  --vt-ink-2:         #3E5C58;  --vt-ink-2-ok:         oklch(0.450 0.036 186);  /* 5.6–7.1:1 — AA+ */
+  --vt-ink-3:         #506561;  --vt-ink-3-ok:         oklch(0.488 0.026 183);  /* 4.6:1 on the deepest well — AA */
 
   /* ---- Accent · Peacock (the only interactive hue, 186°, Law L3) ---- */
   --vt-accent:              #0F766E;  --vt-accent-ok:              oklch(0.511 0.086 186);
@@ -36,11 +62,11 @@
   --vt-saffron:        #E9A23B;  --vt-saffron-ok:        oklch(0.764 0.142 72);   /* marks/charts only — NEVER text */
   --vt-sky:            #9DB8D9;  --vt-sky-ok:            oklch(0.774 0.056 254);  /* atmosphere only */
 
-  /* ---- Feedback · Signal (light-world tuned) ---- */
-  --vt-ok:        #127A4E;  --vt-ok-ok:        oklch(0.528 0.106 158);  /* 4.87:1 */
+  /* ---- Feedback · Signal (light-world tuned · legal on strata + planes, Law S7) ---- */
+  --vt-ok:        #0E7447;  --vt-ok-ok:        oklch(0.515 0.104 158);  /* ≥4.55:1 on legal surfaces */
   --vt-ok-fill:   #2FA36C;  --vt-ok-fill-ok:   oklch(0.660 0.140 158);  /* dots/icons, paired w/ ink ring */
-  --vt-warn:      #96660E;  --vt-warn-ok:      oklch(0.548 0.111 75);   /* 4.55:1 · saffron icon pairing */
-  --vt-err:       #B3402B;  --vt-err-ok:       oklch(0.529 0.154 33);   /* 5.18:1 */
+  --vt-warn:      #8F610C;  --vt-warn-ok:      oklch(0.535 0.108 75);   /* ≥4.55:1 · saffron icon pairing */
+  --vt-err:       #AC3B27;  --vt-err-ok:       oklch(0.515 0.152 33);   /* ≥4.55:1 */
 
   /* ---- Derived alphas (Law L9 — the complete registry, nothing else ships) ---- */
   --vt-canvas-a78:     rgba(247,244,236,.78);  /* header, resting frosted */
@@ -142,7 +168,7 @@
   :root { --vt-accent: oklch(0.511 0.104 186); }
 }
 
-/* ---- Milk contexts (the old .paper islands, now the continent, §8.19) ---- */
+/* ---- Milk contexts (the paper plane on any stratum, §8.19) ---- */
 .milk {
   --vt-canvas:      var(--vt-surface-1);
   --vt-surface-2:   #E6E0D2;                       /* well-on-milk */
@@ -152,6 +178,60 @@
   background: var(--vt-surface-1);
 }
 /* Accent tokens do NOT flip — peacock is verified on every light surface (§6.7). */
+
+/* ============================================================
+   STRATA · BAND CONTEXT CLASSES (VT-PRD-005 §8)
+   The layer mechanism: a band overrides its context tokens, so every
+   component inside re-tints automatically (Law L9 preserved — no raw
+   hex ever reaches a component). Ink/milk/accent tokens do NOT flip:
+   they are verified against every stratum (§6).
+   ============================================================ */
+.band--dawn, .band--sage, .band--powder, .band--blush, .band--gold {
+  color: var(--vt-ink);
+  border-top: 1px solid var(--vt-line-band);
+}
+.band--dawn {
+  background: var(--vt-stratum-dawn);
+  --vt-canvas:    var(--vt-stratum-dawn);
+  --vt-surface-2: var(--vt-well-blush);
+  --vt-line:      var(--vt-line-blush);
+  --vt-line-band: var(--vt-line-blush);
+}
+.band--sage {
+  background: var(--vt-stratum-sage);
+  --vt-canvas:    var(--vt-stratum-sage);
+  --vt-surface-2: var(--vt-well-sage);
+  --vt-line:      var(--vt-line-sage);
+  --vt-line-band: var(--vt-line-sage);
+}
+.band--powder {
+  background: var(--vt-stratum-powder);
+  --vt-canvas:    var(--vt-stratum-powder);
+  --vt-surface-2: var(--vt-well-powder);
+  --vt-line:      var(--vt-line-powder);
+  --vt-line-band: var(--vt-line-powder);
+}
+.band--blush {
+  background: var(--vt-stratum-blush);
+  --vt-canvas:    var(--vt-stratum-blush);
+  --vt-surface-2: var(--vt-well-blush);
+  --vt-line:      var(--vt-line-blush);
+  --vt-line-band: var(--vt-line-blush);
+}
+.band--gold {
+  background: var(--vt-stratum-gold);
+  --vt-canvas:    var(--vt-stratum-gold);
+  --vt-surface-2: var(--vt-well-gold);
+  --vt-line:      var(--vt-line-gold);
+  --vt-line-band: var(--vt-line-gold);
+}
+/* Page-wide bands — the inner-page grounds (VT-PRD-005 §7.2) */
+body.page-services { background: var(--vt-stratum-sage);   --vt-canvas: var(--vt-stratum-sage);   --vt-surface-2: var(--vt-well-sage);   --vt-line: var(--vt-line-sage); }
+body.page-about    { background: var(--vt-stratum-powder); --vt-canvas: var(--vt-stratum-powder); --vt-surface-2: var(--vt-well-powder); --vt-line: var(--vt-line-powder); }
+body.page-contact  { background: var(--vt-stratum-blush);  --vt-canvas: var(--vt-stratum-blush);  --vt-surface-2: var(--vt-well-blush);  --vt-line: var(--vt-line-blush); }
+body.page-journal  { background: var(--vt-stratum-gold);   --vt-canvas: var(--vt-stratum-gold);   --vt-surface-2: var(--vt-well-gold);   --vt-line: var(--vt-line-gold); }
+body.page-404      { background: var(--vt-stratum-blush);  --vt-canvas: var(--vt-stratum-blush);  --vt-surface-2: var(--vt-well-blush);  --vt-line: var(--vt-line-blush); }
+body.page-services, body.page-about, body.page-contact, body.page-journal, body.page-404 { color: var(--vt-ink); }
 
 /* ---- Essay code-block syntax palette (Journal, §9.5) ---- */
 .code-block { background: var(--vt-surface-2); color: var(--vt-ink); }

@@ -270,13 +270,15 @@ def journal_cover(kind: str) -> str:
 
 # ---------------------------------------------------------------- Journey landscape fallback (hero Tier B)
 def hero_fallback_svg() -> str:
-    """Static dawn — same composition as the shader: porcelain sky, powder-sky
-    band, saffron horizon glow, paper-cut ridgelines, the peacock kite.
-    Dawn has no stars — the star field is deleted (VT-PRD-004 §10.1)."""
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated porcelain-dawn horizon with a powder-sky band, soft ridgelines and a peacock kite">
+    """Static dawn — same composition as the shader, now in STRATA: the sky
+    itself is a five-stop layer stack (milk zenith, porcelain, blush band,
+    gold-mid, warm horizon), powder-sky ribbon, saffron horizon glow,
+    paper-cut ridgelines, the peacock kite. The hero teaches the page's
+    layer grammar before the first scroll (VT-PRD-005 §9)."""
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated layered-dawn horizon: milk zenith, blush and gold sky bands, soft ridgelines and a peacock kite">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="{P.SKY_TOP}"/><stop offset=".55" stop-color="{P.SKY_MID}"/><stop offset="1" stop-color="{P.SKY_BOTTOM}"/>
+      <stop offset="0" stop-color="{P.SKY_TOP}"/><stop offset=".38" stop-color="{P.SKY_MID}"/><stop offset=".62" stop-color="{P.SKY_BLUSH}"/><stop offset=".82" stop-color="{P.SKY_GOLD}"/><stop offset="1" stop-color="{P.SKY_BOTTOM}"/>
     </linearGradient>
     <radialGradient id="ember" cx=".28" cy=".92" r=".5">
       <stop offset="0" stop-color="{P.SAFFRON}" stop-opacity=".28"/><stop offset="1" stop-color="{P.SAFFRON}" stop-opacity="0"/>

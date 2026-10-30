@@ -1,20 +1,21 @@
 #!/bin/bash
 # ============================================================
-# FIRST LIGHT — pre-deploy color gates (VT-PRD-004 §15.1)
-# Fails the deploy on any violation of the Ten Laws of Light (§6.1).
-#   Gate 1 · WCAG contrast matrix, 23 pairs (§6.7)
-#   Gate 2 · THE BAN LIST — zero black/brown/dark anywhere (§3.3, Law L10)
+# STRATA — pre-deploy color gates (VT-PRD-005 §11)
+# Fails the deploy on any violation of the Laws of Strata (§4/§13).
+#   Gate 1 · WCAG contrast matrix over ALL legal surfaces (§6)
+#   Gate 2 · THE BAN LIST — zero black/brown/dark anywhere (Law S1)
 #   Gate 3 · no retired tokens — Golden Hour espresso/champagne + prior dark worlds
-#   Gate 4 · one palette source at the build layer (law C6/L9)
+#   Gate 4 · one palette source at the build layer (law C6/L9, incl. strata)
 #   Gate 5 · gradients in-family (law L4)
-#   Gate 6 · the porcelain floor + peacock ink band (laws L0/L1/L2)
+#   Gate 6 · the light-world floor + peacock ink band (laws S1/L2)
 #   Gate 7 · no raw color outside tokens.css — hex OR rgba (law L9)
 #   Gate 8 · zero legacy --vf- references (§14.1 gate G1)
+#   Gate 9 · STRATA band rhythm — the layering itself (Law S4/S6)
 # ============================================================
 set -e
 cd "$(dirname "$0")/.."
 
-echo "— Gate 1 · WCAG contrast matrix, 23 pairs (§6.7) —"
+echo "— Gate 1 · WCAG contrast matrix, all legal surfaces (VT-PRD-005 §6) —"
 python3 scripts/contrast_audit.py
 
 echo ""
@@ -49,6 +50,14 @@ pairs = [
     ("coral", P.CORAL), ("saffron", P.SAFFRON), ("sky", P.SKY),
     ("ok", P.SIGNAL_OK), ("warn", P.SIGNAL_WARN), ("err", P.SIGNAL_ERR),
     ("wash-saffron", P.WASH_SAFFRON), ("wash-sky", P.WASH_SKY), ("wash-peacock", P.WASH_PEACOCK),
+    # STRATA tokens (VT-PRD-005 §5)
+    ("stratum-dawn", P.STRATUM_DAWN), ("stratum-gold", P.STRATUM_GOLD),
+    ("stratum-sage", P.STRATUM_SAGE), ("stratum-powder", P.STRATUM_POWDER),
+    ("stratum-blush", P.STRATUM_BLUSH), ("stratum-gold-deep", P.STRATUM_GOLD_DEEP),
+    ("well-sage", P.WELL_SAGE), ("well-powder", P.WELL_POWDER),
+    ("well-blush", P.WELL_BLUSH), ("well-gold", P.WELL_GOLD),
+    ("line-sage", P.LINE_SAGE), ("line-powder", P.LINE_POWDER),
+    ("line-blush", P.LINE_BLUSH), ("line-gold", P.LINE_GOLD),
 ]
 bad = [(n, v, var(n)) for n, v in pairs if var(n) != v.upper()]
 if bad:
@@ -95,17 +104,24 @@ def oklch(hexstr):
 surfaces = [
     ("canvas porcelain", P.PORCELAIN), ("surface-1 milk", P.MILK), ("surface-2 bone", P.BONE),
     ("wash-saffron", P.WASH_SAFFRON), ("wash-sky", P.WASH_SKY), ("wash-peacock", P.WASH_PEACOCK),
+    # STRATA fills (VT-PRD-005) — every band and well clears the floor
+    ("stratum dawn", P.STRATUM_DAWN), ("stratum gold", P.STRATUM_GOLD),
+    ("stratum sage", P.STRATUM_SAGE), ("stratum powder", P.STRATUM_POWDER),
+    ("stratum blush", P.STRATUM_BLUSH), ("stratum gold-deep", P.STRATUM_GOLD_DEEP),
+    ("well sage", P.WELL_SAGE), ("well powder", P.WELL_POWDER),
+    ("well blush", P.WELL_BLUSH), ("well gold", P.WELL_GOLD),
+    ("sky-blush", P.SKY_BLUSH), ("sky-gold", P.SKY_GOLD), ("sky-bottom", P.SKY_BOTTOM),
 ]
 fails = 0
-print("  L0/L1 · the Porcelain Floor — every canvas/surface/wash clears OKLCH L >= 0.94:")
+print("  S1/L0 · The Light-World Floor — every fill clears OKLCH L >= 0.89:")
 for name, hexv in surfaces:
     L, C, H = oklch(hexv)
-    ok = L >= 0.94
+    ok = L >= 0.89
     if not ok:
         print(f"    FAIL: {name} {hexv} — oklch({L:.3f} {C:.3f} {H:.0f}) is too dark for the light world")
         fails += 1
-print("  (hairlines #E2DBC8/#CFC6AE and border-input #857A5F are 1px lines/interactive")
-print("   borders at verified 3.86:1 — not fills; the floor governs surfaces only)")
+print("  (hairlines and border-input are 1px lines/interactive")
+print("   borders at verified ratios — not fills; the floor governs surfaces only)")
 print("  L2 · ink is a chromatic peacock jewel (hue 178–192°, C >= 0.020; dark inks C >= 0.035):")
 for name, hexv in (("ink", P.INK), ("ink-2", P.INK2), ("ink-3", P.INK3)):
     L, C, H = oklch(hexv)
@@ -114,7 +130,7 @@ for name, hexv in (("ink", P.INK), ("ink-2", P.INK2), ("ink-3", P.INK3)):
         fails += 1
 if fails:
     sys.exit(1)
-print("    all floors held — porcelain floor at L 0.94+, ink in the peacock band")
+print("    all floors held — light-world floor at L 0.89+, ink in the peacock band")
 PYEOF
 
 echo ""
@@ -134,4 +150,8 @@ fi
 echo "  clean — the migration is grep-clean"
 
 echo ""
-echo "FIRST LIGHT: all 8 color gates green — deploy is lawful"
+echo "— Gate 9 · STRATA band rhythm — the layering itself (Law S4/S6) —"
+python3 scripts/band_audit.py
+
+echo ""
+echo "STRATA: all 9 color gates green — deploy is lawful"

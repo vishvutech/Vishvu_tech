@@ -1,7 +1,8 @@
 /* ============================================================
-   VISHVU TECH 2.0 — PAGES · FIRST LIGHT (VT-PRD-004 §9)
+   VISHVU TECH 2.0 — PAGES · STRATA (VT-PRD-005 §7–§9)
    Case detail · Services · Contact · Journal · 404 · Responsive · A11y
-   Milk islands · bone wells · saffron kicker washes · peacock links
+   Page grounds: sage services · powder about · blush contact · gold journal
+   Milk planes · host wells · saffron kicker washes · peacock links
    ============================================================ */
 
 /* ===================== PAGE HERO (sub-pages) ===================== */
@@ -62,13 +63,14 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  background: var(--vt-line);
-  border: 1px solid var(--vt-line);
+  background: var(--vt-line-powder);
+  border: 1px solid var(--vt-line-powder);
   border-radius: var(--r-md);
   overflow: hidden;
 }
 .stat {
-  background: var(--vt-surface-1);
+  /* STRATA §7.2 — the cool powder well inset inside the milk case body */
+  background: var(--vt-well-powder);
   padding: var(--s-5) var(--s-4);
 }
 .stat__value {
@@ -107,12 +109,23 @@
   color: var(--vt-accent-deep);
   margin-bottom: var(--s-3);
 }
+/* STRATA §8 — kicker band chips: gold wash on porcelain case bodies */
+.case-band .kicker-band, .journal-card .kicker-band {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  background: var(--vt-stratum-gold-deep);
+  color: var(--vt-ink-2);
+}
 
 .pull-quote {
   margin: var(--s-6) 0;
   padding: var(--s-5) var(--s-6);
-  border-left: 3px solid var(--vt-accent);
-  background: var(--vt-wash-sky);
+  /* STRATA §7.2 — the warm gold-deep stratum as pull-quote wash */
+  border-left: 3px solid var(--vt-saffron);
+  background: var(--vt-stratum-gold-deep);
   border-radius: 0 var(--r-md) var(--r-md) 0;
   font-family: var(--ff-serif);
   font-size: clamp(1.25rem, 1.4vw + .8rem, 1.7rem);
