@@ -14,7 +14,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(48% 55% at 88% 0%, rgba(227,110,73,.08), transparent 70%);
+  background: radial-gradient(48% 55% at 88% 0%, var(--vf-champ-a08), transparent 70%);
   pointer-events: none;
 }
 .page-hero .breadcrumb {
@@ -112,7 +112,7 @@
   margin: var(--s-6) 0;
   padding: var(--s-5) var(--s-6);
   border-left: 3px solid var(--vf-ember-mark-paper);
-  background: rgba(136,45,22,.06);
+  background: var(--vf-champ600-wash);
   border-radius: 0 var(--r-md) var(--r-md) 0;
   font-family: var(--ff-serif);
   font-size: clamp(1.25rem, 1.4vw + .8rem, 1.7rem);
@@ -392,8 +392,8 @@
 .form-success {
   display: none;
   padding: var(--s-6);
-  border: 1px solid rgba(82,205,134,.4);
-  background: rgba(82,205,134,.07);
+  border: 1px solid var(--vf-ok-a40);
+  background: var(--vf-ok-a07);
   border-radius: var(--r-lg);
   text-align: center;
 }

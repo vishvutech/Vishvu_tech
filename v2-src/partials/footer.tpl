@@ -59,7 +59,7 @@
   <div class="preloader" aria-hidden="true">
     <svg class="preloader__glyph" viewBox="0 0 64 64" fill="none">
       <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z"
-        stroke="#FF6B35" stroke-width="1.5" pathLength="1"/>
+        stroke="{{PRELOADER_STROKE}}" stroke-width="1.5" pathLength="1"/>
     </svg>
     <div class="preloader__wordmark"><span>Vishvu Tech</span></div>
     <div class="preloader__counter">FORGING — <b>0</b>%</div>

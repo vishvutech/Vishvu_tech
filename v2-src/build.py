@@ -19,6 +19,8 @@ GLYPH = svgs.BRAND_GLYPH
 SVG_TOKENS = {
     "{{HERO_FALLBACK}}": svgs.hero_fallback_svg(),
     "{{GLYPH}}": GLYPH,
+    "{{KITE_MARK}}": svgs.KITE_MARK,            # the 404 brass kite (VT-PRD-003 §12.8)
+    "{{PRELOADER_STROKE}}": svgs.PRELOADER_STROKE,  # preloader star outline (§12.8)
     "{{SERVICE_WEB}}": svgs.service_preview("web"),
     "{{SERVICE_MOBILE}}": svgs.service_preview("mobile"),
     "{{SERVICE_AI}}": svgs.service_preview("ai"),
@@ -250,8 +252,8 @@ def build():
   "description": "Ambitious ideas, built and shipped.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0E0C09",
-  "theme_color": "#0E0C09",
+  "background_color": "#251A11",
+  "theme_color": "#251A11",
   "icons": [
     {"src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png"},
     {"src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png"}

@@ -1,53 +1,72 @@
 /* ============================================================
-   VISHVU TECH — FORGE NOIR · COLOR TOKENS  (VT-PRD-002 §7.4)
+   VISHVU TECH — GOLDEN HOUR · COLOR TOKENS  (VT-PRD-003 §12.4)
    One source of truth (mirrored by v2-src/palette.py).
-   Ten laws govern use (§7.6). Verified by scripts/contrast_audit.py.
+   Thirteen laws govern use (§12.7). Verified by scripts/contrast_audit.py.
+   Espresso is the fuel of the build. Champagne is the toast of the launch.
    ============================================================ */
 
-@property --ember-l { syntax: '<number>'; inherits: false; initial-value: .670; }
+@property --ember-l { syntax: '<number>'; inherits: false; initial-value: .820; }
 
 :root {
-  /* ---- Canvas & surfaces · Obsidian & Ash (hue 75, one warmth) ---- */
-  --vf-canvas:        #0E0C09;  --vf-canvas-ok:        oklch(0.155 0.006 75);
-  --vf-surface-1:     #161310;  --vf-surface-1-ok:     oklch(0.190 0.007 75);
-  --vf-surface-2:     #1F1C18;  --vf-surface-2-ok:     oklch(0.228 0.008 75);
-  --vf-line:          #2B2825;  --vf-line-ok:          oklch(0.280 0.008 75);   /* decorative hairlines */
-  --vf-line-strong:   #403C37;  --vf-line-strong-ok:   oklch(0.360 0.010 75);   /* interaction hairlines */
-  --vf-border-input:  #6D6861;  --vf-border-input-ok:  oklch(0.520 0.012 75);   /* WCAG 1.4.11 · 3.35:1 */
+  /* ---- Canvas & surfaces · The Roast (hue 60, warmth VISIBLE by law L0+L1) ---- */
+  --vf-canvas:        #251A11;  --vf-canvas-ok:        oklch(0.230 0.024 60);
+  --vf-surface-1:     #30241A;  --vf-surface-1-ok:     oklch(0.270 0.025 60);
+  --vf-surface-2:     #3A2D23;  --vf-surface-2-ok:     oklch(0.310 0.026 60);
+  --vf-line:          #4A3D32;  --vf-line-ok:          oklch(0.370 0.026 60);   /* decorative hairlines */
+  --vf-line-strong:   #615246;  --vf-line-strong-ok:   oklch(0.450 0.028 60);   /* interaction hairlines */
+  --vf-border-input:  #887769;  --vf-border-input-ok:  oklch(0.580 0.030 60);   /* WCAG 1.4.11 · 3.96:1 */
 
-  /* ---- Text · Bone & Ash ---- */
-  --vf-ink:           #EAE8E3;  --vf-ink-ok:           oklch(0.930 0.006 85);   /* 15.9:1 AAA */
-  --vf-ink-2:         #B0ACA5;  --vf-ink-2-ok:         oklch(0.745 0.011 80);   /* 8.6:1 AAA */
-  --vf-ink-3:         #96918B;  --vf-ink-3-ok:         oklch(0.645 0.012 80);   /* 6.25:1 AA+ — min meta grade */
+  /* ---- Text · Bone ladder (re-tuned for the espresso floor) ---- */
+  --vf-ink:           #EDEAE2;  --vf-ink-ok:           oklch(0.937 0.011 90);   /* 14.15:1 AAA — out of halation band */
+  --vf-ink-2:         #C2BCB1;  --vf-ink-2-ok:         oklch(0.797 0.017 83);   /* 9.01:1 AAA */
+  --vf-ink-3:         #A8A196;  --vf-ink-3-ok:         oklch(0.712 0.018 79);   /* 6.64:1 AA+ — min meta grade */
 
-  /* ---- Accent · Molten (the only interactive hue) ---- */
-  --vf-ember:              #E36E49;  --vf-ember-ok:              oklch(0.670 0.155 38);
-  --vf-ember-soft:         #FE8F5B;  --vf-ember-soft-ok:         oklch(0.760 0.150 45);   /* hover */
-  --vf-ember-dim:          rgba(227,110,73,.14);                                        /* washes, focus rings */
-  --vf-ember-text-paper:   #882D16;  --vf-ember-text-paper-ok:   oklch(0.430 0.130 35);   /* kicker text on cream · 7.24:1 */
-  --vf-ember-mark-paper:   #C65029;  --vf-ember-mark-paper-ok:   oklch(0.580 0.160 38);   /* marks on cream · 3.85:1 non-text */
-  --vf-on-ember:           #0C0806;  --vf-on-ember-ok:           oklch(0.140 0.010 60);   /* text on ember fills · 6.59:1 */
+  /* ---- Accent · Champagne (the only interactive hue, 80–100°) ---- */
+  --vf-ember:              #DAC46D;  --vf-ember-ok:              oklch(0.820 0.110 95);
+  --vf-ember-soft:         #E2D288;  --vf-ember-soft-ok:         oklch(0.860 0.095 97);   /* hover */
+  --vf-ember-dim:          rgba(218,196,109,.14);                                        /* washes, focus rings */
+  --vf-ember-text-paper:   #5A3E00;  --vf-ember-text-paper-ok:   oklch(0.385 0.080 80);   /* kicker text on cream · 8.30:1 */
+  --vf-ember-mark-paper:   #72560F;  --vf-ember-mark-paper-ok:   oklch(0.470 0.090 85);   /* marks on cream · 5.77:1 */
+  --vf-on-ember:           #2A1C10;  --vf-on-ember-ok:           oklch(0.240 0.030 60);   /* text on champagne fills · 9.51:1 */
 
-  /* ---- Atmosphere · Aurora — LAW L2: illustrations & hero sky ONLY ---- */
-  --vf-aurora:        #80D1B5;  --vf-aurora-ok:        oklch(0.800 0.090 170);
+  /* ---- Atmosphere · Dusk ribbon — LAW L3: hero sky art ONLY ---- */
+  --vf-aurora:        #81AFA9;  --vf-aurora-ok:        oklch(0.720 0.050 185);
 
-  /* ---- Feedback · Signal ---- */
-  --vf-ok:            #52CD86;  --vf-ok-ok:            oklch(0.760 0.150 155);
-  --vf-warn:          #E7B643;  --vf-warn-ok:          oklch(0.800 0.140 85);
-  --vf-err:           #ED5350;  --vf-err-ok:           oklch(0.650 0.190 25);
+  /* ---- Feedback · Signal (warn is copper, 40° clear of champagne — law L12) ---- */
+  --vf-ok:            #57CC88;  --vf-ok-ok:            oklch(0.760 0.145 155);  /* 8.42:1 */
+  --vf-warn:          #F49752;  --vf-warn-ok:          oklch(0.760 0.140 55);   /* 7.61:1 */
+  --vf-err:           #FC6E68;  --vf-err-ok:           oklch(0.710 0.175 25);   /* 6.13:1 */
 
-  /* ---- Paper · Ledger (case-study islands) ---- */
+  /* ---- Paper · Ledger (case-study islands — protected verbatim) ---- */
   --vf-paper:         #EFEBDF;  --vf-paper-ok:         oklch(0.940 0.016 90);
   --vf-paper-2:       #E6E1D3;  --vf-paper-2-ok:       oklch(0.910 0.019 88);
-  --vf-paper-surface: #F7F4EA;                                                   /* raised paper cards */
-  --vf-paper-ink:     #28231E;  --vf-paper-ink-ok:     oklch(0.260 0.012 70);    /* warm ink · 13.06:1 */
-  --vf-paper-ink-2:   #615951;  --vf-paper-ink-2-ok:   oklch(0.470 0.016 70);    /* 5.77:1 */
+  --vf-paper-surface: #F7F4EA;
+  --vf-paper-ink:     #28231E;  --vf-paper-ink-ok:     oklch(0.260 0.012 70);   /* 13.06:1 */
+  --vf-paper-ink-2:   #615951;  --vf-paper-ink-2-ok:   oklch(0.470 0.016 70);   /* 5.77:1 */
   --vf-paper-line:    #D7D2C7;  --vf-paper-line-ok:    oklch(0.865 0.016 88);
 
-  /* ---- Effects · light from within (glow budget: two pulse dots) ---- */
-  --vf-gradient-ember: linear-gradient(90deg, #FE8F5B 0%, #C65029 100%);          /* progress hairline ONLY */
-  --vf-halo-dot:       0 0 10px rgba(227,110,73,.45);                              /* ember pulse dot ONLY */
-  --vf-halo-ok:        0 0 10px rgba(82,205,134,.45);                              /* availability dot ONLY */
+  /* ---- Derived alphas (law L9 — the rgba leak, closed) ---- */
+  --vf-canvas-a78:     rgba(37,26,17,.78);     /* header, resting */
+  --vf-canvas-a96:     rgba(37,26,17,.96);     /* header scrolled · menu overlay */
+  --vf-canvas-a55:     rgba(37,26,17,.55);     /* hero scrim top fade */
+  --vf-canvas-a42:     rgba(37,26,17,.42);     /* work-scroller vignette */
+  --vf-surface-1-a55:  rgba(48,36,26,.55);     /* cursor label panel */
+  --vf-surface-1-a40:  rgba(48,36,26,.40);     /* journey rail fade */
+  --vf-surface-2-a86:  rgba(58,45,35,.86);     /* menu panel */
+  --vf-ink-a14:        rgba(237,234,226,.14);  /* hairline borders on dark */
+  --vf-ink-a75:        rgba(237,234,226,.75);  /* cursor ring */
+  --vf-ink-a96:        rgba(237,234,226,.96);  /* cursor view fill */
+  --vf-champ-a08:      rgba(218,196,109,.08);  /* hero ambient radial */
+  --vf-champ-a09:      rgba(218,196,109,.09);  /* menu + footer ambient radial */
+  --vf-champ600-wash:  rgba(114,86,15,.06);    /* paper kicker wash */
+  --vf-canvas-a50:     rgba(37,26,17,.50);     /* deep panel shadow — espresso, never pure black (law L0) */
+  --vf-ok-a40:         rgba(87,204,136,.40);   /* availability chip border */
+  --vf-ok-a07:         rgba(87,204,136,.07);   /* availability chip fill */
+
+  /* ---- Effects · light from within (glow budget unchanged: two pulse dots) ---- */
+  --vf-gradient-ember: linear-gradient(90deg, #E9E1B0 0%, #DAC46D 100%);          /* progress hairline ONLY — champagne 300→500 */
+  --vf-halo-dot:       0 0 10px rgba(218,196,109,.45);                            /* champagne pulse dot ONLY */
+  --vf-halo-ok:        0 0 10px rgba(87,204,136,.45);                             /* availability dot ONLY */
   --vf-inset-hi:       inset 0 1px 0 rgba(255,255,255,.05);                        /* the real "elevation" */
 
   /* ---- Typography · Families ---- */
@@ -114,9 +133,9 @@
   --header-h: 76px;
 }
 
-/* Wide-gamut displays: a free vividness boost, same hue (VT-PRD-002 §11) */
+/* Wide-gamut displays: a free vividness boost, same hue (mechanism kept) */
 @media (color-gamut: p3) {
-  :root { --vf-ember: oklch(0.670 0.19 38); }
+  :root { --vf-ember: oklch(0.820 0.130 95); }
 }
 
 /* ---- Paper contexts flip tokens locally (existing mechanism, kept verbatim) ---- */
@@ -133,4 +152,4 @@
   background: var(--vf-paper);
 }
 /* Accent tokens do NOT flip: on paper, components must opt into
-   --vf-ember-text-paper / --vf-ember-mark-paper explicitly (law L4). */
+   --vf-ember-text-paper / --vf-ember-mark-paper explicitly (law L5). */

@@ -1,9 +1,11 @@
 /* ============================================================
-   VISHVU TECH — NIGHT HORIZON (WebGL hero shader) · FORGE NOIR
-   The v1 ink landscape, re-rendered as a living night sky:
-   stars, aurora drift, ember horizon, ridgelines, the kite.
-   Re-inked per VT-PRD-002 §7.8: warm obsidian sky, bone stars,
-   aurora #80D1B5, ember-500 horizon. The ground got warm.
+   VISHVU TECH — GOLDEN DUSK HORIZON (WebGL hero shader) · GOLDEN HOUR
+   The v2 night landscape, re-lit as a living golden dusk:
+   stars, dusk-ribbon drift, champagne horizon, ridgelines, the brass kite.
+   Re-graded per VT-PRD-003 §12.10: espresso sky #251A11 into an amber
+   horizon #4A330F, bone stars, dusk ribbon #81AFA9 (gain ≤ .24),
+   champagne horizon glow #DAC46D, ridgelines roast-950/900,
+   the kite in brass #D3AB54 (halo ≤ .30). The scene is re-lit, not rebuilt.
    Tier A: WebGL · Tier B: static SVG (default, JS upgrades it)
    ============================================================ */
 (function () {
@@ -71,30 +73,30 @@
     'float t=u_time*0.05;',
     'p-=(u_mouse-0.5)*0.06;',
 
-    'vec3 col=mix(vec3(0.055,0.047,0.035),vec3(0.149,0.133,0.110),smoothstep(1.05,-0.15,p.y));',
+    'vec3 col=mix(vec3(0.145,0.102,0.067),vec3(0.290,0.200,0.059),smoothstep(1.05,-0.15,p.y));',
 
     'vec2 grid=floor(uv*vec2(170.0,96.0));',
     'float h=fract(sin(dot(grid,vec2(12.9898,78.233)))*43758.5453);',
     'float star=step(0.9865,h)*smoothstep(0.22,0.72,uv.y);',
     'star*=0.5+0.5*sin(u_time*(0.4+h)+h*6.2831);',
-    'col+=vec3(0.918,0.910,0.890)*star*0.38;',
+    'col+=vec3(0.929,0.918,0.886)*star*0.38;',
 
     'float n1=snoise(vec3(p.x*1.15,p.y*1.6-t*0.75,t*0.32));',
     'float n2=snoise(vec3(p.x*2.3+5.2,p.y*3.1-t*1.05,t*0.48));',
     'float band=smoothstep(0.05,0.75,p.y)*smoothstep(1.05,0.28,p.y);',
     'float aur=band*max(0.0,0.45*n1+0.28*n2);',
-    'col+=vec3(0.502,0.820,0.710)*aur*0.27;',
+    'col+=vec3(0.506,0.686,0.663)*aur*0.24;',
 
     'float hy=-0.22;',
     'float glow=exp(-abs(p.y-hy)*5.5);',
     'float glowN=0.62+0.38*snoise(vec3(p.x*2.8,t*0.55,0.0));',
-    'col+=vec3(0.890,0.431,0.286)*glow*glowN*0.60;',
-    'col+=vec3(0.996,0.561,0.357)*exp(-length(p-vec2(0.22,hy))*3.2)*0.36;',
+    'col+=vec3(0.855,0.769,0.427)*glow*glowN*0.60;',
+    'col+=vec3(0.914,0.882,0.690)*exp(-length(p-vec2(0.22,hy))*3.2)*0.36;',
 
     'float r1=ridge(p.x,t*0.22,hy+0.155,0.145);',
     'float r2=ridge(p.x+31.0,t*0.16,hy+0.045,0.105);',
-    'if(p.y<r1){col=mix(col,vec3(0.086,0.075,0.063)+vec3(0.890,0.431,0.286)*exp(-abs(p.y-r1)*26.0)*0.45,0.965);}',
-    'if(p.y<r2){col=mix(col,vec3(0.055,0.047,0.035),0.985);}',
+    'if(p.y<r1){col=mix(col,vec3(0.188,0.141,0.102)+vec3(0.855,0.769,0.427)*exp(-abs(p.y-r1)*26.0)*0.45,0.965);}',
+    'if(p.y<r2){col=mix(col,vec3(0.145,0.102,0.067),0.985);}',
 
     'vec2 kp=vec2(0.34,0.335+0.022*sin(u_time*0.42));',
     'vec2 kq=p-kp;',
@@ -102,10 +104,10 @@
     'kq=vec2(kq.x*ca-kq.y*sa,kq.x*sa+kq.y*ca);',
     'float beacon=max(abs(kq.x)*1.25,abs(kq.y));',
     'float beaconGlow=smoothstep(0.034,0.004,beacon);',
-    'float halo=exp(-length(kq)*7.5)*0.35;',
-    'col+=vec3(0.502,0.820,0.710)*(beaconGlow*0.9+halo);',
+    'float halo=exp(-length(kq)*7.5)*0.30;',
+    'col+=vec3(0.827,0.671,0.329)*(beaconGlow*0.9+halo);',
     'float str=exp(-abs(length(p-vec2(0.28,hy+0.07))-0.30)*44.0);',
-    'col+=vec3(0.502,0.820,0.710)*str*0.14;',
+    'col+=vec3(0.827,0.671,0.329)*str*0.14;',
 
     'float vig=smoothstep(1.45,0.30,length(uv-vec2(0.5,0.45)));',
     'col*=mix(0.58,1.0,vig);',

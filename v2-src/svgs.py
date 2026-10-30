@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 """
-Vishvu Tech — FORGE NOIR SVG visual library (build-time generated).
-Abstract product mockups in the Forge Noir palette. Vector-crisp, ~3KB each.
+Vishvu Tech — GOLDEN HOUR SVG visual library (build-time generated).
+Abstract product mockups in the Golden Hour palette. Vector-crisp, ~3KB each.
 No fake screenshots — intentional, branded UI compositions.
 
-Every color comes from palette.py (the single source of truth, law L8).
-Re-ink rules (VT-PRD-002 §7.8): old void→ash-950, surfaces→ash-900/850,
-lines→ash-800, ink→bone, mint UI accents→ember-500, mint atmosphere→aurora.
-The dual-hue diagonal gradient is retired; gradients stay in-family
-(ember-300→600 lightness ramp only, law L3).
+Every color comes from palette.py (the single source of truth, law L9).
+Re-ink rules (VT-PRD-003 §12.10.2): void→roast-950, surfaces→roast-900/850,
+lines→roast-800, ink→bone, UI accents→champagne-500, atmosphere→dusk ribbon.
+Gradients stay in-family (champagne 300→600 lightness ramp, law L4).
 """
 
 import palette as P
@@ -270,8 +269,9 @@ def journal_cover(kind: str) -> str:
 
 # ---------------------------------------------------------------- Journey landscape fallback (hero Tier B)
 def hero_fallback_svg() -> str:
-    """Static night horizon — same composition as the shader, warm obsidian + aurora + ember."""
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated night horizon with aurora, ridgelines and a glowing kite">
+    """Static golden dusk — same composition as the shader: espresso sky,
+    dusk ribbon, champagne horizon glow, ridgelines, the brass kite."""
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated golden-dusk horizon with a dusk ribbon, ridgelines and a brass kite">
   <defs>
     <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="{P.SKY_TOP}"/><stop offset=".55" stop-color="{P.SKY_MID}"/><stop offset="1" stop-color="{P.SKY_BOTTOM}"/>
@@ -283,7 +283,7 @@ def hero_fallback_svg() -> str:
       <stop offset="0" stop-color="{P.AURORA}" stop-opacity="0"/><stop offset=".5" stop-color="{P.AURORA}" stop-opacity=".11"/><stop offset="1" stop-color="{P.AURORA}" stop-opacity="0"/>
     </linearGradient>
     <radialGradient id="kiteglow" cx=".5" cy=".5" r=".5">
-      <stop offset="0" stop-color="{P.AURORA}" stop-opacity=".9"/><stop offset="1" stop-color="{P.AURORA}" stop-opacity="0"/>
+      <stop offset="0" stop-color="{P.BRASS_KITE}" stop-opacity=".9"/><stop offset="1" stop-color="{P.BRASS_KITE}" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <rect width="1200" height="800" fill="url(#sky)"/>
@@ -299,23 +299,28 @@ def hero_fallback_svg() -> str:
   <path d="M0 560 L 120 540 L 260 585 L 400 545 L 560 590 L 700 550 L 860 595 L 1000 555 L 1200 590 L 1200 800 L 0 800 Z" fill="{P.SURFACE}"/>
   <path d="M0 640 L 180 615 L 340 660 L 520 620 L 680 665 L 880 625 L 1060 670 L 1200 640 L 1200 800 L 0 800 Z" fill="{P.VOID}"/>
   <g transform="translate(842 300) rotate(20)">
-    <path d="M0 -26 C 6 -9 13 -3 30 0 C 13 3 6 9 0 26 C -6 9 -13 3 -30 0 C -13 -3 -6 -9 0 -26 Z" fill="{P.AURORA}" opacity=".95"/>
+    <path d="M0 -26 C 6 -9 13 -3 30 0 C 13 3 6 9 0 26 C -6 9 -13 3 -30 0 C -13 -3 -6 -9 0 -26 Z" fill="{P.BRASS_KITE}" opacity=".95"/>
     <circle r="60" fill="url(#kiteglow)" opacity=".35"/>
   </g>
-  <path d="M830 330 Q 700 480 560 570" fill="none" stroke="{P.AURORA}" stroke-width="1.5" opacity=".35"/>
+  <path d="M830 330 Q 700 480 560 570" fill="none" stroke="{P.BRASS_KITE}" stroke-width="1.5" opacity=".35"/>
   <rect width="1200" height="800" fill="{P.VOID}" opacity=".12"/>
 </svg>'''
 
 
 # ---------------------------------------------------------------- Brand glyph (the four-point star)
-# Re-inked per VT-PRD-002 §7.8.4: the retired dual-hue gradient becomes a
-# single in-family ember ramp (ember-300 → ember-600). No mint in the brand.
+# Re-inked per VT-PRD-003 §12.10.3: single-metal champagne-500 fill,
+# transparent ground — one metal, one message. The ramp is retired.
 BRAND_GLYPH = f'''<svg class="brand__glyph" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
-  <defs><linearGradient id="bg-em" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{P.EMBER_300}"/><stop offset="1" stop-color="{P.EMBER_600}"/></linearGradient></defs>
-  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="url(#bg-em)"/>
+  <path d="M32 6 C35.2 21.5 42.5 28.8 58 32 C42.5 35.2 35.2 42.5 32 58 C28.8 42.5 21.5 35.2 6 32 C21.5 28.8 28.8 21.5 32 6 Z" fill="{P.CHAMP_500}"/>
 </svg>'''
 
-BRAND_GLYPH_DARK = BRAND_GLYPH.replace('fill="url(#bg-em)"', f'fill="{P.LEDGER_INK}"')
+BRAND_GLYPH_DARK = BRAND_GLYPH.replace(f'fill="{P.CHAMP_500}"', f'fill="{P.LEDGER_INK}"')
+
+
+# ---------------------------------------------------------------- Golden Hour marks
+# Exposed for build.py token substitution (law L9: templates never hardcode color)
+KITE_MARK = P.BRASS_KITE          # the 404 brass kite mark (§12.8)
+PRELOADER_STROKE = P.CHAMP_500    # the preloader star outline (§12.8)
 
 
 if __name__ == "__main__":
@@ -328,4 +333,4 @@ if __name__ == "__main__":
             f.write(fn())
     with open(os.path.join(out, "hero-fallback.svg"), "w") as f:
         f.write(hero_fallback_svg())
-    print("SVGs generated (Forge Noir):", sorted(os.listdir(out)))
+    print("SVGs generated (Golden Hour):", sorted(os.listdir(out)))

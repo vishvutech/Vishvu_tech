@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-FORGE NOIR asset generator (VT-PRD-002 §7.8)
+GOLDEN HOUR asset generator (VT-PRD-003 §12.10)
 Regenerates: favicon.ico, icon-32/192/512, apple-touch-icon (from favicon.svg)
-and the 13 OG share cards — all from v2-src/palette.py (single source, law L8).
+and the 13 OG share cards — all from v2-src/palette.py (single source, law L9).
 Run after any palette change:  python3 v2-src/generate_assets.py
 """
 import os
@@ -86,7 +86,7 @@ def star_path(cx, cy, r, draw, fill_top, fill_bot):
 
 
 def og_canvas():
-    """Warm obsidian + night-sky ramp + ember horizon glow + grain."""
+    """Espresso sky ramp + champagne horizon glow + dusk-ribbon whisper + grain."""
     img = Image.new('RGB', (W, H), hex2rgb(P.SKY_TOP))
     d = ImageDraw.Draw(img)
     top, mid, bot = hex2rgb(P.SKY_TOP), hex2rgb(P.SKY_MID), hex2rgb(P.SKY_BOTTOM)
@@ -219,4 +219,4 @@ if __name__ == "__main__":
     for name, k, l1, l2, m in OGS:
         out = make_og(name, k, l1, l2, m, fonts)
         print("og:", os.path.basename(out), os.path.getsize(out) // 1024, "KB")
-    print("FORGE NOIR assets regenerated")
+    print("GOLDEN HOUR assets regenerated")
